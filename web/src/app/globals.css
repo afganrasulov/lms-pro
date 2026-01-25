@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --radius-lg: var(--radius);
+  --radius-md: var(--radius);
+  --radius-sm: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+}
+
+@layer base {
+  :root {
+    /* Base - Light Mode */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+
+    --radius: 2px;
+    /* Sharp lines */
+  }
+
+  /* "Premium Sharp" - Zinc/Industrial Theme */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      /* Background: Zinc 950 - Premium Dark */
+      --background: 240 10% 4%;
+      --foreground: 0 0% 98%;
+
+      /* Card: Zinc 900 */
+      --card: 240 10% 7%;
+      --card-foreground: 0 0% 98%;
+
+      --popover: 240 10% 4%;
+      --popover-foreground: 0 0% 98%;
+
+      /* Primary: White (Sharp Contrast) */
+      --primary: 0 0% 98%;
+      --primary-foreground: 240 5.9% 10%;
+
+      /* Secondary: Zinc 800 */
+      --secondary: 240 4% 16%;
+      --secondary-foreground: 0 0% 98%;
+
+      --muted: 240 4% 16%;
+      --muted-foreground: 240 5% 65%;
+
+      --accent: 240 4% 16%;
+      --accent-foreground: 0 0% 98%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+
+      /* Border: Zinc 800 */
+      --border: 240 4% 16%;
+      --input: 240 4% 16%;
+      --ring: 240 5% 84%;
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glass {
+    background-color: rgba(9, 9, 11, 0.6);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .bg-spotlight {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
+      #09090b;
+    min-height: 100vh;
+  }
+
+  .btn-premium {
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+  }
+
+  .dark .btn-premium {
+    background: #fafafa;
+    color: #09090b;
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    filter: brightness(1.1);
+  }
+
+  .dark .btn-premium:hover {
+    filter: brightness(1.2);
+  }
+
+  .text-title {
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    text-transform: none;
+    /* Removed uppercase for more modern premium feel? Or keep it? User said sharp. Let's keep a bit loose */
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    line-height: 1;
+  }
+}
