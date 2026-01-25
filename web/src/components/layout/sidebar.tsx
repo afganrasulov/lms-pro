@@ -52,15 +52,15 @@ export function Sidebar({ className }: { className?: string }) {
     };
 
     const menuItems = [
-        { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
-        { icon: User, label: 'Profile', href: '/profile' },
+        { icon: LayoutDashboard, label: 'Kontrol Paneli', href: '/dashboard' },
+        { icon: User, label: 'Profil', href: '/profile' },
         ...(isAdmin ? [
-            { icon: ShieldCheck, label: 'Admin Panel', href: '/admin/dashboard' },
-            { icon: Users, label: 'User Management', href: '/admin/users' }
+            { icon: ShieldCheck, label: 'Yönetici Paneli', href: '/admin/dashboard' },
+            { icon: Users, label: 'Kullanıcı Yönetimi', href: '/admin/users' }
         ] : []),
-        { icon: BookOpen, label: 'My Courses', href: '/courses' },
-        { icon: Trophy, label: 'Leaderboard', href: '/leaderboard' },
-        { icon: Settings, label: 'Settings', href: '/settings' },
+        { icon: BookOpen, label: 'Kurslarım', href: '/courses' },
+        { icon: Trophy, label: 'Liderlik Tablosu', href: '/leaderboard' },
+        { icon: Settings, label: 'Ayarlar', href: '/settings' },
     ];
 
     return (
@@ -106,7 +106,7 @@ export function Sidebar({ className }: { className?: string }) {
                     className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-destructive transition-all hover:bg-destructive/10 disabled:opacity-50"
                 >
                     <LogOut className="h-4 w-4" />
-                    {isLoading ? 'Signing Out...' : 'Sign Out'}
+                    {isLoading ? 'Çıkış Yapılıyor...' : 'Çıkış Yap'}
                 </button>
             </div>
         </div>

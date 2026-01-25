@@ -11,6 +11,7 @@ import { Plus, Pencil, Trash2, Loader2, GripVertical } from "lucide-react";
 import { CourseDialog } from "@/components/admin/course-dialog";
 import { ImportCurriculumModal } from "@/components/admin/import-curriculum-modal";
 import { formatDistanceToNow } from "date-fns";
+import { tr } from "date-fns/locale";
 import { toast } from "sonner";
 import { DragDropContext, Droppable, Draggable, DropResult } from "@hello-pangea/dnd";
 
@@ -116,8 +117,8 @@ export default function AdminCoursesPage() {
         <div className="space-y-8 animate-in fade-in duration-500">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Manage Courses</h1>
-                    <p className="text-slate-400">Create, edit, and manage all courses in the platform.</p>
+                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Kursları Yönet</h1>
+                    <p className="text-slate-400">Platformdaki tüm kursları oluşturun, düzenleyin ve yönetin.</p>
                 </div>
                 <div className="flex items-center gap-2">
                     {selectedCourses.size > 0 && (
@@ -127,7 +128,7 @@ export default function AdminCoursesPage() {
                             className="bg-red-900/50 text-red-400 hover:bg-red-900/80 border border-red-900"
                         >
                             <Trash2 className="w-4 h-4 mr-2" />
-                            Delete Selected ({selectedCourses.size})
+                            Seçilenleri Sil ({selectedCourses.size})
                         </Button>
                     )}
                     <ImportCurriculumModal
@@ -138,7 +139,7 @@ export default function AdminCoursesPage() {
                     />
                     <Button onClick={() => setCreateOpen(true)} className="bg-blue-600 hover:bg-blue-700 text-white font-bold">
                         <Plus className="w-4 h-4 mr-2" />
-                        Create New Course
+                        Yeni Kurs Oluştur
                     </Button>
                 </div>
             </div>
@@ -157,11 +158,11 @@ export default function AdminCoursesPage() {
                                         className="border-slate-600 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
                                     />
                                 </TableHead>
-                                <TableHead className="text-slate-400">Title</TableHead>
-                                <TableHead className="text-slate-400">Status</TableHead>
-                                <TableHead className="text-slate-400">Visibility</TableHead>
-                                <TableHead className="text-slate-400">Created</TableHead>
-                                <TableHead className="text-right text-slate-400">Actions</TableHead>
+                                <TableHead className="text-slate-400">Başlık</TableHead>
+                                <TableHead className="text-slate-400">Durum</TableHead>
+                                <TableHead className="text-slate-400">Görünürlük</TableHead>
+                                <TableHead className="text-slate-400">Oluşturulma</TableHead>
+                                <TableHead className="text-right text-slate-400">İşlemler</TableHead>
                             </TableRow>
                         </TableHeader>
                         {loading ? (
@@ -176,7 +177,7 @@ export default function AdminCoursesPage() {
                             <TableBody>
                                 <TableRow>
                                     <TableCell colSpan={7} className="h-24 text-center text-slate-400">
-                                        No courses found. Create one to get started.
+                                        Kurs bulunamadı. Başlamak için yeni bir tane oluşturun.
                                     </TableCell>
                                 </TableRow>
                             </TableBody>
@@ -229,7 +230,7 @@ export default function AdminCoursesPage() {
                                                             </Badge>
                                                         </TableCell>
                                                         <TableCell className="text-slate-400">
-                                                            {formatDistanceToNow(new Date(course.created_at), { addSuffix: true })}
+                                                            {formatDistanceToNow(new Date(course.created_at), { addSuffix: true, locale: tr })}
                                                         </TableCell>
                                                         <TableCell className="text-right">
                                                             <div className="flex justify-end gap-2">

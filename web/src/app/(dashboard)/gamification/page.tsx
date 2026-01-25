@@ -21,8 +21,8 @@ export default function GamificationPage() {
     return (
         <div className="space-y-12">
             <header>
-                <h1 className="text-3xl font-bold">Gamification Hub</h1>
-                <p className="text-muted-foreground">Spend gems and view your achievements.</p>
+                <h1 className="text-3xl font-bold">Oyunlaştırma Merkezi</h1>
+                <p className="text-muted-foreground">Elmas harcayın ve başarılarınızı görüntüleyin.</p>
             </header>
 
             {/* 1. Gem Store Section */}
@@ -35,7 +35,7 @@ export default function GamificationPage() {
                 {user ? (
                     <CertificateList userId={user.id} />
                 ) : (
-                    <div className="p-4 bg-muted text-center rounded">Login to view certificates.</div>
+                    <div className="p-4 bg-muted text-center rounded">Sertifikaları görüntülemek için giriş yapın.</div>
                 )}
             </section>
 

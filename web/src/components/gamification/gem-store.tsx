@@ -9,22 +9,22 @@ export function GemStore() {
         {
             id: 'streak-freeze',
             icon: <Shield className="w-8 h-8 text-blue-400" />,
-            title: 'Streak Freeze',
-            desc: 'Miss one day without losing your streak.',
+            title: 'Seri Dondurma',
+            desc: 'Serini kaybetmeden bir gün kaçır.',
             price: 200,
         },
         {
             id: 'double-xp',
             icon: <Zap className="w-8 h-8 text-yellow-400" />,
-            title: 'Double XP Potion',
-            desc: 'Earn 2x XP for the next 30 minutes.',
+            title: 'Çifte XP İksiri',
+            desc: 'Sonraki 30 dakika boyunca 2x XP kazan.',
             price: 150,
         },
         {
             id: 'health-refill',
             icon: <Heart className="w-8 h-8 text-red-500" />,
-            title: 'Health Refill',
-            desc: 'Restore full health for quizzes.',
+            title: 'Can Yenileme',
+            desc: 'Quizler için canını tamamen doldur.',
             price: 100,
         }
     ];
@@ -33,7 +33,7 @@ export function GemStore() {
         <Card className="w-full">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                    💎 Gem Store
+                    💎 Elmas Mağazası
                 </CardTitle>
             </CardHeader>
             <CardContent>

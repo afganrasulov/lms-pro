@@ -27,8 +27,8 @@ export function CourseCard({ course }: CourseCardProps) {
     const formatDuration = (seconds: number) => {
         const hours = Math.floor(seconds / 3600);
         const minutes = Math.floor((seconds % 3600) / 60);
-        if (hours > 0) return `${hours}h ${minutes}m`;
-        return `${minutes}m`;
+        if (hours > 0) return `${hours}sa ${minutes}dk`;
+        return `${minutes}dk`;
     };
 
     return (
@@ -55,8 +55,8 @@ export function CourseCard({ course }: CourseCardProps) {
                         <div className="bg-black/50 p-3 rounded-full border border-white/10 mb-2">
                             <Lock className="w-6 h-6 text-slate-300" />
                         </div>
-                        <p className="text-sm font-medium text-white/90">Locked</p>
-                        <p className="text-xs text-white/60 mt-1">Complete previous course</p>
+                        <p className="text-sm font-medium text-white/90">Kilitli</p>
+                        <p className="text-xs text-white/60 mt-1">Önceki kursu tamamla</p>
                     </div>
                 )}
 
@@ -64,11 +64,11 @@ export function CourseCard({ course }: CourseCardProps) {
                 <div className="absolute top-3 right-3 flex gap-2">
                     {is_enrolled ? (
                         <Badge className="glass bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md shadow-sm">
-                            Enrolled
+                            Kayıtlı
                         </Badge>
                     ) : (
                         <Badge variant="secondary" className="bg-black/40 text-white border-white/10 backdrop-blur-sm">
-                            Free
+                            Ücretsiz
                         </Badge>
                     )}
                 </div>
@@ -80,7 +80,7 @@ export function CourseCard({ course }: CourseCardProps) {
                         {title}
                     </h3>
                     <p className="text-sm text-gray-400 line-clamp-2 leading-relaxed">
-                        {description || "Unlock your potential with this comprehensive module. Learn the fundamentals and master the advanced concepts."}
+                        {description || "Bu kapsamlı modül ile potansiyelini keşfet. Temelleri öğren ve ileri seviye kavramlarda uzmanlaş."}
                     </p>
                 </div>
 
@@ -88,7 +88,7 @@ export function CourseCard({ course }: CourseCardProps) {
                 <div className="flex items-center gap-4 text-xs text-muted-foreground font-medium">
                     <div className="flex items-center gap-1">
                         <BookOpen className="w-3.5 h-3.5" />
-                        <span>{total_lessons} Lessons</span>
+                        <span>{total_lessons} Ders</span>
                     </div>
                     <div className="flex items-center gap-1">
                         <PlayCircle className="w-3.5 h-3.5" />
@@ -100,7 +100,7 @@ export function CourseCard({ course }: CourseCardProps) {
                 {is_enrolled && !is_locked && user_progress !== null && (
                     <div className="space-y-1.5 pt-2">
                         <div className="flex justify-between text-xs font-semibold text-primary-foreground/70">
-                            <span>Progress</span>
+                            <span>İlerleme</span>
                             <span>{user_progress}%</span>
                         </div>
                         <div className="h-2 w-full bg-secondary/50 rounded-md overflow-hidden">
@@ -126,11 +126,11 @@ export function CourseCard({ course }: CourseCardProps) {
                 >
                     {is_locked ? (
                         <span className="flex items-center gap-2">
-                            <Lock className="w-4 h-4" /> Locked
+                            <Lock className="w-4 h-4" /> Kilitli
                         </span>
                     ) : (
                         <Link href={is_enrolled ? `/courses/${course.slug || course.id}/learn` : `/courses/${course.slug || course.id}`}>
-                            {is_enrolled ? 'Resume Learning' : 'View Course'}
+                            {is_enrolled ? 'Öğrenmeye Devam Et' : 'Kursu İncele'}
                         </Link>
                     )}
                 </Button>

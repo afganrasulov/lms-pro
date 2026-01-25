@@ -50,14 +50,14 @@ export function LoginForm() {
                     style={{ fontStyle: 'italic' }}
                 >
                     <ChevronLeft className="w-8 h-8 mr-2 -ml-2 group-hover:-translate-x-1 transition-transform stroke-[4]" />
-                    WELCOME BACK!
+                    HOŞ GELDİNİZ!
                 </button>
                 <div className="space-y-1">
                     <p className="text-gray-400 text-sm font-medium leading-relaxed">
-                        Today is a new day. It's your day. You shape it.
+                        Bugün yeni bir gün. Bu senin günün. Onu sen şekillendir.
                     </p>
                     <p className="text-gray-400 text-sm font-medium leading-relaxed">
-                        Sign in to start managing your projects.
+                        Projelerini yönetmeye başlamak için giriş yap.
                     </p>
                 </div>
             </div>
@@ -67,7 +67,7 @@ export function LoginForm() {
                     <div className="relative">
                         <input
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="E-posta Adresi"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full h-14 text-white placeholder:text-gray-600 rounded-md transition-all text-md px-5 border outline-none focus:ring-1 focus:ring-blue-500/50"
@@ -81,7 +81,7 @@ export function LoginForm() {
                     <div className="relative">
                         <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Password"
+                            placeholder="Şifre"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full h-14 text-white placeholder:text-gray-600 rounded-md transition-all pr-12 text-md px-5 border outline-none focus:ring-1 focus:ring-blue-500/50"
@@ -104,7 +104,7 @@ export function LoginForm() {
                             type="button"
                             className="text-sm font-semibold text-blue-500 hover:text-blue-400 transition-colors bg-transparent border-none p-0 cursor-pointer outline-none"
                         >
-                            Forgot password?
+                            Şifreni mi unuttun?
                         </button>
                     </div>
                 </div>
@@ -118,19 +118,19 @@ export function LoginForm() {
                     }}
                     disabled={loading}
                 >
-                    {loading ? "Authenticating..." : "Login"}
+                    {loading ? "Doğrulanıyor..." : "Giriş Yap"}
                 </button>
             </form>
 
             <div className="text-center mt-8">
                 <p className="text-sm font-medium text-gray-400">
-                    Don't have an account?{" "}
+                    Hesabın yok mu?{" "}
                     <button
                         type="button"
                         onClick={() => router.push('/sign-up')}
                         className="text-blue-500 hover:text-blue-400 font-bold ml-1 transition-colors bg-transparent border-none p-0 cursor-pointer outline-none"
                     >
-                        Sign Up
+                        Kayıt Ol
                     </button>
                 </p>
             </div>

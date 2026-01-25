@@ -56,33 +56,33 @@ export default function AdminDashboardPage() {
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex justify-between items-center">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Admin Dashboard</h1>
-                    <p className="text-slate-400">Manage your learning platform from a central hub.</p>
+                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Yönetici Paneli</h1>
+                    <p className="text-slate-400">Öğrenim platformunuzu tek bir merkezden yönetin.</p>
                 </div>
 
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                         <Button variant="outline" className="ml-2 bg-slate-900 text-white border-slate-800 hover:bg-slate-800">
                             <Eye className="w-4 h-4 mr-2" />
-                            View
+                            Görünüm
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-56 bg-slate-900 border-slate-800 text-white">
-                        <DropdownMenuLabel>Toggle Visibility</DropdownMenuLabel>
+                        <DropdownMenuLabel>Görünürlüğü Değiştir</DropdownMenuLabel>
                         <DropdownMenuSeparator className="bg-slate-800" />
                         <DropdownMenuCheckboxItem
                             checked={visibleSections.stats}
                             onCheckedChange={(checked) => setVisibleSections(prev => ({ ...prev, stats: checked }))}
                             className="focus:bg-slate-800 focus:text-white"
                         >
-                            Statistics
+                            İstatistikler
                         </DropdownMenuCheckboxItem>
                         <DropdownMenuCheckboxItem
                             checked={visibleSections.quickActions}
                             onCheckedChange={(checked) => setVisibleSections(prev => ({ ...prev, quickActions: checked }))}
                             className="focus:bg-slate-800 focus:text-white"
                         >
-                            Quick Actions
+                            Hızlı İşlemler
                         </DropdownMenuCheckboxItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
@@ -93,7 +93,7 @@ export default function AdminDashboardPage() {
                 <div className="grid gap-4 md:grid-cols-3 animate-in fade-in slide-in-from-top-4 duration-500">
                     <Card className="bg-slate-900 border-slate-800 text-white">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-slate-400">Total Users</CardTitle>
+                            <CardTitle className="text-sm font-medium text-slate-400">Toplam Kullanıcılar</CardTitle>
                             <Users className="h-4 w-4 text-slate-400" />
                         </CardHeader>
                         <CardContent>
@@ -102,7 +102,7 @@ export default function AdminDashboardPage() {
                     </Card>
                     <Card className="bg-slate-900 border-slate-800 text-white">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-slate-400">Total Courses</CardTitle>
+                            <CardTitle className="text-sm font-medium text-slate-400">Toplam Kurslar</CardTitle>
                             <BookOpen className="h-4 w-4 text-slate-400" />
                         </CardHeader>
                         <CardContent>
@@ -111,7 +111,7 @@ export default function AdminDashboardPage() {
                     </Card>
                     <Card className="bg-slate-900 border-slate-800 text-white">
                         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                            <CardTitle className="text-sm font-medium text-slate-400">Active Enrollments</CardTitle>
+                            <CardTitle className="text-sm font-medium text-slate-400">Aktif Kayıtlar</CardTitle>
                             <Activity className="h-4 w-4 text-slate-400" />
                         </CardHeader>
                         <CardContent>
@@ -130,7 +130,7 @@ export default function AdminDashboardPage() {
                                 <div className="p-4 bg-blue-500/10 rounded-full">
                                     <BookOpen className="h-8 w-8 text-blue-500" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-white">Manage Courses</h3>
+                                <h3 className="text-lg font-semibold text-white">Kursları Yönet</h3>
                             </CardContent>
                         </Card>
                     </Link>
@@ -141,7 +141,7 @@ export default function AdminDashboardPage() {
                                 <div className="p-4 bg-purple-500/10 rounded-full">
                                     <Users className="h-8 w-8 text-purple-500" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-white">User Management</h3>
+                                <h3 className="text-lg font-semibold text-white">Kullanıcı Yönetimi</h3>
                             </CardContent>
                         </Card>
                     </Link>
@@ -152,7 +152,7 @@ export default function AdminDashboardPage() {
                                 <div className="p-4 bg-emerald-500/10 rounded-full">
                                     <Settings className="h-8 w-8 text-emerald-500" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-white">System Settings</h3>
+                                <h3 className="text-lg font-semibold text-white">Sistem Ayarları</h3>
                             </CardContent>
                         </Card>
                     </Link>
@@ -163,7 +163,7 @@ export default function AdminDashboardPage() {
                                 <div className="p-4 bg-amber-500/10 rounded-full">
                                     <Activity className="h-8 w-8 text-amber-500" />
                                 </div>
-                                <h3 className="text-lg font-semibold text-white">View Logs</h3>
+                                <h3 className="text-lg font-semibold text-white">Logları Görüntüle</h3>
                             </CardContent>
                         </Card>
                     </Link>

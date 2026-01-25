@@ -26,7 +26,7 @@ export default function HomeGate() {
 
       {/* Top Header Section */}
       <div className="absolute top-10 left-10 z-10">
-        <span className="text-3xl font-black tracking-tighter text-white">IPSUM</span>
+        <span className="text-3xl font-black tracking-tighter text-white">LMS Pro</span>
       </div>
 
       {/* Content Layer */}

@@ -71,9 +71,9 @@ export default function BillingPage() {
     return (
         <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500">
             <header>
-                <h1 className="text-3xl font-bold tracking-tight text-foreground">Billing & Plans</h1>
+                <h1 className="text-3xl font-bold tracking-tight text-foreground">Ödeme ve Planlar</h1>
                 <p className="text-muted-foreground mt-1">
-                    Manage your subscription and view billing history.
+                    Aboneliğinizi ve ödeme geçmişinizi yönetin.
                 </p>
             </header>
 
@@ -82,14 +82,14 @@ export default function BillingPage() {
                 <Card className="bg-gradient-to-br from-card to-card/50 border-white/10 shadow-lg">
                     <CardHeader>
                         <CardTitle className="flex items-center justify-between">
-                            <span>Current Plan</span>
+                            <span>Mevcut Plan</span>
                             {subscription?.status === 'active' && (
                                 <Badge variant="default" className="bg-green-500/10 text-green-500 hover:bg-green-500/20 border-green-500/20">
-                                    Active
+                                    Aktif
                                 </Badge>
                             )}
                         </CardTitle>
-                        <CardDescription>Your current subscription details</CardDescription>
+                        <CardDescription>Mevcut abonelik detaylarınız</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="space-y-1">
@@ -98,7 +98,7 @@ export default function BillingPage() {
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
                             <Clock className="w-4 h-4" />
-                            <span>Renews on {formatDate(subscription?.current_period_end || '')}</span>
+                            <span>{formatDate(subscription?.current_period_end || '')} tarihinde yenilenir</span>
                         </div>
                         <div className="text-2xl font-semibold">
                             {subscription ? formatCurrency(subscription.price.amount, subscription.price.currency) : '-'}
@@ -107,7 +107,7 @@ export default function BillingPage() {
                     </CardContent>
                     <CardFooter>
                         <Button className="w-full gap-2" variant="outline" onClick={() => window.open(portalUrl, '_blank')}>
-                            Manage Subscription <ExternalLink className="w-4 h-4" />
+                            Aboneliği Yönet <ExternalLink className="w-4 h-4" />
                         </Button>
                     </CardFooter>
                 </Card>
@@ -115,8 +115,8 @@ export default function BillingPage() {
                 {/* Payment Method Card */}
                 <Card className="bg-card/50 backdrop-blur border-white/10">
                     <CardHeader>
-                        <CardTitle>Payment Method</CardTitle>
-                        <CardDescription>Manage your payment information</CardDescription>
+                        <CardTitle>Ödeme Yöntemi</CardTitle>
+                        <CardDescription>Ödeme bilgilerinizi yönetin</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <div className="flex items-center gap-4 p-4 border rounded-lg bg-background/50">
@@ -125,14 +125,14 @@ export default function BillingPage() {
                             </div>
                             <div className="flex-1">
                                 <p className="font-medium">Visa ending in 4242</p>
-                                <p className="text-sm text-muted-foreground">Expires 12/28</p>
+                                <p className="text-sm text-muted-foreground">12/28 tarihinde sona eriyor</p>
                             </div>
-                            <Badge variant="outline">Default</Badge>
+                            <Badge variant="outline">Varsayılan</Badge>
                         </div>
                     </CardContent>
                     <CardFooter>
                         <Button className="w-full" variant="ghost" onClick={() => window.open(portalUrl, '_blank')}>
-                            Update Payment Method
+                            Ödeme Yöntemini Güncelle
                         </Button>
                     </CardFooter>
                 </Card>
@@ -141,19 +141,19 @@ export default function BillingPage() {
             {/* Invoice History */}
             <Card className="bg-card/50 backdrop-blur border-white/10">
                 <CardHeader>
-                    <CardTitle>Invoice History</CardTitle>
-                    <CardDescription>Download past invoices and receipts</CardDescription>
+                    <CardTitle>Fatura Geçmişi</CardTitle>
+                    <CardDescription>Geçmiş faturaları ve makbuzları indirin</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <div className="rounded-md border">
                         <table className="w-full text-sm text-left">
                             <thead className="bg-muted/50 text-muted-foreground font-medium">
                                 <tr>
-                                    <th className="p-4">Invoice ID</th>
-                                    <th className="p-4">Date</th>
-                                    <th className="p-4">Amount</th>
-                                    <th className="p-4">Status</th>
-                                    <th className="p-4 text-right">Action</th>
+                                    <th className="p-4">Fatura No</th>
+                                    <th className="p-4">Tarih</th>
+                                    <th className="p-4">Tutar</th>
+                                    <th className="p-4">Durum</th>
+                                    <th className="p-4 text-right">İşlem</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -165,7 +165,7 @@ export default function BillingPage() {
                                         <td className="p-4">
                                             <div className="flex items-center gap-2">
                                                 {invoice.status === 'paid' ? (
-                                                    <Badge variant="outline" className="text-green-500 border-green-500/20 bg-green-500/10">Paid</Badge>
+                                                    <Badge variant="outline" className="text-green-500 border-green-500/20 bg-green-500/10">Ödendi</Badge>
                                                 ) : (
                                                     <Badge variant="outline" className="text-yellow-500 border-yellow-500/20 bg-yellow-500/10">{invoice.status}</Badge>
                                                 )}
@@ -182,7 +182,7 @@ export default function BillingPage() {
                                 {invoices.length === 0 && (
                                     <tr>
                                         <td colSpan={5} className="p-8 text-center text-muted-foreground">
-                                            No invoices found
+                                            Fatura bulunamadı
                                         </td>
                                     </tr>
                                 )}

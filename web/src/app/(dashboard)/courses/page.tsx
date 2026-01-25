@@ -16,10 +16,10 @@ export default async function CoursesPage() {
             <header className="mb-8">
                 <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-3">
                     <BookOpen className="w-8 h-8 text-primary" />
-                    All Courses
+                    Tüm Kurslar
                 </h1>
                 <p className="text-muted-foreground mt-1">
-                    Explore our comprehensive catalog of professional courses.
+                    Profesyonel kurs kataloğumuzu keşfedin.
                 </p>
             </header>
 
@@ -29,8 +29,8 @@ export default async function CoursesPage() {
                         <div className="w-16 h-16 bg-white/5 rounded-md flex items-center justify-center mx-auto mb-4">
                             <span className="text-3xl">📚</span>
                         </div>
-                        <h3 className="text-lg font-medium mb-1">No courses available</h3>
-                        <p className="text-muted-foreground text-sm">Check back later for new content.</p>
+                        <h3 className="text-lg font-medium mb-1">Henüz kurs yok</h3>
+                        <p className="text-muted-foreground text-sm">Yeni içerik için daha sonra tekrar kontrol edin.</p>
                     </div>
                 ) : (
                     courses.map((course) => (

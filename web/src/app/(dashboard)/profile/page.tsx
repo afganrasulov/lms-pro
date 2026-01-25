@@ -48,9 +48,9 @@ export default function ProfilePage() {
                 <div>
                     <h1 className="text-4xl font-black tracking-tight text-foreground flex items-center gap-3">
                         <User className="w-10 h-10 text-primary" />
-                        My Profile
+                        Profilim
                     </h1>
-                    <p className="text-muted-foreground mt-1">Manage your identity and track your growth.</p>
+                    <p className="text-muted-foreground mt-1">Kimliğini yönet ve gelişimini takip et.</p>
                 </div>
                 <Button
                     variant="destructive"
@@ -58,7 +58,7 @@ export default function ProfilePage() {
                     onClick={handleSignOut}
                 >
                     <LogOut className="w-4 h-4" />
-                    Sign Out
+                    Çıkış Yap
                 </Button>
             </header>
 

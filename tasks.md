@@ -64,6 +64,9 @@ use Kent EDU LLC Sandbox Token
 identifier: 3be40a8a-232e-4041-ba8d-d683f459bc9a
 POLAR_SANDBOX_TOKEN=polar_oat_Q7CEIZJZaeZaREmoKcXp3cVjNxhpFW32CwROx3ALDG4
 documentation: <https://polar.sh/docs/integrate/sandbox>
+- [x] Infrastructure Setup (GitHub + Railway)
+  - [x] Repo: <https://github.com/afganrasulov/lms-pro>
+  - [x] Deploy: <https://lms-pro-web-production.up.railway.app>
 - [ ] Email Notification System
 - [ ] Performance Testing
 - [ ] Soft Launch

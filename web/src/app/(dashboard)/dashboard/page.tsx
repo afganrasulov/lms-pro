@@ -185,16 +185,16 @@ export default function UserDashboardPage() {
                         <section className="space-y-4 animate-in fade-in slide-in-from-left-4 duration-500 delay-100">
                             <h2 className="text-xl font-bold mb-4 flex items-center gap-2">
                                 <BookOpen className="w-5 h-5 text-primary" />
-                                My Courses
+                                Kurslarım
                             </h2>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {loading ? (
                                     [...Array(2)].map((_, i) => <Skeleton key={i} className="h-64 rounded-md glass" />)
                                 ) : enrolledCourses.length === 0 ? (
                                     <div className="col-span-full text-center py-12 glass border border-white/5 rounded-xl border-dashed">
-                                        <p className="text-muted-foreground mb-4">You are not enrolled in any courses.</p>
+                                        <p className="text-muted-foreground mb-4">Henüz hiçbir kursa kayıtlı değilsin.</p>
                                         <Button asChild>
-                                            <Link href="/courses">Browse Courses</Link>
+                                            <Link href="/courses">Kurslara Göz At</Link>
                                         </Button>
                                     </div>
                                 ) : (

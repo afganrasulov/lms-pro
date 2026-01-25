@@ -7,8 +7,8 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "LMS Pro - Premium Learning",
-  description: "Advanced Learning Management System",
+  title: "LMS Pro - Premium Öğrenim",
+  description: "Gelişmiş Öğrenim Yönetim Sistemi",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="tr">
       <body className={`${inter.className} antialiased`}>
         {children}
         <Toaster />

@@ -21,12 +21,12 @@ export function CertificateList({ userId }: CertificateListProps) {
         <div className="space-y-4">
             <h2 className="text-xl font-bold flex items-center gap-2">
                 <Award className="text-yellow-500" />
-                My Certificates
+                Sertifikalarım
             </h2>
 
             {certs.length === 0 ? (
                 <div className="p-8 border border-dashed rounded-lg text-center text-muted-foreground">
-                    No certificates earned yet. Complete a course to earn one!
+                    Henüz sertifika kazanılmadı. Bir kurs tamamlayarak kazan!
                 </div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -37,16 +37,16 @@ export function CertificateList({ userId }: CertificateListProps) {
                                     <Award className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="font-bold">{cert.courses?.title || 'Unknown Course'}</h3>
+                                    <h3 className="font-bold">{cert.courses?.title || 'Bilinmeyen Kurs'}</h3>
                                     <p className="text-xs text-muted-foreground mb-2">
-                                        Issued on: {new Date(cert.issued_at).toLocaleDateString()}
+                                        Veriliş tarihi: {new Date(cert.issued_at).toLocaleDateString()}
                                     </p>
                                     <div className="text-xs font-mono text-muted-foreground bg-muted p-1 rounded inline-block mb-3">
                                         ID: {cert.credential_id}
                                     </div>
                                     <Button variant="outline" size="sm" className="w-full gap-2" asChild>
                                         <a href={`/certificates/${cert.credential_id}`} target="_blank" rel="noopener noreferrer">
-                                            View Certificate <ExternalLink size={14} />
+                                            Sertifikayı Görüntüle <ExternalLink size={14} />
                                         </a>
                                     </Button>
                                 </div>

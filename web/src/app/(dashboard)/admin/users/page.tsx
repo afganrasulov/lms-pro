@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { UserManageDialog } from '@/components/admin/user-manage-dialog';
 import { formatDistanceToNow } from 'date-fns';
+import { tr } from 'date-fns/locale';
 import { toast } from 'sonner';
 
 export default function AdminUsersPage() {
@@ -133,17 +134,17 @@ export default function AdminUsersPage() {
         <div className="space-y-8 animate-in fade-in duration-500">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">User Management</h1>
-                    <p className="text-slate-400">View and manage platform users.</p>
+                    <h1 className="text-3xl font-bold tracking-tight text-white mb-2">Kullanıcı Yönetimi</h1>
+                    <p className="text-slate-400">Platform kullanıcılarını görüntüleyin ve yönetin.</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                     <Button onClick={handleExport} variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800">
                         <Download className="w-4 h-4 mr-2" />
-                        Export
+                        Dışa Aktar
                     </Button>
                     <Button onClick={handleImportClick} variant="outline" className="border-slate-700 text-slate-300 hover:bg-slate-800">
                         <Upload className="w-4 h-4 mr-2" />
-                        Import
+                        İçe Aktar
                     </Button>
                     <input
                         type="file"
@@ -160,7 +161,7 @@ export default function AdminUsersPage() {
                             className="bg-red-900/50 text-red-400 hover:bg-red-900/80 border border-red-900"
                         >
                             <Trash2 className="w-4 h-4 mr-2" />
-                            Delete Selected ({selectedUsers.size})
+                            Seçilenleri Sil ({selectedUsers.size})
                         </Button>
                     )}
                 </div>
@@ -169,7 +170,7 @@ export default function AdminUsersPage() {
             <div className="flex items-center space-x-2 bg-slate-900 border border-slate-800 rounded-lg p-2 max-w-sm">
                 <Search className="w-5 h-5 text-slate-400" />
                 <Input
-                    placeholder="Search users..."
+                    placeholder="Kullanıcı ara..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="border-0 bg-transparent focus-visible:ring-0 text-white placeholder:text-slate-500"
@@ -188,11 +189,11 @@ export default function AdminUsersPage() {
                                     className="border-slate-600 data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600"
                                 />
                             </TableHead>
-                            <TableHead className="text-slate-400">User</TableHead>
-                            <TableHead className="text-slate-400">Role</TableHead>
-                            <TableHead className="text-slate-400">Level</TableHead>
-                            <TableHead className="text-slate-400">Joined</TableHead>
-                            <TableHead className="text-right text-slate-400">Actions</TableHead>
+                            <TableHead className="text-slate-400">Kullanıcı</TableHead>
+                            <TableHead className="text-slate-400">Rol</TableHead>
+                            <TableHead className="text-slate-400">Seviye</TableHead>
+                            <TableHead className="text-slate-400">Katılım</TableHead>
+                            <TableHead className="text-right text-slate-400">İşlemler</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -205,7 +206,7 @@ export default function AdminUsersPage() {
                         ) : filteredUsers.length === 0 ? (
                             <TableRow>
                                 <TableCell colSpan={6} className="h-24 text-center text-slate-400">
-                                    No users found matching your search.
+                                    Aramanızla eşleşen kullanıcı bulunamadı.
                                 </TableCell>
                             </TableRow>
                         ) : (
@@ -228,7 +229,7 @@ export default function AdminUsersPage() {
                                                 </AvatarFallback>
                                             </Avatar>
                                             <div className="truncate">
-                                                <div className="truncate font-semibold">{user.full_name || 'Unnamed User'}</div>
+                                                <div className="truncate font-semibold">{user.full_name || 'İsimsiz Kullanıcı'}</div>
                                                 <div className="truncate text-xs text-slate-400">{'User ID: ' + user.id.slice(0, 8)}</div>
                                             </div>
                                         </div>
@@ -243,7 +244,7 @@ export default function AdminUsersPage() {
                                         Lvl {user.level} <span className="text-slate-500 text-xs">({user.xp_points} XP)</span>
                                     </TableCell>
                                     <TableCell className="text-slate-400">
-                                        {formatDistanceToNow(new Date(user.created_at), { addSuffix: true })}
+                                        {formatDistanceToNow(new Date(user.created_at), { addSuffix: true, locale: tr })}
                                     </TableCell>
                                     <TableCell className="text-right">
                                         <Button
@@ -253,7 +254,7 @@ export default function AdminUsersPage() {
                                             className="text-slate-500 hover:text-white hover:bg-blue-900/20"
                                         >
                                             <Settings2 className="w-4 h-4 mr-1" />
-                                            Manage
+                                            Yönet
                                         </Button>
                                     </TableCell>
                                 </TableRow>

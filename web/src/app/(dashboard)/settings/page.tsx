@@ -77,7 +77,7 @@ export default function SettingsPage() {
                     Settings
                 </h1>
                 <p className="text-muted-foreground mt-1">
-                    Manage your account preferences and notifications.
+                    Hesap tercihlerinizi ve bildirimlerinizi yönetin.
                 </p>
             </header>
 
@@ -87,10 +87,10 @@ export default function SettingsPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <User className="w-5 h-5" />
-                            Account
+                            Hesap
                         </CardTitle>
                         <CardDescription>
-                            Manage your personal information.
+                            Kişisel bilgilerinizi yönetin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
@@ -100,7 +100,7 @@ export default function SettingsPage() {
                                 <Skeleton className="h-10 w-full" />
                             ) : (
                                 <div className="p-3 rounded-md bg-secondary/50 text-sm text-muted-foreground cursor-not-allowed">
-                                    Managed via Identity Provider
+                                    Kimlik Sağlayıcı üzerinden yönetiliyor
                                 </div>
                             )}
                         </div>
@@ -112,7 +112,7 @@ export default function SettingsPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <CreditCard className="w-5 h-5" />
-                            Billing & Plans
+                            Ödeme ve Planlar
                         </CardTitle>
                         <CardDescription>
                             Manage your subscription and billing history.
@@ -121,11 +121,11 @@ export default function SettingsPage() {
                     <CardContent className="space-y-4">
                         <div className="flex items-center justify-between p-4 border rounded-lg bg-background/50">
                             <div>
-                                <p className="font-medium">Current Plan</p>
-                                <p className="text-sm text-muted-foreground">Manage your subscription details</p>
+                                <p className="font-medium">Mevcut Plan</p>
+                                <p className="text-sm text-muted-foreground">Abonelik detaylarınızı yönetin</p>
                             </div>
                             <Button variant="outline" onClick={() => router.push('/settings/billing')}>
-                                Manage Billing
+                                Ödemeleri Yönet
                             </Button>
                         </div>
                     </CardContent>
@@ -136,10 +136,10 @@ export default function SettingsPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Bell className="w-5 h-5" />
-                            Notifications
+                            Bildirimler
                         </CardTitle>
                         <CardDescription>
-                            Choose how you want to be notified.
+                            Nasıl bildirim almak istediğinizi seçin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -164,8 +164,8 @@ export default function SettingsPage() {
                             <>
                                 <div className="flex items-center justify-between space-x-2">
                                     <div className="flex flex-col space-y-1">
-                                        <Label htmlFor="email-notifs" className="font-medium">Email Notifications</Label>
-                                        <span className="text-sm text-muted-foreground">Receive updates about your course progress via email.</span>
+                                        <Label htmlFor="email-notifs" className="font-medium">E-posta Bildirimleri</Label>
+                                        <span className="text-sm text-muted-foreground">Kurs ilerlemenizle ilgili güncellemeleri e-posta ile alın.</span>
                                     </div>
                                     <Switch
                                         id="email-notifs"
@@ -175,8 +175,8 @@ export default function SettingsPage() {
                                 </div>
                                 <div className="flex items-center justify-between space-x-2">
                                     <div className="flex flex-col space-y-1">
-                                        <Label htmlFor="push-notifs" className="font-medium">Push Notifications</Label>
-                                        <span className="text-sm text-muted-foreground">Receive real-time push notifications.</span>
+                                        <Label htmlFor="push-notifs" className="font-medium">Anlık Bildirimler</Label>
+                                        <span className="text-sm text-muted-foreground">Gerçek zamanlı bildirimler alın.</span>
                                     </div>
                                     <Switch
                                         id="push-notifs"
@@ -193,10 +193,10 @@ export default function SettingsPage() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Mail className="w-5 h-5" />
-                            Communication
+                            İletişim
                         </CardTitle>
                         <CardDescription>
-                            Manage marketing emails and newsletters.
+                            Pazarlama e-postalarını ve bültenleri yönetin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -211,8 +211,8 @@ export default function SettingsPage() {
                         ) : (
                             <div className="flex items-center justify-between space-x-2">
                                 <div className="flex flex-col space-y-1">
-                                    <Label htmlFor="marketing-emails" className="font-medium">Marketing Emails</Label>
-                                    <span className="text-sm text-muted-foreground">Receive updates about new courses and features.</span>
+                                    <Label htmlFor="marketing-emails" className="font-medium">Pazarlama E-postaları</Label>
+                                    <span className="text-sm text-muted-foreground">Yeni kurslar ve özellikler hakkında güncellemeler alın.</span>
                                 </div>
                                 <Switch
                                     id="marketing-emails"
@@ -227,9 +227,9 @@ export default function SettingsPage() {
 
 
             <div className="flex justify-end gap-4">
-                <Button variant="outline" onClick={() => router.back()}>Cancel</Button>
+                <Button variant="outline" onClick={() => router.back()}>İptal</Button>
                 <Button onClick={handleSave} disabled={saving || success}>
-                    {saving ? 'Saving...' : success ? 'Saved!' : 'Save Changes'}
+                    {saving ? 'Kaydediliyor...' : success ? 'Kaydedildi!' : 'Değişiklikleri Kaydet'}
                 </Button>
             </div>
         </div>

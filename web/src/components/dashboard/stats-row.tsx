@@ -21,23 +21,23 @@ export function StatsRow({ stats }: StatsRowProps) {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
             <StatCard
                 icon={Flame}
-                label="Day Streak"
+                label="Günlük Seri"
                 value={stats.streak.toString()}
                 iconColor="text-orange-500"
-                subtext={stats.isStreakActive ? "Active" : "Inactive"}
+                subtext={stats.isStreakActive ? "Aktif" : "Pasif"}
             />
             <StatCard
                 icon={Diamond}
-                label="Total Gems"
+                label="Toplam Elmas"
                 value={stats.gems.toString()}
                 iconColor="text-blue-400"
             />
             <StatCard
                 icon={Zap}
-                label="Lifetime XP"
+                label="Toplam XP"
                 value={stats.xp.toLocaleString()}
                 iconColor="text-yellow-400"
-                subtext={`Level ${stats.level || 1}`}
+                subtext={`Seviye ${stats.level || 1}`}
             />
         </div>
     );

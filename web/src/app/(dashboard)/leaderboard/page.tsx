@@ -12,15 +12,15 @@ export default async function LeaderboardPage() {
     return (
         <div className="space-y-6">
             <header>
-                <h1 className="text-3xl font-bold tracking-tight">Leaderboard</h1>
-                <p className="text-muted-foreground">Top learners of the week. Compete for XP!</p>
+                <h1 className="text-3xl font-bold tracking-tight">Liderlik Tablosu</h1>
+                <p className="text-muted-foreground">Haftanın en çok öğrenenleri. XP için yarışın!</p>
             </header>
 
             <Card className="border-border/50 bg-card/50 backdrop-blur-sm">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <Trophy className="h-5 w-5 text-yellow-500" />
-                        Weekly Rankings
+                        Haftalık Sıralama
                     </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -53,7 +53,7 @@ export default async function LeaderboardPage() {
                                     </Avatar>
 
                                     <div className="flex-1 min-w-0">
-                                        <p className="font-medium truncate">{user.full_name || 'Anonymous User'}</p>
+                                        <p className="font-medium truncate">{user.full_name || 'İsimsiz Kullanıcı'}</p>
                                     </div>
 
                                     <div className="text-right">
@@ -67,7 +67,7 @@ export default async function LeaderboardPage() {
 
                         {(!leaderboard || leaderboard.length === 0) && (
                             <div className="p-8 text-center text-muted-foreground">
-                                No activity recorded this week yet. Be the first!
+                                Bu hafta henüz aktivite kaydedilmedi. İlk sen ol!
                             </div>
                         )}
                     </div>

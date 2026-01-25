@@ -32,8 +32,8 @@ export function ProfileForm({
     return (
         <Card variant="glass" className="lg:col-span-12 border-white/5">
             <CardHeader>
-                <CardTitle className="text-2xl font-bold">Personal Information</CardTitle>
-                <CardDescription>Update your public profile details.</CardDescription>
+                <CardTitle className="text-2xl font-bold">Kişisel Bilgiler</CardTitle>
+                <CardDescription>Profil detaylarınızı güncelleyin.</CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={onSave} className="space-y-6">
@@ -70,19 +70,19 @@ export function ProfileForm({
                         <div className="flex-1 w-full space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="full_name">Full Name</Label>
+                                    <Label htmlFor="full_name">Ad Soyad</Label>
                                     <Input
                                         id="full_name"
                                         value={formData.full_name}
                                         onChange={(e) => onNameChange(e.target.value)}
                                         className="bg-white/5 border-white/10 focus:border-primary"
-                                        placeholder="Enter your full name"
+                                        placeholder="Adınızı ve soyadınızı girin"
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <Label>Email (Read Only)</Label>
+                                    <Label>E-posta (Salt Okunur)</Label>
                                     <Input
-                                        value={userEmail || 'Loading...'}
+                                        value={userEmail || 'Yükleniyor...'}
                                         readOnly
                                         className="bg-white/5 border-white/10 opacity-50 cursor-not-allowed"
                                     />
@@ -91,14 +91,14 @@ export function ProfileForm({
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <Label>Platform Role</Label>
+                                    <Label>Platform Rolü</Label>
                                     <div className="flex items-center gap-2 h-10 px-3 rounded-md bg-white/5 border border-white/10 text-sm font-medium capitalize">
                                         {profile?.role === 'admin' ? <Shield className="w-4 h-4 text-primary" /> : <User className="w-4 h-4 text-muted-foreground" />}
                                         {profile?.role}
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <Label>Member Since</Label>
+                                    <Label>Üyelik Tarihi</Label>
                                     <div className="flex items-center gap-2 h-10 px-3 rounded-md bg-white/5 border border-white/10 text-sm font-medium">
                                         {profile?.created_at ? new Date(profile.created_at).toLocaleDateString() : '...'}
                                     </div>
@@ -114,7 +114,7 @@ export function ProfileForm({
                             ) : (
                                 <Save className="w-4 h-4" />
                             )}
-                            {saving ? 'Saving...' : 'Save Changes'}
+                            {saving ? 'Kaydediliyor...' : 'Değişiklikleri Kaydet'}
                         </Button>
                     </div>
                 </form>

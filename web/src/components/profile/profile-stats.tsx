@@ -16,7 +16,7 @@ export function ProfileStats({ profile }: ProfileStatsProps) {
                     <Flame className="w-6 h-6" />
                 </div>
                 <div className="text-3xl font-bold">{streak}</div>
-                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Day Streak</div>
+                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Günlük Seri</div>
             </Card>
 
             <Card variant="glass" className="border-white/5 p-6 flex flex-col items-center justify-center text-center space-y-2 hover:bg-white/5 transition-colors">
@@ -24,7 +24,7 @@ export function ProfileStats({ profile }: ProfileStatsProps) {
                     <Diamond className="w-6 h-6" />
                 </div>
                 <div className="text-3xl font-bold">{profile?.gems?.toLocaleString() ?? 0}</div>
-                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Total Gems</div>
+                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Toplam Elmas</div>
             </Card>
 
             <Card variant="glass" className="border-white/5 p-6 flex flex-col items-center justify-center text-center space-y-2 hover:bg-white/5 transition-colors">
@@ -32,7 +32,7 @@ export function ProfileStats({ profile }: ProfileStatsProps) {
                     <Zap className="w-6 h-6" />
                 </div>
                 <div className="text-3xl font-bold">{profile?.xp_points?.toLocaleString() ?? 0}</div>
-                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Lifetime XP</div>
+                <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Toplam XP</div>
             </Card>
         </div>
     );
