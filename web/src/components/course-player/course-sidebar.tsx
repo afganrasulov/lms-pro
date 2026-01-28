@@ -38,7 +38,7 @@ export function CourseSidebar({
             <div className="flex flex-col h-full">
                 <div className="p-4 border-b bg-card">
                     <Link href="/dashboard" className="flex items-center text-sm text-muted-foreground hover:text-primary mb-4 transition-colors">
-                        <ChevronLeft className="w-4 h-4 mr-1" /> Dashboard
+                        <ChevronLeft className="w-4 h-4 mr-1" /> Panel
                     </Link>
                     <h2 className="font-bold text-base leading-tight line-clamp-2">
                         {course.title}
@@ -46,8 +46,8 @@ export function CourseSidebar({
                     {/* Progress Bar */}
                     <div className="mt-4 space-y-1">
                         <div className="flex justify-between text-xs text-muted-foreground">
-                            <span>{progressPercentage}% Complete</span>
-                            <span>{completedLessons.size}/{allLessons.length} Lessons</span>
+                            <span>%{progressPercentage} Tamamlandı</span>
+                            <span>{completedLessons.size}/{allLessons.length} Ders</span>
                         </div>
                         <div className="h-1 w-full bg-secondary rounded-md overflow-hidden">
                             <div

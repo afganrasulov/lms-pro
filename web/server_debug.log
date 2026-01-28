@@ -1755,3 +1755,116 @@ Middleware: Path /courses/benim-1769583487208
  GET /courses 200 in 1737ms (compile: 1391µs, proxy.ts: 207ms, render: 1529ms)
 Middleware: Path /courses/benim-1769583487208/learn
  GET /courses/benim-1769583487208/learn 200 in 370ms (compile: 89ms, proxy.ts: 251ms, render: 30ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 514ms (compile: 8ms, proxy.ts: 489ms, render: 18ms)
+Middleware: Path /courses
+ GET /courses 200 in 1767ms (compile: 6ms, proxy.ts: 322ms, render: 1439ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 216ms (compile: 7ms, proxy.ts: 195ms, render: 15ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 214ms (compile: 6ms, proxy.ts: 194ms, render: 14ms)
+Middleware: Path /api/courses/import
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+[(IMPORT) Module Created] d67bd026-9cfb-48b9-88d1-377111a5b75f Giriş
+[(IMPORT) Lesson Created] 1216d2bd-dd0a-484d-9ba1-5998f241616a Tasarım ve animasyon kursu tanıtım filmi
+[(IMPORT) Lesson Created] d3f4afa1-4533-4fe3-9f29-3bdb901d7287 Afgan Rasulov kimdir
+[(IMPORT) Lesson Created] 29b1e0ea-6b8c-4117-a8c6-01d8adc17e40 ÖNEMLİ! Kursa başlamadan önce izleyin
+[(IMPORT) Lesson Created] 9ad2d4d6-cffd-4f28-bfec-4ea9d6b29ecb Windows vs Mac kullanıcıları
+[(IMPORT) Lesson Created] 99691a79-e94d-422b-9c39-5cca8c98355d Eğitimin 15. dakikasına dikkat!
+[(IMPORT) Lesson Created] 25d30535-afc7-4cfc-97bd-0eeab9be8c37 Uygulama egzersiz, alıştırma dosyalarını indirin
+ POST /api/courses/import 200 in 3.7s (compile: 5ms, proxy.ts: 349ms, render: 3.3s)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 348ms (compile: 4ms, proxy.ts: 326ms, render: 17ms)
+Middleware: Path /courses
+ GET /courses 200 in 1692ms (compile: 5ms, proxy.ts: 248ms, render: 1439ms)
+Middleware: Path /courses/benim-1769583854872
+ GET /courses/benim-1769583854872 200 in 220ms (compile: 9ms, proxy.ts: 198ms, render: 13ms)
+✓ Compiled in 53ms
+✓ Compiled in 29ms
+✓ Compiled in 16ms
+✓ Compiled in 30ms
+✓ Compiled in 25ms
+Middleware: Path /courses
+Middleware: Path /courses
+ GET /courses 200 in 2.9s (compile: 6ms, proxy.ts: 668ms, render: 2.2s)
+ GET /courses 200 in 2.2s (compile: 1923µs, proxy.ts: 313ms, render: 1898ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /courses/benim-1769583854872
+ GET /courses/benim-1769583854872 200 in 322ms (compile: 48ms, proxy.ts: 250ms, render: 24ms)
+Middleware: Path /courses/benim-1769583854872/learn
+ GET /courses/benim-1769583854872/learn 200 in 356ms (compile: 80ms, proxy.ts: 250ms, render: 26ms)
+✓ Compiled in 17ms
+Middleware: Path /dashboard
+ GET /dashboard 200 in 289ms (compile: 6ms, proxy.ts: 270ms, render: 13ms)
+Middleware: Path /courses
+ GET /courses 200 in 1684ms (compile: 2ms, proxy.ts: 190ms, render: 1492ms)
+Middleware: Path /courses
+ GET /courses 200 in 2.0s (compile: 3ms, proxy.ts: 567ms, render: 1438ms)
+Middleware: Path /courses
+Middleware: Path /admin/users
+ GET /admin/users 200 in 581ms (compile: 5ms, proxy.ts: 561ms, render: 16ms)
+ GET /courses 200 in 1598ms (compile: 2ms, proxy.ts: 183ms, render: 1413ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 285ms (compile: 6ms, proxy.ts: 266ms, render: 13ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 194ms (compile: 3ms, proxy.ts: 181ms, render: 10ms)
+Middleware: Path /api/courses/template
+ GET /api/courses/template 200 in 469ms (compile: 79ms, proxy.ts: 193ms, render: 198ms)
+Middleware: Path /api/courses/import
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+[(IMPORT) Module Created] 49f8c529-303e-499c-9c31-74c214f69623 Giriş
+[(IMPORT) Lesson Created] 91067623-c56f-4be3-80c4-822e291d9de2 Tasarım ve animasyon kursu tanıtım filmi
+[(IMPORT) Lesson Created] 0c413b21-2c94-47cb-9a54-5560dda8c98a Afgan Rasulov kimdir
+[(IMPORT) Lesson Created] f94ea470-8828-4d55-9c47-8f8c73340e52 ÖNEMLİ! Kursa başlamadan önce izleyin
+[(IMPORT) Lesson Created] f78ccfb2-3ce2-45ec-8544-6789ee26bf40 Windows vs Mac kullanıcıları
+[(IMPORT) Lesson Created] ddf864ff-ee74-4ae9-8159-c93af000f5c9 Eğitimin 15. dakikasına dikkat!
+[(IMPORT) Lesson Created] ee83dde3-71c7-4336-9f1c-65b7b060aaa3 Uygulama egzersiz, alıştırma dosyalarını indirin
+ POST /api/courses/import 200 in 3.6s (compile: 8ms, proxy.ts: 339ms, render: 3.3s)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 294ms (compile: 6ms, proxy.ts: 271ms, render: 17ms)
+Middleware: Path /courses
+ GET /courses 200 in 1747ms (compile: 7ms, proxy.ts: 224ms, render: 1516ms)
+Middleware: Path /courses/benim-1769584398130
+ GET /courses/benim-1769584398130 200 in 327ms (compile: 60ms, proxy.ts: 241ms, render: 26ms)

@@ -27,7 +27,7 @@ export function CourseHeader({
                     {isSidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
                 </Button>
                 <h3 className="font-medium text-sm hidden md:block truncate max-w-md">
-                    {activeLesson?.title || 'Course Intro'}
+                    {activeLesson?.title || 'Kurs Tanıtımı'}
                 </h3>
             </div>
 
@@ -39,14 +39,14 @@ export function CourseHeader({
                     onClick={onPrev}
                     className="hidden sm:flex"
                 >
-                    <ArrowLeft className="w-4 h-4 mr-2" /> Previous
+                    <ArrowLeft className="w-4 h-4 mr-2" /> Önceki
                 </Button>
                 <Button
                     size="sm"
                     onClick={onNext}
                     className="bg-green-600 hover:bg-green-700 text-white"
                 >
-                    {hasNext ? 'Complete & Next' : 'Finish Course'} <ArrowRight className="w-4 h-4 ml-2" />
+                    {hasNext ? 'Tamamla & Sonraki' : 'Kursu Bitir'} <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
             </div>
         </header>

@@ -81,8 +81,8 @@ export default function CoursePlayerPage() {
     if (!course) {
         return (
             <div className="flex h-screen items-center justify-center bg-background flex-col gap-4">
-                <h1 className="text-xl font-bold">Course Not Found</h1>
-                <Link href="/dashboard"><Button>Back to Dashboard</Button></Link>
+                <h1 className="text-xl font-bold">Kurs Bulunamadı</h1>
+                <Link href="/dashboard"><Button>Panele Dön</Button></Link>
             </div>
         );
     }
@@ -157,7 +157,7 @@ export default function CoursePlayerPage() {
                                     />
                                 ) : (
                                     <div className="aspect-video bg-muted rounded-lg flex items-center justify-center text-muted-foreground">
-                                        No Video Content
+                                        Video İçeriği Yok
                                     </div>
                                 )}
 
