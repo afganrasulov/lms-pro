@@ -40,7 +40,7 @@ export function RegisterForm() {
                 console.error('Failed to sync to newsletter', err);
             }
 
-            alert('Check your email for the confirmation link!');
+            alert('Onay linki için e-postanı kontrol et!');
             router.push('/login');
         }
     };
@@ -56,21 +56,13 @@ export function RegisterForm() {
         >
             {/* Header section with back button */}
             <div className="space-y-4 mb-10">
-                <button
-                    type="button"
-                    onClick={() => router.push('/')}
-                    className="flex items-center text-3xl font-black tracking-tight text-white group uppercase bg-transparent border-none p-0 cursor-pointer outline-none"
-                    style={{ fontStyle: 'italic' }}
-                >
-                    <ChevronLeft className="w-8 h-8 mr-2 -ml-2 group-hover:-translate-x-1 transition-transform stroke-[4]" />
-                    JOIN US!
-                </button>
+
                 <div className="space-y-1">
                     <p className="text-gray-400 text-sm font-medium leading-relaxed">
-                        Start your learning journey today.
+                        Öğrenme yolculuğuna bugün başla.
                     </p>
                     <p className="text-gray-400 text-sm font-medium leading-relaxed">
-                        Create an account to access premium courses.
+                        Premium kurslara erişmek için hesap oluştur.
                     </p>
                 </div>
             </div>
@@ -80,7 +72,7 @@ export function RegisterForm() {
                     <div className="relative">
                         <input
                             type="email"
-                            placeholder="Email Address"
+                            placeholder="E-posta Adresi"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="w-full h-14 text-white placeholder:text-gray-600 rounded-md transition-all text-md px-5 border outline-none focus:ring-1 focus:ring-blue-500/50"
@@ -94,7 +86,7 @@ export function RegisterForm() {
                     <div className="relative">
                         <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Password"
+                            placeholder="Şifre"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="w-full h-14 text-white placeholder:text-gray-600 rounded-md transition-all pr-12 text-md px-5 border outline-none focus:ring-1 focus:ring-blue-500/50"
@@ -123,19 +115,19 @@ export function RegisterForm() {
                     }}
                     disabled={loading}
                 >
-                    {loading ? "Creating Account..." : "Sign Up"}
+                    {loading ? "Hesap Oluşturuluyor..." : "Kayıt Ol"}
                 </button>
             </form>
 
             <div className="text-center mt-8">
                 <p className="text-sm font-medium text-gray-400">
-                    Already have an account?{" "}
+                    Zaten hesabın var mı?{" "}
                     <button
                         type="button"
                         onClick={() => router.push('/login')}
                         className="text-blue-500 hover:text-blue-400 font-bold ml-1 transition-colors bg-transparent border-none p-0 cursor-pointer outline-none"
                     >
-                        Login
+                        Giriş Yap
                     </button>
                 </p>
             </div>

@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Settings, User, Bell, Mail, CreditCard, Key } from 'lucide-react';
+import { Settings, User, Bell, Mail, CreditCard, Key, Lock } from 'lucide-react';
 import { verifyLicense, deactivateLicense } from '@/actions/license';
 import { updateOrganizationPolarKeys, getOrganizationSettings, disconnectOrganizationPolar } from '@/actions/organization';
 import { Input } from '@/components/ui/input';
@@ -29,11 +29,18 @@ export default function SettingsPage() {
         language: 'en',
         license_key: '',
         license_status: 'inactive',
-        email: ''
+        email: '',
+        role: 'student'
     });
     const [polarSettings, setPolarSettings] = useState({
         polar_access_token: '',
         polar_organization_id: ''
+    });
+
+    // Password Reset States
+    const [passwordData, setPasswordData] = useState({
+        newPassword: '',
+        confirmPassword: ''
     });
 
     useEffect(() => {
@@ -60,7 +67,8 @@ export default function SettingsPage() {
                         language: userSettings.language || 'en',
                         license_key: (userSettings as any).license_key || '',
                         license_status: (userSettings as any).license_status || 'inactive',
-                        email: data.user.email || ''
+                        email: data.user.email || '',
+                        role: (userSettings as any).role || 'student'
                     });
                 }
 
@@ -208,12 +216,41 @@ export default function SettingsPage() {
         }
     };
 
+    const handlePasswordChange = async () => {
+        if (passwordData.newPassword !== passwordData.confirmPassword) {
+            toast.error('Şifreler eşleşmiyor.');
+            return;
+        }
+        if (passwordData.newPassword.length < 6) {
+            toast.error('Şifre en az 6 karakter olmalıdır.');
+            return;
+        }
+
+        setSaving(true);
+        try {
+            const { error } = await supabase.auth.updateUser({
+                password: passwordData.newPassword
+            });
+
+            if (error) {
+                toast.error(error.message);
+            } else {
+                toast.success('Şifreniz başarıyla güncellendi.');
+                setPasswordData({ newPassword: '', confirmPassword: '' });
+            }
+        } catch (error) {
+            toast.error('Guncelleme hatası.');
+        } finally {
+            setSaving(false);
+        }
+    };
+
     return (
         <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in duration-500">
             <header>
                 <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-3">
                     <Settings className="w-8 h-8 text-primary" />
-                    Settings
+                    Ayarlar
                 </h1>
                 <p className="text-muted-foreground mt-1">
                     Hesap tercihlerinizi ve bildirimlerinizi yönetin.
@@ -294,61 +331,111 @@ export default function SettingsPage() {
                     </CardContent>
                 </Card>
 
-                {/* Polar Integration Section (SaaS) */}
+                {/* Password Section */}
                 <Card className="bg-card/50 backdrop-blur border-white/10">
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
-                            <CreditCard className="w-5 h-5 text-blue-400" />
-                            Polar Entegrasyonu (SaaS)
+                            <Lock className="w-5 h-5" />
+                            Güvenlik
                         </CardTitle>
                         <CardDescription>
-                            Kurslarınızı kendi Polar hesabınız üzerinden satmak için API anahtarınızı girin.
+                            Hesap şifrenizi güncelleyin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <div className="space-y-2">
-                            <Label htmlFor="polar-token">Polar Access Token</Label>
-                            <Input
-                                id="polar-token"
-                                type="password"
-                                placeholder="pol_..."
-                                value={polarSettings.polar_access_token}
-                                onChange={(e) => setPolarSettings(s => ({ ...s, polar_access_token: e.target.value }))}
-                                className="bg-background/50"
-                            />
-                            <p className="text-xs text-muted-foreground">
-                                Polar dashboard'dan aldığınız Access Token. (Ayarlar &rarr; Developers)
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <Label htmlFor="polar-org">Polar Organization ID (Opsiyonel)</Label>
-                            <Input
-                                id="polar-org"
-                                placeholder="Org ID..."
-                                value={polarSettings.polar_organization_id}
-                                onChange={(e) => setPolarSettings(s => ({ ...s, polar_organization_id: e.target.value }))}
-                                className="bg-background/50"
-                            />
-                        </div>
-                        <Button
-                            onClick={handlePolarSave}
-                            disabled={saving}
-                            className="w-full sm:w-auto"
-                        >
-                            Entegrasyonu Kaydet
-                        </Button>
-                        {polarSettings.polar_access_token && (
+                        <div className="grid gap-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="new-password">Yeni Şifre</Label>
+                                <Input
+                                    id="new-password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    value={passwordData.newPassword}
+                                    onChange={(e) => setPasswordData(s => ({ ...s, newPassword: e.target.value }))}
+                                    disabled={saving}
+                                    className="bg-background/50"
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="confirm-password">Şifreyi Onayla</Label>
+                                <Input
+                                    id="confirm-password"
+                                    type="password"
+                                    placeholder="••••••••"
+                                    value={passwordData.confirmPassword}
+                                    onChange={(e) => setPasswordData(s => ({ ...s, confirmPassword: e.target.value }))}
+                                    disabled={saving}
+                                    className="bg-background/50"
+                                />
+                            </div>
                             <Button
-                                variant="destructive"
-                                onClick={handlePolarDisconnect}
-                                disabled={saving}
-                                className="w-full sm:w-auto ml-2"
+                                onClick={handlePasswordChange}
+                                disabled={saving || !passwordData.newPassword}
+                                className="w-fit"
                             >
-                                Bağlantıyı Kes
+                                Şifreyi Güncelle
                             </Button>
-                        )}
+                        </div>
                     </CardContent>
                 </Card>
+
+                {/* Polar Integration Section (SaaS) */}
+                {settings.role === 'admin' && (
+                    <Card className="bg-card/50 backdrop-blur border-white/10">
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2">
+                                <CreditCard className="w-5 h-5 text-blue-400" />
+                                Polar Entegrasyonu (SaaS)
+                            </CardTitle>
+                            <CardDescription>
+                                Kurslarınızı kendi Polar hesabınız üzerinden satmak için API anahtarınızı girin.
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="space-y-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="polar-token">Polar Access Token</Label>
+                                <Input
+                                    id="polar-token"
+                                    type="password"
+                                    placeholder="pol_..."
+                                    value={polarSettings.polar_access_token}
+                                    onChange={(e) => setPolarSettings(s => ({ ...s, polar_access_token: e.target.value }))}
+                                    className="bg-background/50"
+                                />
+                                <p className="text-xs text-muted-foreground">
+                                    Polar dashboard'dan aldığınız Access Token. (Ayarlar &rarr; Developers)
+                                </p>
+                            </div>
+                            <div className="space-y-2">
+                                <Label htmlFor="polar-org">Polar Organization ID (Opsiyonel)</Label>
+                                <Input
+                                    id="polar-org"
+                                    placeholder="Org ID..."
+                                    value={polarSettings.polar_organization_id}
+                                    onChange={(e) => setPolarSettings(s => ({ ...s, polar_organization_id: e.target.value }))}
+                                    className="bg-background/50"
+                                />
+                            </div>
+                            <Button
+                                onClick={handlePolarSave}
+                                disabled={saving}
+                                className="w-full sm:w-auto"
+                            >
+                                Entegrasyonu Kaydet
+                            </Button>
+                            {polarSettings.polar_access_token && (
+                                <Button
+                                    variant="destructive"
+                                    onClick={handlePolarDisconnect}
+                                    disabled={saving}
+                                    className="w-full sm:w-auto ml-2"
+                                >
+                                    Bağlantıyı Kes
+                                </Button>
+                            )}
+                        </CardContent>
+                    </Card>
+                )}
 
                 {/* Billing Section */}
                 <Card className="bg-card/50 backdrop-blur border-white/10">
@@ -358,7 +445,7 @@ export default function SettingsPage() {
                             Ödeme ve Planlar
                         </CardTitle>
                         <CardDescription>
-                            Manage your subscription and billing history.
+                            Abonelik ve ödeme geçmişinizi yönetin.
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">

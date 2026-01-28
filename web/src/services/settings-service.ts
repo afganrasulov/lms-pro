@@ -15,7 +15,7 @@ export const SettingsService = {
         // Fetch Profile for License Key
         const { data: profile } = await supabase
             .from('profiles')
-            .select('license_key, license_status')
+            .select('license_key, license_status, role')
             .eq('id', userId)
             .maybeSingle();
 

@@ -1868,3 +1868,1295 @@ Middleware: Path /courses
  GET /courses 200 in 1747ms (compile: 7ms, proxy.ts: 224ms, render: 1516ms)
 Middleware: Path /courses/benim-1769584398130
  GET /courses/benim-1769584398130 200 in 327ms (compile: 60ms, proxy.ts: 241ms, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 21ms (compile: 7ms, proxy.ts: 3ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 14ms (compile: 2ms, proxy.ts: 1833µs, render: 10ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 170ms (compile: 153ms, proxy.ts: 5ms, render: 12ms)
+Middleware: Path /
+ GET / 200 in 13ms (compile: 2ms, proxy.ts: 3ms, render: 8ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 25ms (compile: 3ms, proxy.ts: 4ms, render: 18ms)
+Middleware: Path /api/auth/sync
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Acumbamail API Error: {"error": "Subscriber afganrasulov@gmail.com already exists in the list"}
+ POST /api/auth/sync 500 in 542ms (compile: 84ms, proxy.ts: 3ms, render: 455ms)
+Middleware: Path /login
+ GET /login 200 in 22ms (compile: 10ms, proxy.ts: 3ms, render: 9ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 16ms (compile: 3ms, proxy.ts: 3ms, render: 9ms)
+Middleware: Path /
+ GET / 200 in 11ms (compile: 3ms, proxy.ts: 1842µs, render: 6ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 22ms (compile: 2ms, proxy.ts: 4ms, render: 16ms)
+✓ Compiled in 21ms
+Middleware: Path /
+ GET / 200 in 21ms (compile: 5ms, proxy.ts: 5ms, render: 12ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 79ms (compile: 50ms, proxy.ts: 4ms, render: 24ms)
+Middleware: Path /
+ GET / 200 in 20ms (compile: 3ms, proxy.ts: 7ms, render: 10ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 9ms (compile: 1167µs, proxy.ts: 1583µs, render: 7ms)
+Middleware: Path /
+ GET / 200 in 16ms (compile: 4ms, proxy.ts: 4ms, render: 8ms)
+✓ Compiled in 23ms
+✓ Compiled in 39ms
+Middleware: Path /sign-up
+ GET /sign-up 200 in 91ms (compile: 56ms, proxy.ts: 10ms, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 81ms (compile: 54ms, proxy.ts: 4ms, render: 23ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 278ms (compile: 3ms, proxy.ts: 268ms, render: 7ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 210ms (compile: 2ms, proxy.ts: 199ms, render: 9ms)
+Middleware: Path /courses
+ GET /courses 200 in 1776ms (compile: 3ms, proxy.ts: 230ms, render: 1542ms)
+✓ Compiled in 26ms
+Middleware: Path /courses/benim-1769584398130
+ GET /courses/benim-1769584398130 200 in 205ms (compile: 7ms, proxy.ts: 191ms, render: 7ms)
+Middleware: Path /courses/benim-1769584398130/learn
+ GET /courses/benim-1769584398130/learn 200 in 220ms (compile: 14ms, proxy.ts: 187ms, render: 18ms)
+Middleware: Path /settings
+ GET /settings 200 in 254ms (compile: 5ms, proxy.ts: 237ms, render: 12ms)
+Middleware: Path /settings
+ POST /settings 200 in 690ms (compile: 4ms, proxy.ts: 201ms, render: 485ms)
+Middleware: Path /settings
+ POST /settings 200 in 600ms (compile: 4ms, proxy.ts: 213ms, render: 383ms)
+✓ Compiled in 21ms
+✓ Compiled in 28ms
+Middleware: Path /settings
+ POST /settings 200 in 787ms (compile: 88ms, proxy.ts: 249ms, render: 450ms)
+Middleware: Path /login
+ GET /login 200 in 93ms (compile: 54ms, proxy.ts: 6ms, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 13ms (compile: 1436µs, proxy.ts: 1901µs, render: 10ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 271ms (compile: 5ms, proxy.ts: 250ms, render: 16ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 286ms (compile: 3ms, proxy.ts: 273ms, render: 10ms)
+Middleware: Path /settings
+ GET /settings 200 in 220ms (compile: 4ms, proxy.ts: 196ms, render: 20ms)
+Middleware: Path /settings
+ POST /settings 200 in 893ms (compile: 1477µs, proxy.ts: 197ms, render: 694ms)
+Middleware: Path /settings
+ POST /settings 200 in 1409ms (compile: 4ms, proxy.ts: 325ms, render: 1080ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 5ms, proxy.ts: 7ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 19ms (compile: 1686µs, proxy.ts: 3ms, render: 14ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 361ms (compile: 4ms, proxy.ts: 341ms, render: 15ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 461ms (compile: 3ms, proxy.ts: 447ms, render: 11ms)
+Middleware: Path /settings
+ GET /settings 200 in 208ms (compile: 1958µs, proxy.ts: 191ms, render: 15ms)
+Middleware: Path /settings
+ POST /settings 200 in 585ms (compile: 4ms, proxy.ts: 199ms, render: 382ms)
+Middleware: Path /settings
+ POST /settings 200 in 631ms (compile: 3ms, proxy.ts: 205ms, render: 423ms)
+Middleware: Path /settings/billing
+ GET /settings/billing 200 in 1083ms (compile: 819ms, proxy.ts: 255ms, render: 9ms)
+Middleware: Path /settings/billing
+[Polar] Initializing with token: polar_oat_...
+No Polar customer found for email: afganrasulov@gmail.com
+ POST /settings/billing 200 in 1247ms (compile: 2ms, proxy.ts: 474ms, render: 771ms)
+Middleware: Path /settings/billing
+ POST /settings/billing 200 in 577ms (compile: 1673µs, proxy.ts: 182ms, render: 393ms)
+Middleware: Path /settings/billing
+ POST /settings/billing 200 in 987ms (compile: 1791µs, proxy.ts: 201ms, render: 784ms)
+Middleware: Path /settings/billing
+No Polar customer found for email: afganrasulov@gmail.com
+ POST /settings/billing 200 in 606ms (compile: 1828µs, proxy.ts: 189ms, render: 415ms)
+Middleware: Path /settings/billing
+ POST /settings/billing 200 in 960ms (compile: 2ms, proxy.ts: 181ms, render: 776ms)
+Middleware: Path /settings/billing
+ POST /settings/billing 200 in 576ms (compile: 1182µs, proxy.ts: 181ms, render: 394ms)
+Middleware: Path /settings
+ GET /settings 200 in 284ms (compile: 5ms, proxy.ts: 261ms, render: 18ms)
+Middleware: Path /settings
+ POST /settings 200 in 695ms (compile: 6ms, proxy.ts: 269ms, render: 419ms)
+Middleware: Path /settings
+ POST /settings 200 in 665ms (compile: 1340µs, proxy.ts: 200ms, render: 464ms)
+Middleware: Path /settings
+[Polar] Initializing with token: polar_oat_...
+ POST /settings 200 in 1734ms (compile: 5ms, proxy.ts: 201ms, render: 1529ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 270ms (compile: 7ms, proxy.ts: 252ms, render: 12ms)
+Middleware: Path /courses
+ GET /courses 200 in 1746ms (compile: 5ms, proxy.ts: 248ms, render: 1493ms)
+Middleware: Path /login
+ GET /login 200 in 24ms (compile: 4ms, proxy.ts: 7ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 15ms (compile: 1503µs, proxy.ts: 3ms, render: 10ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 28ms (compile: 5ms, proxy.ts: 3ms, render: 20ms)
+Middleware: Path /api/auth/sync
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Acumbamail API Error: {"error": "Subscriber afganrasulov@gmail.com already exists in the list"}
+ POST /api/auth/sync 500 in 539ms (compile: 60ms, proxy.ts: 9ms, render: 471ms)
+Middleware: Path /login
+ GET /login 200 in 16ms (compile: 4ms, proxy.ts: 3ms, render: 9ms)
+Middleware: Path /sign-up
+ GET /sign-up 200 in 25ms (compile: 12ms, proxy.ts: 4ms, render: 9ms)
+Middleware: Path /api/auth/sync
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Acumbamail API Error: {"error": "Subscriber afganrasulov@gmail.com already exists in the list"}
+ POST /api/auth/sync 500 in 447ms (compile: 9ms, proxy.ts: 6ms, render: 432ms)
+Middleware: Path /login
+ GET /login 200 in 12ms (compile: 3ms, proxy.ts: 1926µs, render: 7ms)
+Middleware: Path /
+ GET / 200 in 143ms (compile: 66ms, proxy.ts: 5ms, render: 73ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /sign-up
+ GET /sign-up 200 in 29ms (compile: 5ms, proxy.ts: 8ms, render: 16ms)
+Middleware: Path /api/auth/sync
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Acumbamail API Error: {"error": "Subscriber afganrasulov@gmail.com already exists in the list"}
+ POST /api/auth/sync 500 in 324ms (compile: 10ms, proxy.ts: 5ms, render: 309ms)
+Middleware: Path /login
+ GET /login 200 in 18ms (compile: 5ms, proxy.ts: 3ms, render: 11ms)
+Middleware: Path /
+ GET / 200 in 35ms (compile: 4ms, proxy.ts: 6ms, render: 25ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /dashboard
+ GET /dashboard 200 in 254ms (compile: 5ms, proxy.ts: 240ms, render: 9ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 282ms (compile: 1461µs, proxy.ts: 270ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 16ms (compile: 4ms, proxy.ts: 1729µs, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 17ms (compile: 1719µs, proxy.ts: 3ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 34ms (compile: 7ms, proxy.ts: 7ms, render: 20ms)
+Middleware: Path /login
+ GET /login 200 in 21ms (compile: 3ms, proxy.ts: 2ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 3ms, proxy.ts: 4ms, render: 36ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /sign-up
+ GET /sign-up 200 in 35ms (compile: 7ms, proxy.ts: 12ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 24ms (compile: 7ms, proxy.ts: 4ms, render: 13ms)
+✓ Compiled in 24ms
+Middleware: Path /auth/callback
+ GET /auth/callback?code=4a54a5c4-725a-40cb-ad50-d9dc9598fcad&next=%2Fsettings 404 in 217ms (compile: 186ms, proxy.ts: 3ms, render: 28ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 404 in 29ms (compile: 6ms, proxy.ts: 3ms, render: 21ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 404 in 35ms (compile: 7ms, proxy.ts: 4ms, render: 25ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /auth/callback
+Middleware: Path /login
+Middleware: Path /login
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 154ms (compile: 109ms, proxy.ts: 41ms, render: 3ms)
+Middleware: Path /auth/callback
+Middleware: Path /login
+Middleware: Path /auth/auth-code-error
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 7ms (compile: 4ms, proxy.ts: 1812µs, render: 1344µs)
+Middleware: Path /login
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 24ms (compile: 12ms, proxy.ts: 11ms, render: 1430µs)
+Middleware: Path /login
+ GET /login 200 in 213ms (compile: 46ms, proxy.ts: 1381µs, render: 166ms)
+ GET /login 200 in 213ms (compile: 111ms, proxy.ts: 1336µs, render: 100ms)
+Middleware: Path /login
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 13ms (compile: 9ms, proxy.ts: 2ms, render: 1528µs)
+ GET /login 200 in 101ms (compile: 7ms, proxy.ts: 1755µs, render: 92ms)
+Middleware: Path /auth/auth-code-error
+Middleware: Path /login
+ GET /login 200 in 102ms (compile: 14ms, proxy.ts: 5ms, render: 83ms)
+ GET /auth/auth-code-error 404 in 104ms (compile: 43ms, proxy.ts: 3ms, render: 59ms)
+Middleware: Path /login
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 30ms (compile: 17ms, proxy.ts: 11ms, render: 2000µs)
+ GET /login 200 in 66ms (compile: 3ms, proxy.ts: 3ms, render: 60ms)
+Middleware: Path /login
+Middleware: Path /auth/auth-code-error
+ GET /login 200 in 66ms (compile: 3ms, proxy.ts: 2ms, render: 61ms)
+Middleware: Path /login
+ GET /login 200 in 65ms (compile: 5ms, proxy.ts: 1910µs, render: 59ms)
+ GET /auth/auth-code-error 404 in 66ms (compile: 16ms, proxy.ts: 1753µs, render: 49ms)
+Middleware: Path /auth/auth-code-error
+Middleware: Path /auth/callback
+ GET /login 200 in 66ms (compile: 19ms, proxy.ts: 2ms, render: 45ms)
+Middleware: Path /login
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 7ms (compile: 3ms, proxy.ts: 2ms, render: 1398µs)
+Middleware: Path /login
+ GET /login 200 in 75ms (compile: 2ms, proxy.ts: 3ms, render: 70ms)
+Middleware: Path /auth/callback
+ GET /auth/auth-code-error 404 in 92ms (compile: 15ms, proxy.ts: 2ms, render: 74ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 83ms (compile: 7ms, proxy.ts: 1427µs, render: 75ms)
+ GET /login 200 in 86ms (compile: 31ms, proxy.ts: 1337µs, render: 54ms)
+Middleware: Path /login
+ GET /auth/auth-code-error 404 in 92ms (compile: 6ms, proxy.ts: 1976µs, render: 84ms)
+ GET /login 200 in 78ms (compile: 12ms, proxy.ts: 20ms, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 4ms, proxy.ts: 4ms, render: 46ms)
+ GET /login 200 in 52ms (compile: 14ms, proxy.ts: 3ms, render: 36ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 45ms (compile: 6ms, proxy.ts: 1425µs, render: 37ms)
+Middleware: Path /login
+ GET /login 200 in 48ms (compile: 14ms, proxy.ts: 3ms, render: 31ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 39ms (compile: 8ms, proxy.ts: 3ms, render: 28ms)
+ GET /login 200 in 41ms (compile: 3ms, proxy.ts: 2ms, render: 36ms)
+Middleware: Path /login
+ GET /login 200 in 40ms (compile: 4ms, proxy.ts: 1856µs, render: 34ms)
+Middleware: Path /login
+ GET /login 200 in 31ms (compile: 1616µs, proxy.ts: 1282µs, render: 28ms)
+ GET /login 200 in 35ms (compile: 2ms, proxy.ts: 7ms, render: 26ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 1012µs, proxy.ts: 8ms, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 1571µs, proxy.ts: 1431µs, render: 32ms)
+Middleware: Path /login
+ GET /login 200 in 29ms (compile: 1830µs, proxy.ts: 1735µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 42ms (compile: 7ms, proxy.ts: 1048µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 36ms (compile: 1225µs, proxy.ts: 1394µs, render: 34ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 41ms (compile: 3ms, proxy.ts: 1535µs, render: 36ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 8ms, proxy.ts: 1280µs, render: 43ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 1465µs, proxy.ts: 3ms, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 50ms (compile: 2ms, proxy.ts: 1286µs, render: 46ms)
+Middleware: Path /login
+ GET /login 200 in 50ms (compile: 4ms, proxy.ts: 9ms, render: 37ms)
+Middleware: Path /login
+ GET /login 200 in 70ms (compile: 4ms, proxy.ts: 11ms, render: 56ms)
+Middleware: Path /login
+ GET /login 200 in 59ms (compile: 1016µs, proxy.ts: 1232µs, render: 57ms)
+Middleware: Path /login
+ GET /login 200 in 60ms (compile: 1245µs, proxy.ts: 1662µs, render: 57ms)
+Middleware: Path /login
+ GET /login 200 in 63ms (compile: 22ms, proxy.ts: 1339µs, render: 39ms)
+Middleware: Path /login
+ GET /login 200 in 41ms (compile: 3ms, proxy.ts: 1673µs, render: 37ms)
+Middleware: Path /login
+ GET /login 200 in 49ms (compile: 8ms, proxy.ts: 1433µs, render: 39ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 1919µs, proxy.ts: 1390µs, render: 42ms)
+Middleware: Path /login
+ GET /login 200 in 43ms (compile: 1813µs, proxy.ts: 1570µs, render: 40ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 2ms, proxy.ts: 1559µs, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 1976µs, proxy.ts: 1345µs, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 2ms, proxy.ts: 1519µs, render: 43ms)
+Middleware: Path /login
+ GET /login 200 in 39ms (compile: 1727µs, proxy.ts: 1356µs, render: 36ms)
+Middleware: Path /login
+ GET /login 200 in 38ms (compile: 1283µs, proxy.ts: 1462µs, render: 35ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 47ms (compile: 4ms, proxy.ts: 1638µs, render: 41ms)
+ GET /login 200 in 53ms (compile: 7ms, proxy.ts: 4ms, render: 42ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 55ms (compile: 3ms, proxy.ts: 1328µs, render: 51ms)
+Middleware: Path /login
+ GET /login 200 in 54ms (compile: 8ms, proxy.ts: 1198µs, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 2ms, proxy.ts: 1718µs, render: 42ms)
+ GET /login 200 in 53ms (compile: 8ms, proxy.ts: 1849µs, render: 43ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 43ms (compile: 1713µs, proxy.ts: 1864µs, render: 39ms)
+ GET /login 200 in 49ms (compile: 11ms, proxy.ts: 1906µs, render: 37ms)
+Middleware: Path /login
+ GET /login 200 in 45ms (compile: 1758µs, proxy.ts: 1228µs, render: 42ms)
+Middleware: Path /login
+ GET /login 200 in 45ms (compile: 1460µs, proxy.ts: 7ms, render: 36ms)
+Middleware: Path /login
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+ GET /login 200 in 49ms (compile: 5ms, proxy.ts: 2ms, render: 42ms)
+ GET /login 200 in 48ms (compile: 9ms, proxy.ts: 3ms, render: 36ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 41ms (compile: 971µs, proxy.ts: 1197µs, render: 38ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 3ms, proxy.ts: 1349µs, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 60ms (compile: 12ms, proxy.ts: 1189µs, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 60ms (compile: 3ms, proxy.ts: 1896µs, render: 55ms)
+ GET /login 200 in 58ms (compile: 8ms, proxy.ts: 1532µs, render: 49ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 50ms (compile: 1457µs, proxy.ts: 1598µs, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 49ms (compile: 3ms, proxy.ts: 1773µs, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 58ms (compile: 1774µs, proxy.ts: 9ms, render: 47ms)
+Middleware: Path /login
+ GET /login 200 in 50ms (compile: 3ms, proxy.ts: 1441µs, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 48ms (compile: 1735µs, proxy.ts: 1516µs, render: 45ms)
+ GET /login 200 in 58ms (compile: 8ms, proxy.ts: 1686µs, render: 48ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 54ms (compile: 1490µs, proxy.ts: 1498µs, render: 51ms)
+Middleware: Path /login
+ GET /login 200 in 54ms (compile: 3ms, proxy.ts: 1336µs, render: 49ms)
+Middleware: Path /login
+ GET /login 200 in 62ms (compile: 9ms, proxy.ts: 1309µs, render: 52ms)
+Middleware: Path /login
+ GET /login 200 in 57ms (compile: 1949µs, proxy.ts: 1611µs, render: 53ms)
+Middleware: Path /login
+ GET /login 200 in 55ms (compile: 3ms, proxy.ts: 2ms, render: 50ms)
+ GET /login 200 in 60ms (compile: 10ms, proxy.ts: 1215µs, render: 49ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 58ms (compile: 1500µs, proxy.ts: 1330µs, render: 55ms)
+Middleware: Path /login
+ GET /login 200 in 60ms (compile: 5ms, proxy.ts: 1314µs, render: 54ms)
+Middleware: Path /login
+ GET /login 200 in 64ms (compile: 2ms, proxy.ts: 9ms, render: 53ms)
+Middleware: Path /login
+ GET /login 200 in 56ms (compile: 1472µs, proxy.ts: 1442µs, render: 53ms)
+Middleware: Path /login
+ GET /login 200 in 64ms (compile: 6ms, proxy.ts: 3ms, render: 55ms)
+ GET /login 200 in 61ms (compile: 11ms, proxy.ts: 4ms, render: 46ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 1587µs, proxy.ts: 1454µs, render: 50ms)
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 1602µs, proxy.ts: 1298µs, render: 50ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 2ms, proxy.ts: 1442µs, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 58ms (compile: 1575µs, proxy.ts: 8ms, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 64ms (compile: 2ms, proxy.ts: 1786µs, render: 60ms)
+ GET /login 200 in 64ms (compile: 13ms, proxy.ts: 1189µs, render: 50ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 56ms (compile: 1933µs, proxy.ts: 8ms, render: 46ms)
+ GET /login 200 in 57ms (compile: 1752µs, proxy.ts: 1527µs, render: 54ms)
+Middleware: Path /login
+ GET /login 200 in 52ms (compile: 1748µs, proxy.ts: 1413µs, render: 49ms)
+Middleware: Path /login
+ GET /login 200 in 48ms (compile: 1313µs, proxy.ts: 2ms, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 52ms (compile: 4ms, proxy.ts: 3ms, render: 46ms)
+ GET /login 200 in 53ms (compile: 9ms, proxy.ts: 2ms, render: 41ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 4ms, proxy.ts: 1549µs, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 3ms, proxy.ts: 1806µs, render: 39ms)
+ GET /login 200 in 49ms (compile: 8ms, proxy.ts: 1633µs, render: 40ms)
+Middleware: Path /login
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 56ms (compile: 6ms, proxy.ts: 4ms, render: 46ms)
+ GET /login 200 in 54ms (compile: 10ms, proxy.ts: 5ms, render: 39ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 61ms (compile: 1757µs, proxy.ts: 1536µs, render: 58ms)
+Middleware: Path /login
+ GET /login 200 in 55ms (compile: 5ms, proxy.ts: 1633µs, render: 49ms)
+ GET /login 200 in 59ms (compile: 8ms, proxy.ts: 1438µs, render: 50ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 55ms (compile: 4ms, proxy.ts: 1936µs, render: 49ms)
+Middleware: Path /login
+ GET /login 200 in 61ms (compile: 5ms, proxy.ts: 11ms, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 61ms (compile: 7ms, proxy.ts: 4ms, render: 50ms)
+Middleware: Path /login
+ GET /login 200 in 63ms (compile: 1545µs, proxy.ts: 1546µs, render: 60ms)
+Middleware: Path /login
+ GET /login 200 in 70ms (compile: 5ms, proxy.ts: 1822µs, render: 63ms)
+ GET /login 200 in 75ms (compile: 12ms, proxy.ts: 1018µs, render: 63ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 68ms (compile: 3ms, proxy.ts: 1448µs, render: 64ms)
+Middleware: Path /login
+ GET /login 200 in 72ms (compile: 3ms, proxy.ts: 9ms, render: 60ms)
+Middleware: Path /login
+ GET /login 200 in 71ms (compile: 20ms, proxy.ts: 1638µs, render: 49ms)
+Middleware: Path /login
+ GET /login 200 in 50ms (compile: 2ms, proxy.ts: 2ms, render: 46ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 2ms, proxy.ts: 1650µs, render: 47ms)
+ GET /login 200 in 56ms (compile: 10ms, proxy.ts: 995µs, render: 45ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 49ms (compile: 1878µs, proxy.ts: 1215µs, render: 46ms)
+Middleware: Path /login
+ GET /login 200 in 57ms (compile: 1802µs, proxy.ts: 7ms, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 56ms (compile: 1339µs, proxy.ts: 10ms, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 51ms (compile: 1813µs, proxy.ts: 1671µs, render: 48ms)
+Middleware: Path /login
+ GET /login 200 in 47ms (compile: 2ms, proxy.ts: 2ms, render: 42ms)
+ GET /login 200 in 51ms (compile: 7ms, proxy.ts: 1407µs, render: 42ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 1780µs, proxy.ts: 1463µs, render: 41ms)
+ GET /login 200 in 48ms (compile: 1673µs, proxy.ts: 7ms, render: 40ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 52ms (compile: 1307µs, proxy.ts: 7ms, render: 43ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 4ms, proxy.ts: 1207µs, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 43ms (compile: 2ms, proxy.ts: 1521µs, render: 40ms)
+ GET /login 200 in 51ms (compile: 8ms, proxy.ts: 926µs, render: 42ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 4ms, proxy.ts: 1536µs, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 52ms (compile: 10ms, proxy.ts: 852µs, render: 42ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 1228µs, proxy.ts: 1146µs, render: 44ms)
+Middleware: Path /login
+ GET /login 200 in 46ms (compile: 1391µs, proxy.ts: 1207µs, render: 44ms)
+Middleware: Path /login
+ GET /login 200 in 45ms (compile: 2ms, proxy.ts: 1817µs, render: 40ms)
+ GET /login 200 in 50ms (compile: 8ms, proxy.ts: 1505µs, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 2ms, proxy.ts: 7ms, render: 35ms)
+Middleware: Path /login
+ GET /login 200 in 47ms (compile: 10ms, proxy.ts: 1159µs, render: 35ms)
+ GET /login 200 in 37ms (compile: 1153µs, proxy.ts: 7ms, render: 29ms)
+Middleware: Path /login
+ GET /login 200 in 38ms (compile: 1792µs, proxy.ts: 1447µs, render: 35ms)
+Middleware: Path /login
+ GET /login 200 in 31ms (compile: 1458µs, proxy.ts: 2ms, render: 28ms)
+Middleware: Path /login
+ GET /login 200 in 36ms (compile: 1718µs, proxy.ts: 1382µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1120µs, proxy.ts: 1634µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1152µs, proxy.ts: 1120µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 34ms (compile: 1000µs, proxy.ts: 1338µs, render: 32ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1179µs, proxy.ts: 1479µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 1266µs, proxy.ts: 1026µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 37ms (compile: 3ms, proxy.ts: 1023µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 29ms (compile: 1702µs, proxy.ts: 1236µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1012µs, proxy.ts: 1152µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 29ms (compile: 1224µs, proxy.ts: 1777µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1451µs, proxy.ts: 1287µs, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1663µs, proxy.ts: 1166µs, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 1413µs, proxy.ts: 1071µs, render: 32ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1475µs, proxy.ts: 1445µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1257µs, proxy.ts: 1119µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 34ms (compile: 875µs, proxy.ts: 1103µs, render: 32ms)
+Middleware: Path /login
+ GET /login 200 in 36ms (compile: 3ms, proxy.ts: 1102µs, render: 31ms)
+Middleware: Path /login
+ GET /login 200 in 34ms (compile: 1365µs, proxy.ts: 1127µs, render: 31ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 896µs, proxy.ts: 1096µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 1070µs, proxy.ts: 1764µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 926µs, proxy.ts: 1225µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1135µs, proxy.ts: 1452µs, render: 28ms)
+Middleware: Path /login
+ GET /login 200 in 31ms (compile: 899µs, proxy.ts: 1161µs, render: 29ms)
+Middleware: Path /login
+ GET /login 200 in 32ms (compile: 1003µs, proxy.ts: 1327µs, render: 30ms)
+Middleware: Path /login
+ GET /login 200 in 32ms (compile: 1630µs, proxy.ts: 3ms, render: 28ms)
+Middleware: Path /login
+ GET /login 200 in 37ms (compile: 1563µs, proxy.ts: 1200µs, render: 34ms)
+Middleware: Path /login
+ GET /login 200 in 40ms (compile: 5ms, proxy.ts: 1281µs, render: 34ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1556µs, proxy.ts: 1189µs, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 37ms (compile: 930µs, proxy.ts: 1234µs, render: 35ms)
+Middleware: Path /login
+ GET /login 200 in 43ms (compile: 880µs, proxy.ts: 1131µs, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 44ms (compile: 1550µs, proxy.ts: 1842µs, render: 40ms)
+Middleware: Path /login
+ GET /login 200 in 47ms (compile: 971µs, proxy.ts: 1290µs, render: 45ms)
+Middleware: Path /login
+ GET /login 200 in 39ms (compile: 1380µs, proxy.ts: 1721µs, render: 36ms)
+Middleware: Path /login
+ GET /login 200 in 41ms (compile: 1484µs, proxy.ts: 2ms, render: 38ms)
+Middleware: Path /login
+ GET /login 200 in 53ms (compile: 1324µs, proxy.ts: 1698µs, render: 50ms)
+Middleware: Path /login
+ GET /login 200 in 45ms (compile: 1791µs, proxy.ts: 2ms, render: 41ms)
+Middleware: Path /login
+ GET /login 200 in 102ms (compile: 6ms, proxy.ts: 1781µs, render: 94ms)
+Middleware: Path /login
+ GET /login 200 in 87ms (compile: 1690µs, proxy.ts: 1969µs, render: 84ms)
+Middleware: Path /login
+ GET /login 200 in 85ms (compile: 2ms, proxy.ts: 3ms, render: 80ms)
+Middleware: Path /login
+ GET /login 200 in 88ms (compile: 2ms, proxy.ts: 50ms, render: 36ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1443µs, proxy.ts: 1284µs, render: 28ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1371µs, proxy.ts: 1266µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1150µs, proxy.ts: 1183µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 29ms (compile: 1333µs, proxy.ts: 1306µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 30ms (compile: 1442µs, proxy.ts: 1080µs, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 35ms (compile: 1522µs, proxy.ts: 1132µs, render: 32ms)
+Middleware: Path /login
+ GET /login 200 in 33ms (compile: 1113µs, proxy.ts: 1325µs, render: 30ms)
+Middleware: Path /login
+ GET /login 200 in 26ms (compile: 1169µs, proxy.ts: 1290µs, render: 23ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 938µs, proxy.ts: 983µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 38ms (compile: 3ms, proxy.ts: 1440µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 29ms (compile: 1182µs, proxy.ts: 949µs, render: 27ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1469µs, proxy.ts: 1031µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 36ms (compile: 1086µs, proxy.ts: 1042µs, render: 33ms)
+Middleware: Path /login
+ GET /login 200 in 41ms (compile: 950µs, proxy.ts: 1105µs, render: 39ms)
+Middleware: Path /login
+ GET /login 200 in 42ms (compile: 849µs, proxy.ts: 1457µs, render: 40ms)
+Middleware: Path /login
+ GET /login 200 in 43ms (compile: 5ms, proxy.ts: 4ms, render: 34ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 1258µs, proxy.ts: 1329µs, render: 24ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 1132µs, proxy.ts: 989µs, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 1111µs, proxy.ts: 975µs, render: 26ms)
+Middleware: Path /login
+ GET /login 200 in 28ms (compile: 3ms, proxy.ts: 1167µs, render: 23ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 1099µs, proxy.ts: 1281µs, render: 25ms)
+ GET /login 200 in 25ms (compile: 1327µs, proxy.ts: 946µs, render: 23ms)
+ GET /login 200 in 18ms (compile: 1040µs, proxy.ts: 1156µs, render: 16ms)
+ GET /login 200 in 9ms (compile: 1075µs, proxy.ts: 1291µs, render: 6ms)
+Middleware: Path /auth/callback
+ GET /auth/callback?error=access_denied&error_code=otp_expired&error_description=Email+link+is+invalid+or+has+expired&next=%2Fsettings 307 in 13ms (compile: 6ms, proxy.ts: 4ms, render: 3ms)
+Middleware: Path /auth/auth-code-error
+ GET /auth/auth-code-error 404 in 28ms (compile: 5ms, proxy.ts: 3ms, render: 20ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /auth/callback
+ GET /auth/callback?code=46d43611-8de6-401e-a3fb-782fd8675c6b&next=%2Fsettings 307 in 341ms (compile: 5ms, proxy.ts: 5ms, render: 331ms)
+Middleware: Path /settings
+ GET /settings 200 in 358ms (compile: 72ms, proxy.ts: 189ms, render: 97ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /settings
+ POST /settings 200 in 738ms (compile: 3ms, proxy.ts: 181ms, render: 554ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 446ms (compile: 50ms, proxy.ts: 340ms, render: 55ms)
+ GET /login 200 in 455ms (compile: 16ms, proxy.ts: 428ms, render: 11ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 235ms (compile: 4ms, proxy.ts: 192ms, render: 40ms)
+ GET /login 200 in 213ms (compile: 1492µs, proxy.ts: 196ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 189ms (compile: 1543µs, proxy.ts: 176ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 198ms (compile: 1351µs, proxy.ts: 185ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 282ms (compile: 2ms, proxy.ts: 259ms, render: 22ms)
+ GET /login 200 in 259ms (compile: 12ms, proxy.ts: 235ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 214ms (compile: 3ms, proxy.ts: 182ms, render: 29ms)
+ GET /login 200 in 214ms (compile: 6ms, proxy.ts: 197ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 211ms (compile: 3ms, proxy.ts: 176ms, render: 32ms)
+ GET /login 200 in 198ms (compile: 1324µs, proxy.ts: 184ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 214ms (compile: 1823µs, proxy.ts: 182ms, render: 30ms)
+ GET /login 200 in 198ms (compile: 1755µs, proxy.ts: 185ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 1603µs, proxy.ts: 187ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 195ms (compile: 1428µs, proxy.ts: 186ms, render: 8ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 283ms (compile: 3ms, proxy.ts: 255ms, render: 25ms)
+ GET /login 200 in 268ms (compile: 12ms, proxy.ts: 241ms, render: 16ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 225ms (compile: 5ms, proxy.ts: 187ms, render: 33ms)
+ GET /login 200 in 225ms (compile: 19ms, proxy.ts: 187ms, render: 19ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 220ms (compile: 3ms, proxy.ts: 180ms, render: 36ms)
+ GET /login 200 in 220ms (compile: 4ms, proxy.ts: 199ms, render: 16ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 293ms (compile: 3ms, proxy.ts: 250ms, render: 41ms)
+ GET /login 200 in 277ms (compile: 6ms, proxy.ts: 252ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1312µs, proxy.ts: 181ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 197ms (compile: 1197µs, proxy.ts: 184ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 189ms (compile: 1298µs, proxy.ts: 174ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 202ms (compile: 1815µs, proxy.ts: 185ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 198ms (compile: 1812µs, proxy.ts: 185ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 208ms (compile: 1490µs, proxy.ts: 193ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 188ms (compile: 2ms, proxy.ts: 172ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 273ms (compile: 2ms, proxy.ts: 249ms, render: 22ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1766µs, proxy.ts: 177ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 207ms (compile: 2ms, proxy.ts: 185ms, render: 19ms)
+Middleware: Path /login
+ GET /login 200 in 220ms (compile: 1909µs, proxy.ts: 205ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 207ms (compile: 2ms, proxy.ts: 189ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 246ms (compile: 2ms, proxy.ts: 230ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 2ms, proxy.ts: 183ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 191ms (compile: 2ms, proxy.ts: 172ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 205ms (compile: 2ms, proxy.ts: 188ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1840µs, proxy.ts: 177ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 259ms (compile: 3ms, proxy.ts: 237ms, render: 19ms)
+Middleware: Path /login
+ GET /login 200 in 204ms (compile: 1836µs, proxy.ts: 188ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 200ms (compile: 2ms, proxy.ts: 182ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 200ms (compile: 2ms, proxy.ts: 184ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 2ms, proxy.ts: 182ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1757µs, proxy.ts: 178ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 198ms (compile: 2ms, proxy.ts: 181ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 264ms (compile: 5ms, proxy.ts: 246ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1382µs, proxy.ts: 181ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 197ms (compile: 10ms, proxy.ts: 173ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 269ms (compile: 2ms, proxy.ts: 254ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 189ms (compile: 5ms, proxy.ts: 173ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 220ms (compile: 4ms, proxy.ts: 181ms, render: 34ms)
+ GET /login 200 in 193ms (compile: 2ms, proxy.ts: 175ms, render: 16ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 222ms (compile: 1330µs, proxy.ts: 197ms, render: 23ms)
+ GET /login 200 in 204ms (compile: 3ms, proxy.ts: 189ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 187ms (compile: 1868µs, proxy.ts: 172ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 1596µs, proxy.ts: 181ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 3ms, proxy.ts: 178ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 203ms (compile: 1853µs, proxy.ts: 180ms, render: 21ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 295ms (compile: 5ms, proxy.ts: 264ms, render: 26ms)
+ GET /login 200 in 274ms (compile: 15ms, proxy.ts: 244ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 191ms (compile: 1944µs, proxy.ts: 176ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 213ms (compile: 1792µs, proxy.ts: 197ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 190ms (compile: 1864µs, proxy.ts: 175ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1318µs, proxy.ts: 179ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 186ms (compile: 1331µs, proxy.ts: 176ms, render: 9ms)
+Middleware: Path /login
+ GET /login 200 in 198ms (compile: 1608µs, proxy.ts: 185ms, render: 11ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 237ms (compile: 2ms, proxy.ts: 208ms, render: 27ms)
+ GET /login 200 in 204ms (compile: 4ms, proxy.ts: 187ms, render: 12ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 296ms (compile: 4ms, proxy.ts: 256ms, render: 36ms)
+ GET /login 200 in 284ms (compile: 21ms, proxy.ts: 243ms, render: 19ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 4ms, proxy.ts: 173ms, render: 19ms)
+ GET /login 200 in 196ms (compile: 1484µs, proxy.ts: 185ms, render: 9ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 209ms (compile: 2ms, proxy.ts: 176ms, render: 31ms)
+ GET /login 200 in 200ms (compile: 1524µs, proxy.ts: 187ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 201ms (compile: 2ms, proxy.ts: 177ms, render: 22ms)
+Middleware: Path /login
+ GET /login 200 in 274ms (compile: 2ms, proxy.ts: 259ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 2ms, proxy.ts: 175ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 2ms, proxy.ts: 183ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 265ms (compile: 2ms, proxy.ts: 243ms, render: 20ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1662µs, proxy.ts: 179ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 213ms (compile: 2ms, proxy.ts: 191ms, render: 20ms)
+Middleware: Path /login
+ GET /login 200 in 217ms (compile: 1949µs, proxy.ts: 202ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 3ms, proxy.ts: 176ms, render: 20ms)
+Middleware: Path /login
+ GET /login 200 in 286ms (compile: 2ms, proxy.ts: 268ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1919µs, proxy.ts: 173ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 4ms, proxy.ts: 181ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 186ms (compile: 1271µs, proxy.ts: 175ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 201ms (compile: 2ms, proxy.ts: 184ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 185ms (compile: 1562µs, proxy.ts: 171ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 202ms (compile: 1470µs, proxy.ts: 191ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 268ms (compile: 1653µs, proxy.ts: 255ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 202ms (compile: 5ms, proxy.ts: 183ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 186ms (compile: 1963µs, proxy.ts: 172ms, render: 13ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 274ms (compile: 5ms, proxy.ts: 246ms, render: 24ms)
+ GET /login 200 in 196ms (compile: 1468µs, proxy.ts: 184ms, render: 11ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 209ms (compile: 1460µs, proxy.ts: 182ms, render: 25ms)
+ GET /login 200 in 197ms (compile: 1130µs, proxy.ts: 186ms, render: 10ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 209ms (compile: 2ms, proxy.ts: 176ms, render: 31ms)
+ GET /login 200 in 199ms (compile: 1820µs, proxy.ts: 186ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 187ms (compile: 1169µs, proxy.ts: 174ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1660µs, proxy.ts: 183ms, render: 9ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1879µs, proxy.ts: 177ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 190ms (compile: 1268µs, proxy.ts: 179ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 195ms (compile: 2ms, proxy.ts: 175ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 270ms (compile: 1531µs, proxy.ts: 257ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 270ms (compile: 1584µs, proxy.ts: 257ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1159µs, proxy.ts: 182ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 202ms (compile: 1354µs, proxy.ts: 186ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1354µs, proxy.ts: 179ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1457µs, proxy.ts: 179ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 190ms (compile: 1100µs, proxy.ts: 179ms, render: 9ms)
+Middleware: Path /login
+ GET /login 200 in 197ms (compile: 2ms, proxy.ts: 179ms, render: 16ms)
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 1349µs, proxy.ts: 184ms, render: 11ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 217ms (compile: 2ms, proxy.ts: 179ms, render: 36ms)
+ GET /login 200 in 198ms (compile: 1499µs, proxy.ts: 185ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 2ms, proxy.ts: 175ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 278ms (compile: 1853µs, proxy.ts: 262ms, render: 14ms)
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 2ms, proxy.ts: 176ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 214ms (compile: 2ms, proxy.ts: 200ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 258ms (compile: 1112µs, proxy.ts: 242ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 200ms (compile: 1195µs, proxy.ts: 190ms, render: 9ms)
+Middleware: Path /login
+ GET /login 200 in 199ms (compile: 1695µs, proxy.ts: 183ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 193ms (compile: 1586µs, proxy.ts: 180ms, render: 11ms)
+Middleware: Path /login
+ GET /login 200 in 192ms (compile: 1851µs, proxy.ts: 174ms, render: 17ms)
+Middleware: Path /login
+ GET /login 200 in 278ms (compile: 2ms, proxy.ts: 260ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 190ms (compile: 1638µs, proxy.ts: 176ms, render: 13ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 220ms (compile: 3ms, proxy.ts: 185ms, render: 32ms)
+ GET /login 200 in 190ms (compile: 2ms, proxy.ts: 174ms, render: 14ms)
+Middleware: Path /login
+Middleware: Path /login
+ GET /login 200 in 219ms (compile: 3ms, proxy.ts: 187ms, render: 29ms)
+ GET /login 200 in 203ms (compile: 4ms, proxy.ts: 186ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 196ms (compile: 7ms, proxy.ts: 174ms, render: 15ms)
+Middleware: Path /login
+ GET /login 200 in 284ms (compile: 3ms, proxy.ts: 269ms, render: 12ms)
+Middleware: Path /login
+ GET /login 200 in 189ms (compile: 1814µs, proxy.ts: 173ms, render: 14ms)
+✓ Compiled in 70ms
+✓ Compiled in 18ms
+✓ Compiled in 32ms
+Middleware: Path /auth/callback
+ GET /auth/callback?code=96f27208-83cc-4993-97e5-492e83870d71&next=%2Fpassword-reset 307 in 545ms (compile: 44ms, proxy.ts: 270ms, render: 232ms)
+Middleware: Path /password-reset
+ GET /password-reset 200 in 412ms (compile: 155ms, proxy.ts: 187ms, render: 69ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /dashboard
+ GET /dashboard 200 in 293ms (compile: 19ms, proxy.ts: 254ms, render: 20ms)
+Middleware: Path /settings
+ GET /settings 200 in 306ms (compile: 93ms, proxy.ts: 188ms, render: 25ms)
+Middleware: Path /settings
+⨯ ReferenceError: handlePasswordChange is not defined
+    at SettingsPage (src/app/(dashboard)/settings/page.tsx:343:42)
+  341 |                             </div>
+  342 |                             <Button
+> 343 |                                 onClick={handlePasswordChange}
+      |                                          ^
+  344 |                                 disabled={saving || !passwordData.newPassword}
+  345 |                                 className="w-fit"
+  346 |                             > {
+  digest: '2196443286'
+}
+ GET /settings 500 in 611ms (compile: 1776µs, proxy.ts: 502ms, render: 108ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /login
+ GET /login 200 in 509ms (compile: 57ms, proxy.ts: 316ms, render: 136ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /dashboard
+ GET /dashboard 200 in 246ms (compile: 3ms, proxy.ts: 233ms, render: 9ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 214ms (compile: 1624µs, proxy.ts: 203ms, render: 10ms)
+Middleware: Path /settings
+ GET /settings 200 in 239ms (compile: 3ms, proxy.ts: 229ms, render: 6ms)
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+✓ Compiled in 27ms
+Middleware: Path /settings
+ GET /settings 200 in 433ms (compile: 81ms, proxy.ts: 232ms, render: 120ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /settings
+ GET /settings 200 in 260ms (compile: 3ms, proxy.ts: 232ms, render: 25ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /settings
+Middleware: Path /settings
+ POST /settings 200 in 1142ms (compile: 1743µs, proxy.ts: 698ms, render: 442ms)
+ POST /settings 200 in 1333ms (compile: 1468µs, proxy.ts: 311ms, render: 1021ms)
+Middleware: Path /login
+ GET /login 200 in 80ms (compile: 12ms, proxy.ts: 42ms, render: 25ms)
+Middleware: Path /login
+ GET /login 200 in 21ms (compile: 5ms, proxy.ts: 3ms, render: 13ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 250ms (compile: 3ms, proxy.ts: 235ms, render: 12ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 201ms (compile: 1550µs, proxy.ts: 186ms, render: 13ms)
+Middleware: Path /login
+ GET /login 200 in 27ms (compile: 4ms, proxy.ts: 5ms, render: 18ms)
+Middleware: Path /login
+ GET /login 200 in 18ms (compile: 1768µs, proxy.ts: 4ms, render: 12ms)
+Middleware: Path /auth/callback
+ GET /auth/callback?code=dc2ef01b-47f1-4cb5-b1e5-217fb813eab1&next=%2Fpassword-reset 307 in 286ms (compile: 4ms, proxy.ts: 5ms, render: 278ms)
+Middleware: Path /password-reset
+ GET /password-reset 200 in 223ms (compile: 4ms, proxy.ts: 190ms, render: 29ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /dashboard
+ GET /dashboard 200 in 260ms (compile: 2ms, proxy.ts: 233ms, render: 24ms)
+Middleware: Path /settings
+ GET /settings 200 in 259ms (compile: 3ms, proxy.ts: 244ms, render: 12ms)
+Middleware: Path /settings
+ POST /settings 200 in 576ms (compile: 1414µs, proxy.ts: 201ms, render: 374ms)
+Middleware: Path /settings
+ POST /settings 200 in 642ms (compile: 1770µs, proxy.ts: 189ms, render: 451ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 290ms (compile: 7ms, proxy.ts: 265ms, render: 18ms)
+Middleware: Path /profile
+ GET /profile 200 in 534ms (compile: 276ms, proxy.ts: 238ms, render: 20ms)
+Middleware: Path /courses
+ GET /courses 200 in 1847ms (compile: 47ms, proxy.ts: 200ms, render: 1600ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 212ms (compile: 6ms, proxy.ts: 193ms, render: 13ms)
+Middleware: Path /settings
+ GET /settings 200 in 268ms (compile: 3ms, proxy.ts: 259ms, render: 6ms)
+Middleware: Path /settings
+ POST /settings 200 in 562ms (compile: 3ms, proxy.ts: 181ms, render: 378ms)
+Middleware: Path /settings
+ POST /settings 200 in 642ms (compile: 3ms, proxy.ts: 269ms, render: 370ms)
+Middleware: Path /leaderboard
+ GET /leaderboard 200 in 563ms (compile: 159ms, proxy.ts: 190ms, render: 214ms)
+Middleware: Path /live
+ GET /live 200 in 1055ms (compile: 156ms, proxy.ts: 183ms, render: 716ms)
+Middleware: Path /courses
+ GET /courses 200 in 1555ms (compile: 4ms, proxy.ts: 186ms, render: 1365ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 207ms (compile: 3ms, proxy.ts: 195ms, render: 8ms)
+Middleware: Path /courses
+ GET /courses 200 in 1713ms (compile: 2ms, proxy.ts: 188ms, render: 1522ms)
+Middleware: Path /settings
+ GET /settings 200 in 258ms (compile: 6ms, proxy.ts: 239ms, render: 13ms)
+Middleware: Path /settings
+ POST /settings 200 in 1320ms (compile: 1964µs, proxy.ts: 179ms, render: 1139ms)
+Middleware: Path /settings
+ POST /settings 200 in 607ms (compile: 1383µs, proxy.ts: 246ms, render: 360ms)
+Middleware: Path /courses
+ GET /courses 200 in 1889ms (compile: 3ms, proxy.ts: 375ms, render: 1510ms)
+Middleware: Path /settings
+ GET /settings 200 in 283ms (compile: 5ms, proxy.ts: 264ms, render: 13ms)
+Middleware: Path /settings
+ POST /settings 200 in 701ms (compile: 3ms, proxy.ts: 278ms, render: 420ms)
+Middleware: Path /settings
+ POST /settings 200 in 561ms (compile: 1484µs, proxy.ts: 189ms, render: 371ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 328ms (compile: 7ms, proxy.ts: 304ms, render: 17ms)
+Middleware: Path /settings
+ GET /settings 200 in 606ms (compile: 6ms, proxy.ts: 582ms, render: 17ms)
+Middleware: Path /settings
+ POST /settings 200 in 716ms (compile: 4ms, proxy.ts: 188ms, render: 524ms)
+Middleware: Path /settings
+ POST /settings 200 in 691ms (compile: 4ms, proxy.ts: 185ms, render: 502ms)
+✓ Compiled in 27ms
+Middleware: Path /dashboard
+ GET /dashboard 200 in 338ms (compile: 8ms, proxy.ts: 307ms, render: 24ms)
+✓ Compiled in 28ms
+Middleware: Path /courses
+ GET /courses 200 in 1959ms (compile: 4ms, proxy.ts: 275ms, render: 1680ms)
+Middleware: Path /courses
+ GET /courses 200 in 1730ms (compile: 1539µs, proxy.ts: 322ms, render: 1407ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 397ms (compile: 82ms, proxy.ts: 289ms, render: 26ms)
+Middleware: Path /settings
+ GET /settings 200 in 416ms (compile: 99ms, proxy.ts: 284ms, render: 32ms)
+Middleware: Path /settings
+ POST /settings 200 in 579ms (compile: 3ms, proxy.ts: 197ms, render: 379ms)
+Middleware: Path /settings
+ POST /settings 200 in 550ms (compile: 3ms, proxy.ts: 179ms, render: 368ms)
+Middleware: Path /profile
+ GET /profile 200 in 276ms (compile: 10ms, proxy.ts: 247ms, render: 19ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 291ms (compile: 5ms, proxy.ts: 275ms, render: 10ms)
+Middleware: Path /courses
+ GET /courses 200 in 1690ms (compile: 8ms, proxy.ts: 203ms, render: 1479ms)
+Middleware: Path /courses/benim-1769584398130
+ GET /courses/benim-1769584398130 200 in 206ms (compile: 11ms, proxy.ts: 183ms, render: 11ms)

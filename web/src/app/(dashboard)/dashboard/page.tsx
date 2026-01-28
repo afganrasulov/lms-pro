@@ -115,7 +115,7 @@ export default function UserDashboardPage() {
                 <div>
                     <h1 className="text-3xl font-bold tracking-tight text-foreground flex items-center gap-2">
                         <Trophy className="text-yellow-500 w-8 h-8" />
-                        Başarı Dashboard'u
+                        Başarı Panosu
                     </h1>
                     {loading ? (
                         <Skeleton className="h-5 w-48 mt-2" />

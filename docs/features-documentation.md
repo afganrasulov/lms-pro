@@ -163,3 +163,24 @@
   - **Sorun:** Frontend kodu daha önce `lesson_contents[0]` ile rastgele (veya varsayılan sıralamaya göre) bir içerik seçiyordu. Bu durum, admin panelinde güncelleme yapılsa bile öğrencinin eski bir videoyu (ör. "Train arriving") görmesine neden oluyordu.
   - **Çözüm:** `activeLesson` içinden içerik seçilirken artık **`is_current_version: true`** olan kayıt filtreleniyor.
   - **Defensive Sorting:** Ayrıca `loadData` fonksiyonunda içerikler `is_current_version` (true önce gelir) mantığıyla sıralanarak, kodun fallback durumunda bile en güncel veriye ulaşması garanti altına alındı.
+
+## 17. Türkçe UI Lokalizasyonu (Phase 1)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Platformun kritik kullanıcı arayüzleri (Giriş, Kayıt, Kurs Sayfaları, Öğrenci Paneli) tamamen Türkçe olarak sunulmaktadır.
+- **Teknik Detay:**
+  - **Strateji:** `next-intl` gibi ağır kütüphaneler yerine, Phase 1 kapsamında "Direct String Replacement" (Doğrudan Metin Değiştirme) yöntemi uygulandı. Bu, geliştirme hızını artırmak ve kod karmaşıklığını düşük tutmak için tercih edildi.
+  - **Kapsam:** `/sign-up`, `/login`, `/courses`, `/courses/[slug]`, `/learn` ve `/settings` sayfaları lokalize edildi.
+  - **Temizlik:** Auth sayfalarındaki gereksiz "ARAMIZA KATIL!" gibi header metinleri kaldırılarak daha sade bir UX sağlandı.
+
+## 18. Şifre Sıfırlama ve Güvenlik Akışı (Password Reset Flow)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Kullanıcılar şifrelerini unuttuklarında güvenli bir e-posta akışı ile sıfırlayabilir veya giriş yaptıktan sonra ayarlar sayfasından değiştirebilirler.
+- **Teknik Detay:**
+  - **Workflow:**
+    1. **Talep:** Giriş sayfasında "Şifreni mi unuttun?" butonuna tıklandığında, form inline olarak e-posta moduna geçer.
+    2. **Yönlendirme (Callback):** Supabase `resetPasswordForEmail` fonksiyonu, `redirectTo` parametresi olarak `/auth/callback?next=/password-reset` adresini kullanır.
+    3. **Yeni Şifre:** Kullanıcı e-postadaki linke tıkladığında `/password-reset` sayfasına yönlendirilir ve burada `supabase.auth.updateUser` ile yeni şifresini belirler.
+  - **Ayarlar Sayfası:** `/settings` sayfasına eklenen "Güvenlik" kartı sayesinde, oturum açmış kullanıcılar eski şifrelerini bilmeseler bile (OAuth vb. durumlar hariç) doğrudan yeni şifre atayabilirler.
+  - **Bug Fix (404 Error):** Standart Supabase akışında yaşanan "Redirect sonrası 404" hatası, özel bir `auth/callback` rotası yazılarak ve PKCE code exchange işlemi sunucu tarafında (Server Action) yapılarak çözüldü.

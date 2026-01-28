@@ -40,6 +40,7 @@ export const acumbamailService = {
             params.append('auth_token', AUTH_TOKEN)
             params.append('list_id', listId)
             params.append('merge_fields[email]', subscriber.email)
+            params.append('welcome_email', '1')
 
             if (subscriber.name) params.append('merge_fields[name]', subscriber.name)
             if (subscriber.last_name) params.append('merge_fields[surname]', subscriber.last_name)
