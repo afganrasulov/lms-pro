@@ -124,9 +124,9 @@
 - **Teknik Detay:**
   - **SDK Güncellemesi (v0.42.2):** Polar SDK'sındaki yapısal değişiklik nedeniyle `client.users.licenseKeys.validate` yerine doğrudan `client.licenseKeys.validate` kullanımı zorunludur. Ayrıca doğruluğu sağlamak için `organizationId` parametresi zorunlu hale getirilmiştir.
   - **Veritabanı Şeması:** `profiles` tablosuna eksik olan `license_key` (text) ve `license_status` (text, default: 'inactive') kolonları eklenerek veri kalıcılığı sağlandı.
-  - **SaaS Hibrit Doğrulama:** `verifyLicense` aksiyonu bir lisans anahtarı geldiğinde sırasıyla şu adımları izler:
-    1. Platform Seviyesi: Sunucu üzerindeki ana (`.env`) Polar Token ile sorgulama yapar.
-    2. SaaS Seviyesi: Tüm kayıtlı organizasyonların (`organizations.polar_access_token`) üzerinden geçerek doğrulamayı yineler.
+  - **SaaS "Strict" Doğrulama:** `verifyLicense` aksiyonu bir lisans anahtarı geldiğinde **SADECE** entegrasyon yapmış eğitmenlerin hesaplarını kontrol eder.
+    1. **Platform Seviyesi (Devre Dışı):** Varsayılan platform token (`POLAR_SANDBOX_TOKEN`) kontrolü güvenlik ve iş modeli gereği devre dışı bırakılmıştır.
+    2. **Connected Org Seviyesi:** Sadece veritabanında `organizations` tablosuna kayıtlı ve token almış eğitmenlerin anahtarları kabul edilir.
   - **Kritik Fix (Schema Cache):** Yeni eklenen kolonların API tarafında görünmemesi (`PGRST204` hatası) durumunda veritabanı şema cache'inin yenilenmesi (`NOTIFY pgrst, 'reload schema'`) gerektiği dökümante edilmiştir.
   - **Erişim Kontrolü (Gating):** `/courses/[slug]/learn` sayfasında (Course Player), kullanıcının `license_status` değeri kontrol edilir. Eğer aktif değilse, içerik yerine engelleyici bir "Lisans Anahtarı Gerekli" ekranı gösterilir.
 

@@ -1416,3 +1416,90 @@ Polar Webhook: Headers: {
 Polar Webhook: Signature Header: v1,oKxnvKnNnQUNLsfKMXmFFpwXIUQGfhs5Xq5WDwScqOE=
 Polar Webhook received: customer.state_changed
  POST /api/webhooks/polar 200 in 9ms (compile: 1675µs, proxy.ts: 3ms, render: 4ms)
+✓ Compiled in 324ms
+Middleware: Path /settings
+ GET /settings 200 in 991ms (compile: 85ms, proxy.ts: 858ms, render: 48ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 265ms (compile: 18ms, proxy.ts: 240ms, render: 7ms)
+Middleware: Path /profile
+ GET /profile 200 in 513ms (compile: 300ms, proxy.ts: 197ms, render: 15ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 497ms (compile: 291ms, proxy.ts: 192ms, render: 14ms)
+Middleware: Path /admin/users
+ GET /admin/users 200 in 574ms (compile: 369ms, proxy.ts: 194ms, render: 11ms)
+Middleware: Path /courses
+ GET /courses 200 in 2.1s (compile: 185ms, proxy.ts: 192ms, render: 1687ms)
+Middleware: Path /live
+ GET /live 200 in 1028ms (compile: 153ms, proxy.ts: 189ms, render: 686ms)
+Middleware: Path /leaderboard
+ GET /leaderboard 200 in 665ms (compile: 150ms, proxy.ts: 195ms, render: 319ms)
+Middleware: Path /live
+ GET /live 200 in 832ms (compile: 3ms, proxy.ts: 191ms, render: 639ms)
+Middleware: Path /settings
+ GET /settings 200 in 204ms (compile: 1974µs, proxy.ts: 194ms, render: 8ms)
+Middleware: Path /settings
+ POST /settings 200 in 830ms (compile: 1325µs, proxy.ts: 188ms, render: 641ms)
+Middleware: Path /settings
+ POST /settings 200 in 854ms (compile: 3ms, proxy.ts: 200ms, render: 650ms)
+Middleware: Path /courses
+Middleware: Path /admin/users
+ GET /admin/users 200 in 263ms (compile: 6ms, proxy.ts: 246ms, render: 11ms)
+ GET /courses 200 in 1747ms (compile: 1434µs, proxy.ts: 308ms, render: 1438ms)
+Middleware: Path /api/admin/users/delete
+ POST /api/admin/users/delete 200 in 1374ms (compile: 150ms, proxy.ts: 307ms, render: 916ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 217ms (compile: 6ms, proxy.ts: 196ms, render: 15ms)
+Middleware: Path /settings
+ GET /settings 200 in 254ms (compile: 6ms, proxy.ts: 233ms, render: 15ms)
+Middleware: Path /settings
+ POST /settings 200 in 843ms (compile: 2ms, proxy.ts: 241ms, render: 599ms)
+Middleware: Path /settings
+ POST /settings 200 in 800ms (compile: 1350µs, proxy.ts: 187ms, render: 612ms)
+Middleware: Path /settings
+ POST /settings 200 in 761ms (compile: 4ms, proxy.ts: 179ms, render: 578ms)
+Middleware: Path /settings
+ POST /settings 200 in 616ms (compile: 4ms, proxy.ts: 229ms, render: 384ms)
+Middleware: Path /settings
+ POST /settings 200 in 1365ms (compile: 4ms, proxy.ts: 347ms, render: 1014ms)
+Middleware: Path /settings
+[Polar] Initializing with token: polar_oat_...
+ POST /settings 200 in 1359ms (compile: 5ms, proxy.ts: 218ms, render: 1136ms)
+Middleware: Path /live
+ GET /live 200 in 968ms (compile: 3ms, proxy.ts: 194ms, render: 771ms)
+Middleware: Path /settings
+ GET /settings 200 in 239ms (compile: 3ms, proxy.ts: 227ms, render: 9ms)
+Middleware: Path /settings
+ POST /settings 200 in 723ms (compile: 2ms, proxy.ts: 188ms, render: 533ms)
+Middleware: Path /settings
+ POST /settings 200 in 840ms (compile: 1768µs, proxy.ts: 209ms, render: 630ms)
+Middleware: Path /courses
+ GET /courses 200 in 1674ms (compile: 5ms, proxy.ts: 184ms, render: 1485ms)
+Middleware: Path /courses/benim-1769362498725/learn
+○ Compiling /courses/[slug]/learn ...
+ GET /courses/benim-1769362498725/learn 200 in 6.9s (compile: 6.7s, proxy.ts: 185ms, render: 16ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 389ms (compile: 8ms, proxy.ts: 360ms, render: 21ms)
+Middleware: Path /profile
+ GET /profile 200 in 225ms (compile: 7ms, proxy.ts: 201ms, render: 17ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 223ms (compile: 8ms, proxy.ts: 198ms, render: 18ms)
+Middleware: Path /admin/users
+ GET /admin/users 200 in 261ms (compile: 3ms, proxy.ts: 251ms, render: 7ms)
+Middleware: Path /courses
+Middleware: Path /courses
+ GET /courses 200 in 1815ms (compile: 6ms, proxy.ts: 194ms, render: 1615ms)
+Middleware: Path /live
+ GET /live 200 in 854ms (compile: 3ms, proxy.ts: 193ms, render: 659ms)
+ GET /courses 200 in 1884ms (compile: 3ms, proxy.ts: 324ms, render: 1557ms)
+Middleware: Path /leaderboard
+ GET /leaderboard 200 in 429ms (compile: 6ms, proxy.ts: 184ms, render: 239ms)
+Middleware: Path /settings
+ GET /settings 200 in 224ms (compile: 6ms, proxy.ts: 202ms, render: 15ms)
+Middleware: Path /settings
+ POST /settings 200 in 821ms (compile: 1357µs, proxy.ts: 255ms, render: 564ms)
+Middleware: Path /settings
+ POST /settings 200 in 846ms (compile: 4ms, proxy.ts: 191ms, render: 652ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 194ms (compile: 3ms, proxy.ts: 185ms, render: 6ms)
+Middleware: Path /courses
+ GET /courses 200 in 1561ms (compile: 1266µs, proxy.ts: 184ms, render: 1376ms)

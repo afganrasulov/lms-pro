@@ -40,9 +40,9 @@ ADD COLUMN license_key text,
 ADD COLUMN license_status text DEFAULT 'inactive';
 ```
 
-### 1.2 The "Hybrid" Validation Logic
+### 1.2 The "Strict SaaS" Validation Logic
 
-This is the core logic. It tries to validate the key against your platform first. If that fails, it checks if the key belongs to any of your sub-organizations (SaaS customers).
+This is the core logic. It enforces a strict "Bring-Your-Own-Key" model. We **do not** validate against the platform's global token. We **only** validate if the key belongs to a connected instructor organization.
 
 **File:** `src/actions/license.ts`
 
@@ -53,20 +53,11 @@ import { Polar } from '@polar-sh/sdk'
 const createPolarClient = (token: string) => new Polar({ accessToken: token, server: 'sandbox' });
 
 export async function verifyLicense(licenseKey: string) {
-    // 1. Try Platform Default
-    try {
-        const platformClient = createPolarClient(process.env.POLAR_SANDBOX_TOKEN!);
-        const result = await platformClient.licenseKeys.validate({
-            key: licenseKey,
-            organizationId: process.env.POLAR_ORGANIZATION_ID, // Required in SDK v0.42+
-        });
-        
-        if (result.status === 'granted') return { success: true, mode: 'platform' };
-    } catch {
-        // Fallback to SaaS verification
-    }
+    // 1. Platform Default Check -> DISABLED
+    // We intentionally skip checking process.env.POLAR_SANDBOX_TOKEN
+    // to ensure only integrated instructors can sell licenses.
 
-    // 2. SaaS Fallback (Bring-Your-Own-Key)
+    // 2. SaaS/BYOK Verification
     // Fetch all connected organizations from your DB (e.g., 'organizations' table)
     const connectedOrgs = await db.select('polar_access_token', 'polar_org_id').from('organizations'); 
 

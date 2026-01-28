@@ -23,6 +23,10 @@ export async function verifyLicense(licenseKey: string) {
         // 2. Try All Organizations with Tokens (SaaS/BYOK Sales)
 
         // --- Attempt 1: Default Platform ---
+        // DISABLED (Strict SaaS Mode): 
+        // User requirement: "Sadece entegrasyonu yapmış eğitmenin anahtarlarını kabul et."
+        // We do NOT want to validate against the platform's global token unless specifically desired.
+        /*
         try {
             // Updated for SDK 0.42.2: Removed .users namespace
             // @ts-ignore
@@ -38,6 +42,7 @@ export async function verifyLicense(licenseKey: string) {
         } catch (e) {
             // Platform token check failed, trying SaaS tokens...
         }
+        */
 
         // --- Attempt 2: SaaS Organizations ---
         if (!isValid) {
