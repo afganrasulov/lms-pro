@@ -7,3 +7,10 @@ export const polar = new Polar({
     accessToken: token,
     server: 'sandbox',
 })
+
+export const createPolarClient = (accessToken: string) => {
+    return new Polar({
+        accessToken,
+        server: 'sandbox',
+    })
+}

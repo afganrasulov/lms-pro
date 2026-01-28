@@ -114,3 +114,43 @@
   - **Çözüm (Hybrid Player):** `VideoPlayer` bileşeni yeniden mimarilendirildi. Vimeo videoları algılandığında (`isVimeo`), `react-player` yerine doğrudan `vimeo-video-element` (Web Component Wrapper) kullanılıyor. Bu sayede "lazy loading" kırılganlığı ortadan kaldırıldı.
   - **URL Temizliği:** `player.vimeo.com/video/ID` ve `vimeo.com/ID?fl=...` gibi farklı formatlardaki URL'ler, oynatıcıya verilmeden önce temizlenip standart formata (`vimeo.com/ID`) dönüştürülüyor.
   - **Build Fix:** Bileşen içindeki hook kullanım sıralaması ve export syntax'ı düzeltilerek Next.js build hatası giderildi.
+
+## 13. Polar Lisans Anahtarı Entegrasyonu (License Key Gating & SaaS)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:**
+  - **Öğrenciler İçin:** Kurs içeriklerini görüntülemek için geçerli bir Polar.sh lisans anahtarı gerekir.
+  - **Eğitmenler İçin (SaaS):** Kendi Polar organizasyonlarına ait API anahtarlarını sisteme kaydederek, kendi lisanslarını LMS üzerinden satabilir ve doğrulayabilirler.
+- **Teknik Detay:**
+  - **SDK Güncellemesi (v0.42.2):** Polar SDK'sındaki yapısal değişiklik nedeniyle `client.users.licenseKeys.validate` yerine doğrudan `client.licenseKeys.validate` kullanımı zorunludur. Ayrıca doğruluğu sağlamak için `organizationId` parametresi zorunlu hale getirilmiştir.
+  - **Veritabanı Şeması:** `profiles` tablosuna eksik olan `license_key` (text) ve `license_status` (text, default: 'inactive') kolonları eklenerek veri kalıcılığı sağlandı.
+  - **SaaS Hibrit Doğrulama:** `verifyLicense` aksiyonu bir lisans anahtarı geldiğinde sırasıyla şu adımları izler:
+    1. Platform Seviyesi: Sunucu üzerindeki ana (`.env`) Polar Token ile sorgulama yapar.
+    2. SaaS Seviyesi: Tüm kayıtlı organizasyonların (`organizations.polar_access_token`) üzerinden geçerek doğrulamayı yineler.
+  - **Kritik Fix (Schema Cache):** Yeni eklenen kolonların API tarafında görünmemesi (`PGRST204` hatası) durumunda veritabanı şema cache'inin yenilenmesi (`NOTIFY pgrst, 'reload schema'`) gerektiği dökümante edilmiştir.
+  - **Erişim Kontrolü (Gating):** `/courses/[slug]/learn` sayfasında (Course Player), kullanıcının `license_status` değeri kontrol edilir. Eğer aktif değilse, içerik yerine engelleyici bir "Lisans Anahtarı Gerekli" ekranı gösterilir.
+
+## 14. Ayarlar Sayfası Revizyonu ve İyileştirmeler (Settings Overhaul)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Kullanıcı Ayarları sayfası, eğitmen ve öğrenciler için kritik özelliklerle (E-posta değiştirme, Lisans yönetimi, Polar bağlantısı koparma) güçlendirildi ve stabilize edildi.
+- **Teknik Detay ve Çözülen Problemler:**
+  - **Lisans Kalıcılığı (Persistence Bug):** Sayfa yenilendiğinde lisans anahtarının kaybolması sorunu tespit edildi. `SettingsService.getSettings` metodu, sadece `user_settings` tablosuna bakıyordu. Çözüm olarak servis, `profiles` tablosundan `license_key` verisini veritabanından join benzeri mantıkla çekecek şekilde güncellendi.
+  - **Build Hataları (Strict Types):** Next.js build sürecinde `Supabase Admin` istemcisinin tip uyumsuzlukları ve `jsrsasign` kütüphanesinin tip eksiklikleri (missing types) giderildi. Kritik yerlerde güvenli `any` cast'leri ve doğru import (`getSupabaseAdmin`) stratejisi uygulandı.
+  - **Polar Disconnect:** Kullanıcıların yanlışlıkla organizasyon bağlantısını koparmaması için `disconnectOrganizationPolar` aksiyonuna frontend tarafında "Onay Penceresi" (Confirm Dialog) eklendi.
+  - **E-posta Değiştirme:** Supabase `updateUser` metodu entegre edilerek güvenli e-posta değişikliği ve doğrulama akışı sağlandı.
+  - **Zoom SDK:** `ZoomMtg.join` metodundaki `userName` parametresinin boş gelmesi durumunda oluşan build hatası, varsayılan değer ("Participant") atanarak çözüldü.
+
+## 15. Polar Abonelik Senkronizasyonu (Cancellation/Revocation Sync)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Polar.sh üzerinden bir öğrencinin aboneliği iptal edildiğinde (Cancel) veya yetkisi alındığında (Revoke), LMS tarafındaki lisansı otomatik olarak devre dışı bırakılır.
+- **Teknik Detay:**
+  - **Webhook:** `/api/webhooks/polar` rotasına `subscription.canceled` ve `subscription.revoked` eventleri dinlenir.
+  - **Kullanıcı Eşleştirme:** Webhook payload'undan gelen `customer_email`, Supabase Auth Admin API üzerinden sorgulanarak ilgili `user_id` bulunur.
+  - **Kısıtlama:** Eşleşen kullanıcı bulunduğunda `profiles` tablosundaki `license_key` silinir (NULL) ve `license_status` 'inactive' yapılır.
+  - **Güvenlik:** İşlem `supabaseAdmin` (Service Role) yetkisiyle gerçekleşir, böylece RLS kısıtlamalarına takılmaz.
+  - **Kritik Fix (Signature Validation):** Polar SDK'sının (`validateWebhook`) katı şema kontrolü nedeniyle bazı geçerli webhook isteklerinin ("Internal server error" değil, "Invalid signature/schema") reddedildiği tespit edildi.
+    - **Çözüm (Manual Fallback):** `route.ts` dosyasına SDK doğrulaması başarısız olduğunda devreye giren bir **Manuel İmza Doğrulama** (Manual Signature Verification) katmanı eklendi.
+    - Bu katman, ham `polar-webhook-signature` header'ını ve `crypto` kütüphanesini kullanarak HMAC-SHA256 (Base64) algoritmasıyla doğrulamayı manuel yapar.
+    - Ayrıca local testler için Hex formatındaki imzaları da destekler (Simulation Scripts uyumluluğu).

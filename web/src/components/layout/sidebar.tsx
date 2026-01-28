@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, BookOpen, Trophy, Settings, LogOut, LayoutDashboard, ShieldCheck, User, Users } from 'lucide-react';
+import { Home, BookOpen, Trophy, Settings, LogOut, LayoutDashboard, ShieldCheck, User, Users, Video } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -59,6 +59,7 @@ export function Sidebar({ className }: { className?: string }) {
             { icon: Users, label: 'Kullanıcı Yönetimi', href: '/admin/users' }
         ] : []),
         { icon: BookOpen, label: 'Kurslarım', href: '/courses' },
+        { icon: Video, label: 'Canlı Yayınlar', href: '/live' },
         { icon: Trophy, label: 'Liderlik Tablosu', href: '/leaderboard' },
         { icon: Settings, label: 'Ayarlar', href: '/settings' },
     ];

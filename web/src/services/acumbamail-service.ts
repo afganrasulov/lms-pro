@@ -1,5 +1,5 @@
 import 'server-only'
-import { supabaseAdmin } from '@/lib/supabase-admin'
+
 import nodemailer from 'nodemailer'
 
 const ACUMBAMAIL_API_URL = process.env.NEXT_PUBLIC_ACUMBAMAIL_API_URL || 'https://acumbamail.com/api/1'
@@ -104,6 +104,10 @@ export const acumbamailService = {
      * Send a transactional email via Acumbamail SMTP
      */
     async sendEmail({ to, subject, html, from }: EmailOptions) {
+        // Read env vars at runtime to support scripts loading .env later
+        const SMTP_USER = process.env.ACUMBAMAIL_SMTP_USER;
+        const SMTP_PASS = process.env.ACUMBAMAIL_SMTP_PASS || process.env.ACUMBAMAIL_AUTH_TOKEN;
+
         if (!SMTP_USER || !SMTP_PASS) {
             console.warn('Acumbamail SMTP Configuration missing (SMTP_USER or SMTP_PASS)')
             return { error: 'SMTP Configuration missing' }
@@ -113,7 +117,7 @@ export const acumbamailService = {
             const transporter = nodemailer.createTransport({
                 host: SMTP_HOST,
                 port: SMTP_PORT,
-                secure: true, // true for 465
+                secure: false, // true for 465, false for 587 and others
                 auth: {
                     user: SMTP_USER,
                     pass: SMTP_PASS,

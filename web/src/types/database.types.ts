@@ -408,6 +408,8 @@ export type Database = {
                     xp_points: number
                     gems: number
                     level: number
+                    license_key: string | null
+                    license_status: string | null
                 }
                 Insert: {
                     id: string
@@ -419,6 +421,8 @@ export type Database = {
                     xp_points?: number
                     gems?: number
                     level?: number
+                    license_key?: string | null
+                    license_status?: string | null
                 }
                 Update: {
                     id?: string
@@ -430,6 +434,8 @@ export type Database = {
                     xp_points?: number
                     gems?: number
                     level?: number
+                    license_key?: string | null
+                    license_status?: string | null
                 }
                 Relationships: []
             }

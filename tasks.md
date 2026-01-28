@@ -3,7 +3,7 @@
 This file tracks the live progress of the LMS Platform development.
 **Rule:** Check off items immediately upon completion.
 
-## 1. Backend Architecture (Foundation)
+- [x] Polar License Integration (License Key Gating + Persistence Fixed)
 
 - [x] Database Schema Design (Core)
 - [x] RLS Security Policies
@@ -59,6 +59,9 @@ This file tracks the live progress of the LMS Platform development.
   - [x] Subscription Status Display
   - [x] Server Action Security Refactor
   - [x] Portal Redirects
+  - [x] SaaS / BYOK Integration (Instructor Keys)
+  - [x] License Key Gating Logic (SDK v0.42.2 Fix)
+  - [x] Schema Cache Refresh Protocol (PGRST204 Fix)
 use polar sandbox.
 use Kent EDU LLC Sandbox Token
 identifier: 3be40a8a-232e-4041-ba8d-d683f459bc9a

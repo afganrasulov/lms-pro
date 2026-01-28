@@ -1,25 +1,25 @@
-import { supabase } from '@/lib/supabase';
-import { Database } from '@/types/database.types';
-
-// const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-// const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-// const supabase = createClient<Database>(supabaseUrl, supabaseKey);
+import { createClient } from '@/lib/supabase/client';
 
 export const SettingsService = {
     // 1. Get Settings
-    // 1. Get Settings
     async getSettings(userId: string) {
-        const { data, error } = await supabase
+        const supabase = createClient();
+
+        // Fetch User Settings
+        const { data: settings } = await supabase
             .from('user_settings')
             .select('*')
             .eq('user_id', userId)
-            .maybeSingle(); // Changed from single() to maybeSingle() to handle no rows gracefully
+            .maybeSingle();
 
-        if (error) {
-            console.error('Error fetching settings:', error);
-            throw error;
-        }
-        return data; // Returns null if no row exists, which we'll handle in the UI
+        // Fetch Profile for License Key
+        const { data: profile } = await supabase
+            .from('profiles')
+            .select('license_key, license_status')
+            .eq('id', userId)
+            .maybeSingle();
+
+        return { ...settings, ...profile };
     },
 
     // 2. Update Preferences
@@ -29,17 +29,29 @@ export const SettingsService = {
         marketing_emails?: boolean;
         language?: string
     }) {
+        const supabase = createClient();
+        // Explicitly pick fields to avoid sending unknown columns
+        const { email_notifications, push_notifications, marketing_emails, language } = prefs;
+
         const { data, error } = await supabase
             .from('user_settings')
-            .upsert({ // Changed from update to upsert
+            .upsert({
                 user_id: userId,
-                ...prefs,
+                email_notifications,
+                push_notifications,
+                marketing_emails,
+                language,
                 updated_at: new Date().toISOString()
+            }, {
+                onConflict: 'user_id'
             })
             .select()
             .single();
 
-        if (error) throw error;
+        if (error) {
+            console.error('SettingsService Update Error:', error);
+            throw error;
+        }
         return data;
     }
 };

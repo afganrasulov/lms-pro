@@ -6,6 +6,8 @@
 - **Sync:** Webhooks (`order.created`, `subscription.created`) -> Supabase API.
 - **Data:** Stores in `orders` table. Updates `enrollments` status.
 - **Fields:** `polar_order_id`, `polar_subscription_id`.
+- **Fields:** `polar_order_id`, `polar_subscription_id`.
+- **Dev Webhook URL:** `https://kent-lms-pro-dev.loca.lt/api/webhooks/polar` (Localtunnel - Stable Subdomain)
 
 **2. Notifications:**
 

@@ -200,7 +200,7 @@ export default function UserDashboardPage() {
                                 ) : (
                                     enrolledCourses.map((course: any) => (
                                         <CourseCard
-                                            key={course.course_id} // Changed from course.id to course.course_id to match original logic
+                                            key={course.id}
                                             course={course}
                                         />
                                     ))

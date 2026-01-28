@@ -82,12 +82,12 @@ export function useCoursePlayer(slug: string) {
         loadData();
     }, [slug]);
 
-    // Real-time Progress Sync
+    // Real-time Progress and Content Sync
     useEffect(() => {
         if (!user || !course) return;
 
         const channel = supabase
-            .channel('lesson_progress_changes')
+            .channel('course_player_sync')
             .on(
                 'postgres_changes',
                 {
@@ -99,13 +99,65 @@ export function useCoursePlayer(slug: string) {
                 (payload) => {
                     const newProgress = payload.new as any;
                     // Check if this progress update belongs to current course
-                    // Note: lesson_progress usually links to lesson_id, we need to check if that lesson is in this course.
-                    // We can check if the lesson ID exists in our allLessons array.
                     if (newProgress && allLessons.some(l => l.id === newProgress.lesson_id)) {
                         if (newProgress.is_completed || newProgress.status === 'completed') {
                             setCompletedLessons(prev => new Set(prev).add(newProgress.lesson_id));
-                            // If it was an external update, refresh server data
                             router.refresh();
+                        }
+                    }
+                }
+            )
+            // Listen for Lesson Title/Description Updates
+            .on(
+                'postgres_changes',
+                { event: 'UPDATE', schema: 'public', table: 'lessons' },
+                (payload) => {
+                    const updatedLesson = payload.new as any;
+                    // Only process if this lesson belongs to our course (via modules check or existing list)
+                    if (allLessons.some(l => l.id === updatedLesson.id)) {
+                        setAllLessons(prev => prev.map(l =>
+                            l.id === updatedLesson.id
+                                ? { ...l, ...updatedLesson } // Merge updates
+                                : l
+                        ));
+
+                        // Update active lesson if it's the one being modified
+                        if (activeLesson?.id === updatedLesson.id) {
+                            setActiveLesson((prev: any) => ({ ...prev, ...updatedLesson }));
+                        }
+                    }
+                }
+            )
+            // Listen for Lesson Content (Video/Markdown) Updates
+            // Listen for Lesson Content (Video/Markdown) Updates
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'lesson_contents' },
+                (payload) => {
+                    const updatedContent = payload.new as any;
+
+                    // Check if we have this lesson
+                    const parentLesson = allLessons.find(l => l.id === updatedContent?.lesson_id);
+                    if (parentLesson && updatedContent) {
+                        // Check if this is the "current" version
+                        if (updatedContent.is_current_version) {
+                            // Update in allLessons
+                            setAllLessons(prev => prev.map(l => {
+                                if (l.id === updatedContent.lesson_id) {
+                                    // Filter out ANY existing content to avoid stale versions, and put this one first
+                                    const otherContents = (l.lesson_contents || []).filter((c: any) => c.id !== updatedContent.id);
+                                    return { ...l, lesson_contents: [updatedContent, ...otherContents] };
+                                }
+                                return l;
+                            }));
+
+                            // Update active lesson if needed
+                            if (activeLesson?.id === updatedContent.lesson_id) {
+                                setActiveLesson((prev: any) => {
+                                    const otherContents = (prev.lesson_contents || []).filter((c: any) => c.id !== updatedContent.id);
+                                    return { ...prev, lesson_contents: [updatedContent, ...otherContents] };
+                                });
+                            }
                         }
                     }
                 }
@@ -115,7 +167,7 @@ export function useCoursePlayer(slug: string) {
         return () => {
             supabase.removeChannel(channel);
         };
-    }, [user, course, allLessons, router]);
+    }, [user, course, allLessons, router, activeLesson]);
 
     const handleLessonSelect = (lesson: any) => {
         setActiveLesson(lesson);

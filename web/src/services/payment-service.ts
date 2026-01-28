@@ -1,13 +1,15 @@
-import { polar } from '@/lib/polar'
+import { polar, createPolarClient } from '@/lib/polar'
 
 export const PaymentService = {
-    async createCheckoutSession(userId: string, userEmail: string, courseId: string, returnUrl: string) {
+    async createCheckoutSession(userId: string, userEmail: string, courseId: string, returnUrl: string, options?: { accessToken?: string, productId?: string }) {
         try {
-            // For Sandbox, we are using a fixed product/offering for now.
-            // In a real app, we would look up the Polar Product ID for the specific courseId.
-            const productId = 'b9d946dd-2135-4ee0-b2f1-1af02da53785'
+            // Use dynamic client if accessToken is provided (BYOK), otherwise use platform client
+            const client = options?.accessToken ? createPolarClient(options.accessToken) : polar
 
-            const result = await polar.checkouts.create({
+            // Use provided product ID or fallback (though fallback might fail on different accounts if product doesn't exist)
+            const productId = options?.productId || 'b9d946dd-2135-4ee0-b2f1-1af02da53785'
+
+            const result = await client.checkouts.create({
                 products: [productId],
                 successUrl: returnUrl,
 

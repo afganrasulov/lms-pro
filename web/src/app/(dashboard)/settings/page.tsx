@@ -9,7 +9,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Settings, User, Bell, Mail, CreditCard } from 'lucide-react';
+import { Settings, User, Bell, Mail, CreditCard, Key } from 'lucide-react';
+import { verifyLicense, deactivateLicense } from '@/actions/license';
+import { updateOrganizationPolarKeys, getOrganizationSettings, disconnectOrganizationPolar } from '@/actions/organization';
+import { Input } from '@/components/ui/input';
+import { toast } from 'sonner';
 
 export default function SettingsPage() {
     const router = useRouter();
@@ -22,7 +26,14 @@ export default function SettingsPage() {
         email_notifications: true,
         push_notifications: true,
         marketing_emails: false,
-        language: 'en'
+        language: 'en',
+        license_key: '',
+        license_status: 'inactive',
+        email: ''
+    });
+    const [polarSettings, setPolarSettings] = useState({
+        polar_access_token: '',
+        polar_organization_id: ''
     });
 
     useEffect(() => {
@@ -36,15 +47,30 @@ export default function SettingsPage() {
 
             try {
                 // Fetch settings
-                const userSettings = await SettingsService.getSettings(data.user.id);
+                const [userSettings, orgSettings] = await Promise.all([
+                    SettingsService.getSettings(data.user.id),
+                    getOrganizationSettings()
+                ]);
+
                 if (userSettings) {
                     setSettings({
                         email_notifications: userSettings.email_notifications ?? true,
                         push_notifications: userSettings.push_notifications ?? true,
                         marketing_emails: userSettings.marketing_emails ?? false,
-                        language: userSettings.language || 'en'
+                        language: userSettings.language || 'en',
+                        license_key: (userSettings as any).license_key || '',
+                        license_status: (userSettings as any).license_status || 'inactive',
+                        email: data.user.email || ''
                     });
                 }
+
+                if (orgSettings) {
+                    setPolarSettings({
+                        polar_access_token: orgSettings.polar_access_token || '',
+                        polar_organization_id: orgSettings.polar_organization_id || ''
+                    });
+                }
+
             } catch (error) {
                 console.error("Failed to load settings", error);
             } finally {
@@ -64,6 +90,119 @@ export default function SettingsPage() {
             setTimeout(() => setSuccess(false), 2000);
         } catch (error) {
             console.error("Failed to save settings", error);
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handleEmailChange = async () => {
+        if (!userId) return;
+        setSaving(true);
+        try {
+            const { error } = await supabase.auth.updateUser({ email: settings.email });
+            if (error) {
+                toast.error(`E-posta güncelleme hatası: ${error.message}`);
+            } else {
+                toast.success('Onay e-postası yeni adresinize gönderildi. Lütfen kutunuzu kontrol edin.');
+            }
+        } catch (error: any) {
+            toast.error(error.message || 'Hata oluştu');
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handleToggleChange = async (key: keyof typeof settings, value: boolean) => {
+        // 1. Optimistic Update
+        setSettings(s => ({ ...s, [key]: value }));
+
+        if (!userId) return;
+
+        // 2. Background Save
+        try {
+            // Send ALL settings to ensure we don't partial-update/nullify others
+            // Construct the latest state explicitly
+            const newSettings = { ...settings, [key]: value };
+
+            await SettingsService.updateSettings(userId, newSettings);
+            toast.success("Ayar güncellendi");
+        } catch (error) {
+            console.error("Auto-save failed", error);
+            toast.error("Kaydedilemedi");
+            // Rollback on error
+            setSettings(s => ({ ...s, [key]: !value }));
+        }
+    };
+
+    const handlePolarSave = async () => {
+        setSaving(true);
+        try {
+            const formData = new FormData();
+            formData.append('polar_access_token', polarSettings.polar_access_token);
+            formData.append('polar_organization_id', polarSettings.polar_organization_id);
+
+            const result = await updateOrganizationPolarKeys(formData);
+            if (result.error) {
+                toast.error(result.error);
+            } else {
+                toast.success('Polar entegrasyonu kaydedildi!');
+            }
+        } catch (error) {
+            toast.error('Kaydetme hatası');
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handlePolarDisconnect = async () => {
+        if (!confirm("Polar entegrasyonunu kaldırmak istediğinize emin misiniz? Bu işlem geri alınamaz.")) return;
+        setSaving(true);
+        try {
+            const result = await disconnectOrganizationPolar();
+            if (result.error) {
+                toast.error(result.error);
+            } else {
+                setPolarSettings({ polar_access_token: '', polar_organization_id: '' });
+                toast.success('Polar bağlantısı kesildi.');
+            }
+        } catch (error) {
+            toast.error('Bağlantı kesme hatası');
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handleLicenseDeactivate = async () => {
+        if (!confirm("Lisans anahtarını kaldırmak istediğinize emin misiniz? Kurs erişimleriniz kısıtlanabilir.")) return;
+        setSaving(true);
+        try {
+            const result = await deactivateLicense();
+            if (result.success) {
+                setSettings(s => ({ ...s, license_key: '', license_status: 'inactive' }));
+                toast.success('Lisans anahtarı kaldırıldı.');
+            } else {
+                toast.error(result.error);
+            }
+        } catch (e) {
+            toast.error("İşlem başarısız.");
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handleLicenseVerify = async () => {
+        if (!settings.license_key) return;
+        setSaving(true);
+        try {
+            const result = await verifyLicense(settings.license_key);
+            if (result.success) {
+                setSettings(s => ({ ...s, license_status: 'active' }));
+                toast.success('Lisans anahtarı doğrulandı ve aktif edildi!');
+            } else {
+                toast.error(result.error || 'Lisans anahtarı geçersiz.');
+            }
+        } catch (error) {
+            toast.error('Doğrulama sırasında bir hata oluştu.');
         } finally {
             setSaving(false);
         }
@@ -94,16 +233,120 @@ export default function SettingsPage() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
+
                         <div className="grid gap-2">
                             <Label>Email</Label>
-                            {loading ? (
-                                <Skeleton className="h-10 w-full" />
-                            ) : (
-                                <div className="p-3 rounded-md bg-secondary/50 text-sm text-muted-foreground cursor-not-allowed">
-                                    Kimlik Sağlayıcı üzerinden yönetiliyor
-                                </div>
-                            )}
+                            <div className="flex gap-2">
+                                <Input
+                                    value={settings.email}
+                                    onChange={(e) => setSettings(s => ({ ...s, email: e.target.value }))}
+                                    placeholder="your@email.com"
+                                />
+                                <Button onClick={handleEmailChange} disabled={saving}>Güncelle</Button>
+                            </div>
+                            <p className="text-xs text-muted-foreground">E-posta değişikliği için yeni adrese gönderilen onayı doğrulamanız gerekir.</p>
                         </div>
+                    </CardContent>
+                </Card>
+
+                {/* License Key Section */}
+                <Card className="bg-card/50 backdrop-blur border-white/10">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <Key className="w-5 h-5 text-yellow-500" />
+                            Lisans Anahtarı
+                        </CardTitle>
+                        <CardDescription>
+                            Polar.sh üzerinden aldığınız lisans anahtarını girin.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="flex items-center gap-4">
+                            <div className="flex-1">
+                                <Label htmlFor="license-key" className="sr-only">Lisans Anahtarı</Label>
+                                <Input
+                                    id="license-key"
+                                    placeholder="Lisans anahtarınızı buraya yapıştırın (örn: ONE-TWO-THREE)"
+                                    value={settings.license_key}
+                                    onChange={(e) => setSettings(s => ({ ...s, license_key: e.target.value }))}
+                                    disabled={settings.license_status === 'active'}
+                                    className="bg-background/50"
+                                />
+                            </div>
+                            <Button
+                                onClick={handleLicenseVerify}
+                                disabled={saving || settings.license_status === 'active' || !settings.license_key}
+                            >
+                                {settings.license_status === 'active' ? 'Aktif ✅' : 'Doğrula'}
+                            </Button>
+                        </div>
+                        {settings.license_status === 'active' && (
+                            <div className="flex flex-col gap-2 mt-2">
+                                <p className="text-sm text-green-500 font-medium">
+                                    Lisansınız aktif. Tüm kurslara erişebilirsiniz.
+                                </p>
+                                <Button variant="destructive" size="sm" onClick={handleLicenseDeactivate} className="w-fit" disabled={saving}>
+                                    Anahtarı Kaldır / Deaktive Et
+                                </Button>
+                            </div>
+                        )}
+                        {loading && <Skeleton className="h-10 w-full" />}
+                    </CardContent>
+                </Card>
+
+                {/* Polar Integration Section (SaaS) */}
+                <Card className="bg-card/50 backdrop-blur border-white/10">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2">
+                            <CreditCard className="w-5 h-5 text-blue-400" />
+                            Polar Entegrasyonu (SaaS)
+                        </CardTitle>
+                        <CardDescription>
+                            Kurslarınızı kendi Polar hesabınız üzerinden satmak için API anahtarınızı girin.
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="polar-token">Polar Access Token</Label>
+                            <Input
+                                id="polar-token"
+                                type="password"
+                                placeholder="pol_..."
+                                value={polarSettings.polar_access_token}
+                                onChange={(e) => setPolarSettings(s => ({ ...s, polar_access_token: e.target.value }))}
+                                className="bg-background/50"
+                            />
+                            <p className="text-xs text-muted-foreground">
+                                Polar dashboard'dan aldığınız Access Token. (Ayarlar &rarr; Developers)
+                            </p>
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="polar-org">Polar Organization ID (Opsiyonel)</Label>
+                            <Input
+                                id="polar-org"
+                                placeholder="Org ID..."
+                                value={polarSettings.polar_organization_id}
+                                onChange={(e) => setPolarSettings(s => ({ ...s, polar_organization_id: e.target.value }))}
+                                className="bg-background/50"
+                            />
+                        </div>
+                        <Button
+                            onClick={handlePolarSave}
+                            disabled={saving}
+                            className="w-full sm:w-auto"
+                        >
+                            Entegrasyonu Kaydet
+                        </Button>
+                        {polarSettings.polar_access_token && (
+                            <Button
+                                variant="destructive"
+                                onClick={handlePolarDisconnect}
+                                disabled={saving}
+                                className="w-full sm:w-auto ml-2"
+                            >
+                                Bağlantıyı Kes
+                            </Button>
+                        )}
                     </CardContent>
                 </Card>
 
@@ -170,7 +413,7 @@ export default function SettingsPage() {
                                     <Switch
                                         id="email-notifs"
                                         checked={settings.email_notifications}
-                                        onCheckedChange={(checked) => setSettings(s => ({ ...s, email_notifications: checked }))}
+                                        onCheckedChange={(checked) => handleToggleChange('email_notifications', checked)}
                                     />
                                 </div>
                                 <div className="flex items-center justify-between space-x-2">
@@ -181,7 +424,7 @@ export default function SettingsPage() {
                                     <Switch
                                         id="push-notifs"
                                         checked={settings.push_notifications}
-                                        onCheckedChange={(checked) => setSettings(s => ({ ...s, push_notifications: checked }))}
+                                        onCheckedChange={(checked) => handleToggleChange('push_notifications', checked)}
                                     />
                                 </div>
                             </>
@@ -217,7 +460,7 @@ export default function SettingsPage() {
                                 <Switch
                                     id="marketing-emails"
                                     checked={settings.marketing_emails}
-                                    onCheckedChange={(checked) => setSettings(s => ({ ...s, marketing_emails: checked }))}
+                                    onCheckedChange={(checked) => handleToggleChange('marketing_emails', checked)}
                                 />
                             </div>
                         )}
@@ -232,6 +475,6 @@ export default function SettingsPage() {
                     {saving ? 'Kaydediliyor...' : success ? 'Kaydedildi!' : 'Değişiklikleri Kaydet'}
                 </Button>
             </div>
-        </div>
+        </div >
     );
 }

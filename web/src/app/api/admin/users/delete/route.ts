@@ -1,5 +1,5 @@
 import { createClient } from '@/lib/supabase/server';
-import { supabaseAdmin } from '@/lib/supabase-admin';
+import { getSupabaseAdmin } from '@/lib/supabase-admin';
 import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
@@ -35,6 +35,7 @@ export async function POST(request: Request) {
         // Usually, deleting from auth.users is the 'hard' delete.
 
         const deletePromises = userIds.map(async (id) => {
+            const supabaseAdmin = getSupabaseAdmin();
             const { error } = await supabaseAdmin.auth.admin.deleteUser(id);
             if (error) {
                 console.error(`Failed to delete user ${id} from auth:`, error);

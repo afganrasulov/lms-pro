@@ -4,10 +4,14 @@ import { useParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { VideoPlayer } from '@/components/video-player';
+import ZoomPlayer from '@/components/zoom-player';
 import { Loader2 } from 'lucide-react';
 import { useCoursePlayer } from '@/hooks/use-course-player';
 import { CourseSidebar } from '@/components/course-player/course-sidebar';
 import { CourseHeader } from '@/components/course-player/course-header';
+import { createClient } from '@/lib/supabase/client';
+import { useState, useEffect } from 'react';
+import { Lock } from 'lucide-react';
 
 export default function CoursePlayerPage() {
     const params = useParams();
@@ -31,6 +35,26 @@ export default function CoursePlayerPage() {
         hasPrev,
         onVideoEnded
     } = useCoursePlayer(slug);
+
+    const [hasLicense, setHasLicense] = useState<boolean | null>(null);
+    const supabase = createClient();
+
+    useEffect(() => {
+        const checkLicense = async () => {
+            const { data: { user } } = await supabase.auth.getUser();
+            if (user) {
+                const { data: profile } = await supabase
+                    .from('profiles')
+                    .select('license_status')
+                    .eq('id', user.id)
+                    .single();
+                setHasLicense(profile?.license_status === 'active');
+            } else {
+                setHasLicense(false);
+            }
+        };
+        checkLicense();
+    }, []);
 
     // Derived Content
     const currentContent = activeLesson?.lesson_contents?.[0];
@@ -62,6 +86,26 @@ export default function CoursePlayerPage() {
         );
     }
 
+    if (hasLicense === false) {
+        return (
+            <div className="flex h-screen items-center justify-center bg-background flex-col gap-6 p-4 text-center">
+                <div className="p-4 rounded-full bg-yellow-500/10 mb-2">
+                    <Lock className="w-12 h-12 text-yellow-500" />
+                </div>
+                <div className="space-y-2 max-w-md">
+                    <h1 className="text-2xl font-bold">Lisans Anahtarı Gerekli</h1>
+                    <p className="text-muted-foreground">
+                        Bu kursu izleyebilmek için geçerli bir lisans anahtarına ihtiyacınız var.
+                        Lütfen ayarlardan lisans anahtarınızı girin.
+                    </p>
+                </div>
+                <div className="flex gap-4">
+                    <Link href="/settings"><Button>Lisans Anahtarı Gir</Button></Link>
+                    <Link href="/dashboard"><Button variant="outline">Geri Dön</Button></Link>
+                </div>
+            </div>
+        );
+    }
 
 
     return (
@@ -97,8 +141,16 @@ export default function CoursePlayerPage() {
                                     {activeLesson.title}
                                 </h1>
 
-                                {videoUrl ? (
+                                {activeLesson.type === 'live_class' ? (
+                                    <div className="w-full">
+                                        <ZoomPlayer
+                                            meetingNumber={activeLesson.video_url || ''}
+                                            passcode={(activeLesson.content_json as any)?.passcode || ''}
+                                        />
+                                    </div>
+                                ) : videoUrl ? (
                                     <VideoPlayer
+                                        key={activeLesson.id}
                                         url={videoUrl}
                                         onEnded={onVideoEnded}
                                     />

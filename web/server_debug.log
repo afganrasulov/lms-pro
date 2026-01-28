@@ -1,0 +1,1418 @@
+
+> web@0.1.0 dev
+> next dev
+
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/kent/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/kent/Applications/lms-pro/web/package-lock.json
+
+▲ Next.js 16.1.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.0.1.63:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 695ms
+Middleware: Path /api/webhooks/polar
+[Polar] Initializing with token: polar_oat_...
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5803',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0332b3ec6bd75a452aa47186c755-a23aff18e48ba344-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'd17c89fe-5412-49a7-9921-4a2f49619929',
+  'webhook-signature': 'v1,jzCsGcI/9FXudBTegf+wOq249i1v9qJ/4AZNq+mu2ko=',
+  'webhook-timestamp': '1769580180',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,jzCsGcI/9FXudBTegf+wOq249i1v9qJ/4AZNq+mu2ko=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 424ms (compile: 367ms, proxy.ts: 45ms, render: 13ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5803',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0332be8fd54b7da5f84ac5a79a51-8ad99081c5cf3119-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'd17c89fe-5412-49a7-9921-4a2f49619929',
+  'webhook-signature': 'v1,6/+ben4U6MzFmHncMs1Qd7bjuqDy18FeMS2KlHvxmZs=',
+  'webhook-timestamp': '1769580183',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,6/+ben4U6MzFmHncMs1Qd7bjuqDy18FeMS2KlHvxmZs=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 26ms (compile: 9ms, proxy.ts: 11ms, render: 6ms)
+Middleware: Path /settings
+ GET /settings 200 in 751ms (compile: 207ms, proxy.ts: 413ms, render: 131ms)
+Middleware: Path /settings
+[Polar] Initializing with token: polar_oat_...
+ POST /settings 200 in 1064ms (compile: 6ms, proxy.ts: 195ms, render: 864ms)
+Middleware: Path /settings
+ POST /settings 200 in 1236ms (compile: 3ms, proxy.ts: 249ms, render: 984ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5560',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0333e79246e76d0a1ef30d485c1d-969d1de78b113144-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '929a0f8a-762f-4523-9691-2c8985c27af4',
+  'webhook-signature': 'v1,J+7zrjleJ1gkBh7B63fiQW33A2/kjr1IPTdxH6UJVbk=',
+  'webhook-timestamp': '1769580259',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,J+7zrjleJ1gkBh7B63fiQW33A2/kjr1IPTdxH6UJVbk=
+Polar Webhook received: checkout.created
+ POST /api/webhooks/polar 200 in 109ms (compile: 5ms, proxy.ts: 88ms, render: 17ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5803',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03341762cb72cdc5a54229a74b9d-f7bcead49705e0b3-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'd17c89fe-5412-49a7-9921-4a2f49619929',
+  'webhook-signature': 'v1,FvhME9f56m/fyRkoDhpE4A+r3srHgxnoIOARWAnzvTc=',
+  'webhook-timestamp': '1769580271',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,FvhME9f56m/fyRkoDhpE4A+r3srHgxnoIOARWAnzvTc=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 16ms (compile: 4ms, proxy.ts: 6ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5769',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0334589b769bfa6475035c3050bb-4f88603e375c9622-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '4dc1384a-57b4-43b7-8cb2-66b5bccaf5cc',
+  'webhook-signature': 'v1,dFsdGDh3qSD+7hXIlW1oMMboo2sEYerod/K7KWONrwM=',
+  'webhook-timestamp': '1769580288',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,dFsdGDh3qSD+7hXIlW1oMMboo2sEYerod/K7KWONrwM=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 21ms (compile: 3ms, proxy.ts: 7ms, render: 11ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '652',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033467a8f3d4cc94757c02c3f3e2-ab11285f744c194d-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '77d400d0-a146-4b05-b034-428e329dbca2',
+  'webhook-signature': 'v1,gLFVOOVfH8sBGI1BGu5FLMP1mYd2EXZQ8cmhOm2hDOw=',
+  'webhook-timestamp': '1769580292',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,gLFVOOVfH8sBGI1BGu5FLMP1mYd2EXZQ8cmhOm2hDOw=
+Polar Webhook received: customer.updated
+ POST /api/webhooks/polar 200 in 8ms (compile: 1825µs, proxy.ts: 3ms, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '725',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03346b19a8b8d4b71fd2e7262f30-060e2980bbff6e05-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'c717c980-26dc-40fe-b6df-d6019e76dbd5',
+  'webhook-signature': 'v1,SEiC3TUjeA1jRWMnAzhtnJVNkpj4KewVPlWoRgjxwdo=',
+  'webhook-timestamp': '1769580292',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,SEiC3TUjeA1jRWMnAzhtnJVNkpj4KewVPlWoRgjxwdo=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 17ms (compile: 4ms, proxy.ts: 6ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3987',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03346cd3c28e1d9660ad999e1d1b-8ab852b23b3e1643-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'b544900b-5e75-4698-87d9-1da31e8307f5',
+  'webhook-signature': 'v1,e7dO1/QU5XRpkeGHC8DCBschsSdcOvW6hJ78Mc9XncM=',
+  'webhook-timestamp': '1769580293',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,e7dO1/QU5XRpkeGHC8DCBschsSdcOvW6hJ78Mc9XncM=
+Polar Webhook received: subscription.created
+ POST /api/webhooks/polar 200 in 21ms (compile: 3ms, proxy.ts: 7ms, render: 12ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3986',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033481029d7bc693fdbe31cac1ef-3820a4f8008267b8-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'd0797f7b-4d93-42ef-81fc-849b360c3ca2',
+  'webhook-signature': 'v1,IUrpqGtiLuNb0tev8ZDwCWqFrchS1jb2rLlLFYIC1fQ=',
+  'webhook-timestamp': '1769580298',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,IUrpqGtiLuNb0tev8ZDwCWqFrchS1jb2rLlLFYIC1fQ=
+Polar Webhook received: subscription.active
+ POST /api/webhooks/polar 200 in 23ms (compile: 3ms, proxy.ts: 7ms, render: 12ms)
+Middleware: Path /settings
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3987',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03348a5b4dffb6d5aa2011dc040f-32413d9e078a75a3-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '00e8fa0f-fcb7-4649-aa6d-dd283c0162a1',
+  'webhook-signature': 'v1,ksf0aSLJSksfmlRbq4IcrcN2Sir/HLCcBkCJha7QyS4=',
+  'webhook-timestamp': '1769580300',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,ksf0aSLJSksfmlRbq4IcrcN2Sir/HLCcBkCJha7QyS4=
+Polar Webhook received: subscription.updated
+ POST /api/webhooks/polar 200 in 15ms (compile: 3ms, proxy.ts: 5ms, render: 7ms)
+ POST /settings 200 in 2.1s (compile: 3ms, proxy.ts: 730ms, render: 1398ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3884',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0334b8370c21d67dbf3bc8440e02-e0c4374d6df300b0-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '98e25672-0469-416f-8cf4-279836ffefe0',
+  'webhook-signature': 'v1,L21NltvCIg9wMjwQA/Fyr2xOcXRxa0GItxehblrBLvA=',
+  'webhook-timestamp': '1769580312',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,L21NltvCIg9wMjwQA/Fyr2xOcXRxa0GItxehblrBLvA=
+Polar Webhook received: order.created
+Polar Webhook: Missing metadata in order {
+  id: '835ee2bd-fb9f-4e7e-b628-94a76e932561',
+  createdAt: 2026-01-28T06:04:49.341Z,
+  modifiedAt: 2026-01-28T06:04:49.613Z,
+  status: 'paid',
+  paid: true,
+  subtotalAmount: 70000,
+  discountAmount: 0,
+  netAmount: 70000,
+  taxAmount: 14000,
+  totalAmount: 84000,
+  appliedBalanceAmount: 0,
+  dueAmount: 84000,
+  refundedAmount: 0,
+  refundedTaxAmount: 0,
+  currency: 'usd',
+  billingReason: 'subscription_create',
+  billingName: 'Kent Rasul',
+  billingAddress: {
+    line1: null,
+    line2: null,
+    postalCode: null,
+    city: null,
+    state: null,
+    country: 'TR'
+  },
+  invoiceNumber: 'KENT-EDU-LLC-SHDKEVZART-0002',
+  isInvoiceGenerated: false,
+  seats: null,
+  customerId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+  productId: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+  discountId: null,
+  subscriptionId: '0b817943-8263-443b-a11a-aad6322ed0e8',
+  checkoutId: '4cf801c4-43e6-41dd-9076-593da8e327ae',
+  metadata: {},
+  customFieldData: {},
+  platformFeeAmount: 0,
+  platformFeeCurrency: null,
+  customer: {
+    id: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+    createdAt: 2026-01-26T11:10:26.777Z,
+    modifiedAt: 2026-01-28T06:04:49.335Z,
+    metadata: {},
+    externalId: null,
+    email: 'serkhanrasullu@gmail.com',
+    emailVerified: false,
+    name: 'Kent Rasul',
+    billingAddress: {
+      line1: null,
+      line2: null,
+      postalCode: null,
+      city: null,
+      state: null,
+      country: 'TR'
+    },
+    taxId: null,
+    organizationId: '3be40a8a-232e-4041-ba8d-d683f459bc9a',
+    deletedAt: null,
+    avatarUrl: 'https://www.gravatar.com/avatar/906e58dcf2b5a2e00d79dadbff7d7a931b497e9ba7cb8181744d67ec14cfcdd3?d=404'
+  },
+  userId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+  product: {
+    metadata: {},
+    id: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+    createdAt: 2026-01-25T20:37:36.829Z,
+    modifiedAt: null,
+    trialInterval: null,
+    trialIntervalCount: null,
+    name: 'Monthyl LMS Pro Course Bundle (Sandbox)',
+    description: 'Full access to all courses.',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    isRecurring: true,
+    isArchived: false,
+    organizationId: '3be40a8a-232e-4041-ba8d-d683f459bc9a'
+  },
+  discount: null,
+  subscription: {
+    metadata: {},
+    createdAt: 2026-01-28T06:04:49.089Z,
+    modifiedAt: null,
+    id: '0b817943-8263-443b-a11a-aad6322ed0e8',
+    amount: 70000,
+    currency: 'usd',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'active',
+    currentPeriodStart: 2026-01-28T06:04:49.082Z,
+    currentPeriodEnd: 2026-02-28T06:04:49.082Z,
+    trialStart: null,
+    trialEnd: null,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-01-28T06:04:49.082Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+    productId: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+    discountId: null,
+    checkoutId: '4cf801c4-43e6-41dd-9076-593da8e327ae',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null
+  },
+  items: [
+    {
+      createdAt: 2026-01-28T06:04:49.348Z,
+      modifiedAt: null,
+      id: '792cc6ae-4603-4fe0-becb-52f23f3aed56',
+      label: 'Monthyl LMS Pro Course Bundle (Sandbox)',
+      amount: 70000,
+      taxAmount: 0,
+      proration: false,
+      productPriceId: '6b505c1b-5007-4851-acf0-20d7e2a6a36e'
+    }
+  ],
+  description: 'Monthyl LMS Pro Course Bundle (Sandbox)'
+}
+ POST /api/webhooks/polar 200 in 18ms (compile: 4ms, proxy.ts: 5ms, render: 9ms)
+Middleware: Path /settings
+ POST /settings 200 in 1220ms (compile: 5ms, proxy.ts: 311ms, render: 904ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3884',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0334fb1bb98942f2319257ba154e-7ce63ec818a3ff20-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '8b724af4-dff1-4987-a5f4-330113f37a94',
+  'webhook-signature': 'v1,wEDAF/4tYYtZ+MZVExSlcFE+WClW6viFP6GDjAHiWSQ=',
+  'webhook-timestamp': '1769580329',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,wEDAF/4tYYtZ+MZVExSlcFE+WClW6viFP6GDjAHiWSQ=
+Polar Webhook received: order.updated
+ POST /api/webhooks/polar 200 in 17ms (compile: 2ms, proxy.ts: 6ms, render: 8ms)
+Middleware: Path /settings
+ GET /settings 200 in 796ms (compile: 3ms, proxy.ts: 751ms, render: 43ms)
+Middleware: Path /settings
+ POST /settings 200 in 942ms (compile: 1461µs, proxy.ts: 204ms, render: 736ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3883',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03358d9d65da864cef093c35579a-4cff505f7a905b88-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '68e207e2-9bf4-4076-b9ed-c10239a35b38',
+  'webhook-signature': 'v1,dUiTi8gzU/gCdlxSCDar8LGzqdX8yRrxqhN2NuJyLII=',
+  'webhook-timestamp': '1769580367',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,dUiTi8gzU/gCdlxSCDar8LGzqdX8yRrxqhN2NuJyLII=
+Polar Webhook received: order.updated
+ POST /api/webhooks/polar 200 in 7ms (compile: 1061µs, proxy.ts: 2ms, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1327',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03359a426058bc7fbe359916bf2c-bfff29fc288cd203-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '2a5880ae-8716-438f-841a-b4fd9c0d61c5',
+  'webhook-signature': 'v1,yiMoF0s+xTcg829wVJ9F1d+w6dpr9p+611EExMZuXdY=',
+  'webhook-timestamp': '1769580370',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,yiMoF0s+xTcg829wVJ9F1d+w6dpr9p+611EExMZuXdY=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 6ms (compile: 926µs, proxy.ts: 1968µs, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3881',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335b63de6fb13bffb5444f28bf4-7ce808caeca472de-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '0196aa90-330d-48d5-af20-04d71dac8718',
+  'webhook-signature': 'v1,1MCkJTzI1OmKKPGsoH8+CQ1W2d+uxJDnI+7RlPULfnU=',
+  'webhook-timestamp': '1769580377',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,1MCkJTzI1OmKKPGsoH8+CQ1W2d+uxJDnI+7RlPULfnU=
+Polar Webhook received: order.paid
+ POST /api/webhooks/polar 200 in 18ms (compile: 2ms, proxy.ts: 5ms, render: 10ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1707',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335bf5c46f1df3fc14b5621f460-5ce77b12b84d52ba-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'd80d8067-92c3-4346-89d4-a2c2c550c58c',
+  'webhook-signature': 'v1,1ZH10zKOrgMZTwdoEEorZ8AvFNREUi99pAEDy5vtx6A=',
+  'webhook-timestamp': '1769580380',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,1ZH10zKOrgMZTwdoEEorZ8AvFNREUi99pAEDy5vtx6A=
+Polar Webhook received: benefit_grant.created
+ POST /api/webhooks/polar 200 in 17ms (compile: 1871µs, proxy.ts: 5ms, render: 10ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5803',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335cccbcd2250304680bd2cef8f-75f7d0eac6be4f8a-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '24361daa-33b7-4368-a048-eca6f536ff03',
+  'webhook-signature': 'v1,/Z+o13DBxLAAfjqjhepH4eZA8Zd03IJwEiEiyfs2wXU=',
+  'webhook-timestamp': '1769580383',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,/Z+o13DBxLAAfjqjhepH4eZA8Zd03IJwEiEiyfs2wXU=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 22ms (compile: 3ms, proxy.ts: 11ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4089',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335db9460998636d31354ba4a22-708c9d64e7182b04-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '97cfceab-a7b4-434d-bf9a-00171e4fb28a',
+  'webhook-signature': 'v1,j1ZgKLxas4fgn7Q+Ifw1nZDp0VA02DhF4NeDHfa1JFs=',
+  'webhook-timestamp': '1769580387',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,j1ZgKLxas4fgn7Q+Ifw1nZDp0VA02DhF4NeDHfa1JFs=
+Polar Webhook received: subscription.updated
+ POST /api/webhooks/polar 200 in 7ms (compile: 1305µs, proxy.ts: 1614µs, render: 4ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '2084',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335e546881a61878f3379557300-32e1d264ccb23515-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '57495ac2-af7b-41c8-b46e-64dcf714e85d',
+  'webhook-signature': 'v1,wHldkD2hdnTpCYOqKaDkosmmzEDzgTfEi1cHZ79ChII=',
+  'webhook-timestamp': '1769580389',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,wHldkD2hdnTpCYOqKaDkosmmzEDzgTfEi1cHZ79ChII=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 15ms (compile: 3ms, proxy.ts: 5ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1327',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335e82e49fd89e2876f1a5563d6-51d6fc2ea85a1457-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '8f5ae8ed-ca53-4603-9e47-d9909c25d60b',
+  'webhook-signature': 'v1,veIQDZp0XchYe4yFe9kCpvvto9job6Y4mgio6YVe7dM=',
+  'webhook-timestamp': '1769580390',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,veIQDZp0XchYe4yFe9kCpvvto9job6Y4mgio6YVe7dM=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 5ms (compile: 970µs, proxy.ts: 1667µs, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '2084',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335dc68175e5f36ef3d3f8f7fc2-fb7f170d2229e8d1-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '8ce0845e-2899-4561-874c-96cbb1b3d944',
+  'webhook-signature': 'v1,Y4uYPdgFlPgEb+yFzz81b/kiazw7fCZkGnQkjYZTZ/g=',
+  'webhook-timestamp': '1769580387',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,Y4uYPdgFlPgEb+yFzz81b/kiazw7fCZkGnQkjYZTZ/g=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 6ms (compile: 1217µs, proxy.ts: 1678µs, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '652',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03360ae42150179874b514ae8e36-b5163ffe6ffa3fb6-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '5c067a6f-3c35-4ccb-bc19-bdf7cd6c05b0',
+  'webhook-signature': 'v1,N5WLS3kapfGigiCPt7phdgy6eYIWdfF5esa5teAqtpk=',
+  'webhook-timestamp': '1769580399',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,N5WLS3kapfGigiCPt7phdgy6eYIWdfF5esa5teAqtpk=
+Polar Webhook received: customer.updated
+ POST /api/webhooks/polar 200 in 11ms (compile: 3ms, proxy.ts: 3ms, render: 5ms)
+Middleware: Path /settings
+ GET /settings 200 in 268ms (compile: 2ms, proxy.ts: 232ms, render: 34ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1717',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03361fce01b363ac547917e2bfc7-00a4282cd2c07151-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '8f31f462-3535-469f-84b4-26a32249e7ee',
+  'webhook-signature': 'v1,SJi7Ze+TSnYlv/R/0vRESW0/mwBfFU2lDC2QdCR7jnc=',
+  'webhook-timestamp': '1769580404',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,SJi7Ze+TSnYlv/R/0vRESW0/mwBfFU2lDC2QdCR7jnc=
+Polar Webhook received: benefit_grant.created
+ POST /api/webhooks/polar 200 in 14ms (compile: 1980µs, proxy.ts: 3ms, render: 9ms)
+Middleware: Path /settings
+Middleware: Path /api/webhooks/polar
+ POST /settings 200 in 931ms (compile: 4ms, proxy.ts: 192ms, render: 735ms)
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4090',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0336227fb4d76405b5d7dc1612b8-00fb5f37f907bcd5-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'bf61c167-c559-4c1f-a680-b93baeaf6185',
+  'webhook-signature': 'v1,TyY8l6zV5zgDhWdidSwB68ZRH+pMqMkB5XGoko46rE8=',
+  'webhook-timestamp': '1769580405',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,TyY8l6zV5zgDhWdidSwB68ZRH+pMqMkB5XGoko46rE8=
+Polar Webhook received: subscription.canceled
+Polar Webhook: Processing cancellation for subscription 0b817943-8263-443b-a11a-aad6322ed0e8
+Polar Webhook: Extracted Email: serkhanrasullu@gmail.com
+Polar Webhook: Found user 05d5bc11-f390-4cc5-b8b6-bce92d671e46 for email serkhanrasullu@gmail.com. Revoking license...
+Polar Webhook: License revoked for user 05d5bc11-f390-4cc5-b8b6-bce92d671e46
+ POST /api/webhooks/polar 200 in 765ms (compile: 3ms, proxy.ts: 239ms, render: 523ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4089',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03362f1da87ab5b3621729fc9f67-5757ee796a46af7e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'b69c57bc-ae98-455b-87e5-20871c955051',
+  'webhook-signature': 'v1,7metaL3ijY7h9yznHS5IjfeNbH4ffw3Ufm/6xjpntag=',
+  'webhook-timestamp': '1769580408',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,7metaL3ijY7h9yznHS5IjfeNbH4ffw3Ufm/6xjpntag=
+Polar Webhook received: subscription.revoked
+Polar Webhook: Processing cancellation for subscription 0b817943-8263-443b-a11a-aad6322ed0e8
+Polar Webhook: Extracted Email: serkhanrasullu@gmail.com
+Polar Webhook: Found user 05d5bc11-f390-4cc5-b8b6-bce92d671e46 for email serkhanrasullu@gmail.com. Revoking license...
+Polar Webhook: License revoked for user 05d5bc11-f390-4cc5-b8b6-bce92d671e46
+ POST /api/webhooks/polar 200 in 453ms (compile: 2ms, proxy.ts: 7ms, render: 444ms)
+Middleware: Path /settings
+ GET /settings 200 in 231ms (compile: 5ms, proxy.ts: 190ms, render: 36ms)
+Middleware: Path /settings
+ POST /settings 200 in 898ms (compile: 3ms, proxy.ts: 203ms, render: 693ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1482',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03363a49bb2ee1f2d7d82a4ae10b-aa3956391a33cce8-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'c811aa25-a66c-4a02-abde-bbda7c760f7a',
+  'webhook-signature': 'v1,98goPcbEeun9bnN/zWax7XiXafP7pgs8XZGOkD+1AcQ=',
+  'webhook-timestamp': '1769580411',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,98goPcbEeun9bnN/zWax7XiXafP7pgs8XZGOkD+1AcQ=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 14ms (compile: 2ms, proxy.ts: 5ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4090',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0335e549cede16f931a48d10b6fc-1004aab3123797c2-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'bf61c167-c559-4c1f-a680-b93baeaf6185',
+  'webhook-signature': 'v1,UGeYS88yUAgL/7XT8cf5LriCPP+cuZZNR1kQHqCGJTM=',
+  'webhook-timestamp': '1769580389',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,UGeYS88yUAgL/7XT8cf5LriCPP+cuZZNR1kQHqCGJTM=
+Polar Webhook received: subscription.canceled
+Polar Webhook: Processing cancellation for subscription 0b817943-8263-443b-a11a-aad6322ed0e8
+Polar Webhook: Extracted Email: serkhanrasullu@gmail.com
+Polar Webhook: Found user 05d5bc11-f390-4cc5-b8b6-bce92d671e46 for email serkhanrasullu@gmail.com. Revoking license...
+Polar Webhook: License revoked for user 05d5bc11-f390-4cc5-b8b6-bce92d671e46
+ POST /api/webhooks/polar 200 in 489ms (compile: 5ms, proxy.ts: 5ms, render: 480ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1800',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03368e69146d3a94ee6f43fb47b3-3a938499005cbdf4-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '26f4fc12-cec6-4fd9-a028-d9e6759a07fd',
+  'webhook-signature': 'v1,VLPOa4rpQaZ5jknUlHlJqQuVQ4pp2MMKYUeUB/sM+qc=',
+  'webhook-timestamp': '1769580433',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,VLPOa4rpQaZ5jknUlHlJqQuVQ4pp2MMKYUeUB/sM+qc=
+Polar Webhook received: benefit_grant.revoked
+ POST /api/webhooks/polar 200 in 27ms (compile: 5ms, proxy.ts: 7ms, render: 14ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1790',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03369252e72e2dff1f37b6aae821-7d7d49c95f3ec04c-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'afb75eae-1e71-471a-a0fe-99fef48892ac',
+  'webhook-signature': 'v1,Mv9hMUpTYFjnPL5+VsF8O5J0wVrBXyKLUbnmRDGAo0s=',
+  'webhook-timestamp': '1769580434',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,Mv9hMUpTYFjnPL5+VsF8O5J0wVrBXyKLUbnmRDGAo0s=
+Polar Webhook received: benefit_grant.revoked
+ POST /api/webhooks/polar 200 in 16ms (compile: 1916µs, proxy.ts: 5ms, render: 9ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '725',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0336b9060181720d3feda9fc1d94-521649906a69b77e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'fa042129-51cd-45b2-a91c-fe9254506d4a',
+  'webhook-signature': 'v1,Xz1I60i5IrTf4yo53wrbnKZ0Ey9DjK7eej/zOffAro8=',
+  'webhook-timestamp': '1769580443',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,Xz1I60i5IrTf4yo53wrbnKZ0Ey9DjK7eej/zOffAro8=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 11ms (compile: 2ms, proxy.ts: 4ms, render: 5ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5560',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0336e209a05309fb4e84ad69cad8-92690b4df0591109-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '4b22a481-3b9b-429b-b2d5-bdd55db9a161',
+  'webhook-signature': 'v1,198/idNG5ujuM8iRVIjpnmV4udRyHZKuwBfT9MQ04qw=',
+  'webhook-timestamp': '1769580454',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,198/idNG5ujuM8iRVIjpnmV4udRyHZKuwBfT9MQ04qw=
+Polar Webhook received: checkout.created
+ POST /api/webhooks/polar 200 in 18ms (compile: 3ms, proxy.ts: 7ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5769',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0337032d8ca07c76961f991d25f4-8bb5ceaa312d6f11-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '148539cd-4a53-4365-bb6f-b33c142b963d',
+  'webhook-signature': 'v1,YPrSV0X3sh3ywUopJNElS8suWDM3qSh8913UTgnIdSk=',
+  'webhook-timestamp': '1769580462',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,YPrSV0X3sh3ywUopJNElS8suWDM3qSh8913UTgnIdSk=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 15ms (compile: 2ms, proxy.ts: 7ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '652',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0337123fc2460e5164ce910e6b34-1d9468e3fa9607bf-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '5d8a2b81-20ad-481b-90cb-6a9bae123eae',
+  'webhook-signature': 'v1,JxuDym2VTMjI1oUdgSthZ7hL73U029fJQKD7mLvtRR4=',
+  'webhook-timestamp': '1769580466',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,JxuDym2VTMjI1oUdgSthZ7hL73U029fJQKD7mLvtRR4=
+Polar Webhook received: customer.updated
+ POST /api/webhooks/polar 200 in 5ms (compile: 975µs, proxy.ts: 2ms, render: 2ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '725',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03372880bc2447ca90d7e3aa6887-14bbc9ac50d7f464-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '3cc06402-275d-4a1f-bae4-35301b3ac3b8',
+  'webhook-signature': 'v1,ntZ5JOvkkfv/nDe0ecnjhpLewYTmPwOo4FrHhuTx5IA=',
+  'webhook-timestamp': '1769580472',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,ntZ5JOvkkfv/nDe0ecnjhpLewYTmPwOo4FrHhuTx5IA=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 13ms (compile: 3ms, proxy.ts: 5ms, render: 6ms)
+Middleware: Path /settings
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3987',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033733678382f7f59002d66297b0-bb7825cf497ef482-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '23ebfc30-473b-4fc7-a395-921801c0ad12',
+  'webhook-signature': 'v1,KHz93QAAqp5CpOtHMxAibHcQoat90FhYUwINnqINubc=',
+  'webhook-timestamp': '1769580475',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,KHz93QAAqp5CpOtHMxAibHcQoat90FhYUwINnqINubc=
+Polar Webhook received: subscription.created
+ POST /api/webhooks/polar 200 in 8ms (compile: 1068µs, proxy.ts: 2ms, render: 5ms)
+ POST /settings 200 in 1319ms (compile: 6ms, proxy.ts: 419ms, render: 895ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3986',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03373adc7b75b12958c9fa771f6a-886891309f655f45-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '115f2c04-9826-4a26-b44d-086beaeaffd4',
+  'webhook-signature': 'v1,3WB1fP++6rpLwW8SimHcYoSY41eI8/tshbM1trsABD0=',
+  'webhook-timestamp': '1769580477',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,3WB1fP++6rpLwW8SimHcYoSY41eI8/tshbM1trsABD0=
+Polar Webhook received: subscription.active
+ POST /api/webhooks/polar 200 in 12ms (compile: 1173µs, proxy.ts: 6ms, render: 5ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3987',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03376651b304f90772edb65a55b4-c396ec514a554c1d-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'b1997a41-b6c3-4e38-aa1b-821dcd1abdc1',
+  'webhook-signature': 'v1,j6dm+8x7sEOTedvzQChakZehQTndNxoeFVKlWVAwbxI=',
+  'webhook-timestamp': '1769580488',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,j6dm+8x7sEOTedvzQChakZehQTndNxoeFVKlWVAwbxI=
+Polar Webhook received: subscription.updated
+ POST /api/webhooks/polar 200 in 14ms (compile: 3ms, proxy.ts: 5ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '725',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03378ded0d7d7fbc28acae3ade27-a88b70d6c9541e4e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'f167bb4c-44c6-463e-bd2a-b50d52c22dd7',
+  'webhook-signature': 'v1,1HS2wpnSSb7Rvx+SjE/GP+q3VfD/qjIKLSwMIt3HVpE=',
+  'webhook-timestamp': '1769580498',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,1HS2wpnSSb7Rvx+SjE/GP+q3VfD/qjIKLSwMIt3HVpE=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 13ms (compile: 3ms, proxy.ts: 5ms, render: 6ms)
+Middleware: Path /settings
+ GET /settings 200 in 291ms (compile: 5ms, proxy.ts: 248ms, render: 39ms)
+Middleware: Path /settings
+ POST /settings 200 in 900ms (compile: 4ms, proxy.ts: 200ms, render: 695ms)
+Middleware: Path /settings
+ GET /settings 200 in 231ms (compile: 3ms, proxy.ts: 192ms, render: 35ms)
+Middleware: Path /settings
+ POST /settings 200 in 844ms (compile: 1487µs, proxy.ts: 180ms, render: 662ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3884',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0337b24f51c59cf1eb5cfc710dc0-8007a6c4c9981fae-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'f6086273-e33f-40e4-a07b-2958d40712f5',
+  'webhook-signature': 'v1,6Nd7mX5+1FjV5kga/4L1yu5XOJmVVIqOf5VHjLTw1po=',
+  'webhook-timestamp': '1769580507',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,6Nd7mX5+1FjV5kga/4L1yu5XOJmVVIqOf5VHjLTw1po=
+Polar Webhook received: order.created
+Polar Webhook: Missing metadata in order {
+  id: '3bb76ece-fe44-4231-bd55-585b07432bef',
+  createdAt: 2026-01-28T06:07:43.596Z,
+  modifiedAt: 2026-01-28T06:07:43.854Z,
+  status: 'paid',
+  paid: true,
+  subtotalAmount: 70000,
+  discountAmount: 0,
+  netAmount: 70000,
+  taxAmount: 14000,
+  totalAmount: 84000,
+  appliedBalanceAmount: 0,
+  dueAmount: 84000,
+  refundedAmount: 0,
+  refundedTaxAmount: 0,
+  currency: 'usd',
+  billingReason: 'subscription_create',
+  billingName: 'Kent Rasul',
+  billingAddress: {
+    line1: null,
+    line2: null,
+    postalCode: null,
+    city: null,
+    state: null,
+    country: 'TR'
+  },
+  invoiceNumber: 'KENT-EDU-LLC-SHDKEVZART-0003',
+  isInvoiceGenerated: false,
+  seats: null,
+  customerId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+  productId: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+  discountId: null,
+  subscriptionId: '139a4e62-cd59-4988-bcc2-44743b203e93',
+  checkoutId: '899a816e-b991-414a-aad6-04838df4b4e0',
+  metadata: {},
+  customFieldData: {},
+  platformFeeAmount: 0,
+  platformFeeCurrency: null,
+  customer: {
+    id: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+    createdAt: 2026-01-26T11:10:26.777Z,
+    modifiedAt: 2026-01-28T06:07:43.590Z,
+    metadata: {},
+    externalId: null,
+    email: 'serkhanrasullu@gmail.com',
+    emailVerified: false,
+    name: 'Kent Rasul',
+    billingAddress: {
+      line1: null,
+      line2: null,
+      postalCode: null,
+      city: null,
+      state: null,
+      country: 'TR'
+    },
+    taxId: null,
+    organizationId: '3be40a8a-232e-4041-ba8d-d683f459bc9a',
+    deletedAt: null,
+    avatarUrl: 'https://www.gravatar.com/avatar/906e58dcf2b5a2e00d79dadbff7d7a931b497e9ba7cb8181744d67ec14cfcdd3?d=404'
+  },
+  userId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+  product: {
+    metadata: {},
+    id: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+    createdAt: 2026-01-25T20:37:36.829Z,
+    modifiedAt: null,
+    trialInterval: null,
+    trialIntervalCount: null,
+    name: 'Monthyl LMS Pro Course Bundle (Sandbox)',
+    description: 'Full access to all courses.',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    isRecurring: true,
+    isArchived: false,
+    organizationId: '3be40a8a-232e-4041-ba8d-d683f459bc9a'
+  },
+  discount: null,
+  subscription: {
+    metadata: {},
+    createdAt: 2026-01-28T06:07:43.371Z,
+    modifiedAt: null,
+    id: '139a4e62-cd59-4988-bcc2-44743b203e93',
+    amount: 70000,
+    currency: 'usd',
+    recurringInterval: 'month',
+    recurringIntervalCount: 1,
+    status: 'active',
+    currentPeriodStart: 2026-01-28T06:07:43.365Z,
+    currentPeriodEnd: 2026-02-28T06:07:43.365Z,
+    trialStart: null,
+    trialEnd: null,
+    cancelAtPeriodEnd: false,
+    canceledAt: null,
+    startedAt: 2026-01-28T06:07:43.365Z,
+    endsAt: null,
+    endedAt: null,
+    customerId: 'c46a3a2f-4a3a-4ad6-9cd6-57d06550b6f0',
+    productId: '555f8ce0-e0c6-4bce-8b4d-3cdf83207b0b',
+    discountId: null,
+    checkoutId: '899a816e-b991-414a-aad6-04838df4b4e0',
+    seats: null,
+    customerCancellationReason: null,
+    customerCancellationComment: null
+  },
+  items: [
+    {
+      createdAt: 2026-01-28T06:07:43.602Z,
+      modifiedAt: null,
+      id: '743ff939-7f2f-4ae8-9d45-e0f2bf6acf6e',
+      label: 'Monthyl LMS Pro Course Bundle (Sandbox)',
+      amount: 70000,
+      taxAmount: 0,
+      proration: false,
+      productPriceId: '6b505c1b-5007-4851-acf0-20d7e2a6a36e'
+    }
+  ],
+  description: 'Monthyl LMS Pro Course Bundle (Sandbox)'
+}
+ POST /api/webhooks/polar 200 in 11ms (compile: 1878µs, proxy.ts: 4ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3884',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0337d8a3d074ec936909aa99481e-62c6272b424ec944-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '1f9b2264-75d1-41e4-86cf-3ebee31fe9f1',
+  'webhook-signature': 'v1,pV2k1yVbcukp8eg9wAsQaGg3CKcPU/KqC1NjL10rYBc=',
+  'webhook-timestamp': '1769580517',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,pV2k1yVbcukp8eg9wAsQaGg3CKcPU/KqC1NjL10rYBc=
+Polar Webhook received: order.updated
+ POST /api/webhooks/polar 200 in 14ms (compile: 4ms, proxy.ts: 4ms, render: 5ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4061',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033820d25a0424f1d445eca942d8-663f457c7414791d-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'cfd6f90c-50bb-4b30-ad95-3fb9d3b03f04',
+  'webhook-signature': 'v1,c385NSpijOYJp+poeYig8UDN/Ynm6FlnqN8PL80BJX8=',
+  'webhook-timestamp': '1769580536',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,c385NSpijOYJp+poeYig8UDN/Ynm6FlnqN8PL80BJX8=
+Polar Webhook received: subscription.updated
+ POST /api/webhooks/polar 200 in 19ms (compile: 3ms, proxy.ts: 8ms, render: 8ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1327',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03384f65e8856d411cf601cb9cf4-0a6f90db38a220f6-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'a97f4976-deed-441b-bbd6-29210cf24d00',
+  'webhook-signature': 'v1,FUDATkzX7Lsc9C/MhHbwmyqvtBJh4RWTWiSwXo3rbPM=',
+  'webhook-timestamp': '1769580547',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,FUDATkzX7Lsc9C/MhHbwmyqvtBJh4RWTWiSwXo3rbPM=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 15ms (compile: 4ms, proxy.ts: 5ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1717',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0338531866a2bf2fb319eb8d512d-05efcf0e34a1e9b0-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '67e7212f-fe8c-4332-9620-e6979e8c6c21',
+  'webhook-signature': 'v1,ek3LAkKiKRPl4cKGH0gVh643FYu4/vv6q1gUnNoXJ3Y=',
+  'webhook-timestamp': '1769580548',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,ek3LAkKiKRPl4cKGH0gVh643FYu4/vv6q1gUnNoXJ3Y=
+Polar Webhook received: benefit_grant.created
+ POST /api/webhooks/polar 200 in 17ms (compile: 2ms, proxy.ts: 6ms, render: 10ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '2084',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033859d503ddea4ef6e78fbca9f7-d5de6c5bdb67ee4e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '93c30b1c-191e-49cd-aed5-6bf2fc7fd21a',
+  'webhook-signature': 'v1,cgp3KnQo+e5kGsFmE37M18HQxHn5Y3IQLbrF6bDw9Pk=',
+  'webhook-timestamp': '1769580550',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,cgp3KnQo+e5kGsFmE37M18HQxHn5Y3IQLbrF6bDw9Pk=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 6ms (compile: 1342µs, proxy.ts: 1955µs, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3881',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0338755282b4bc38d0ec87a28c1b-682a8aa2da7a0b3a-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '8b7968ac-fe65-4f19-a838-de209b6a6893',
+  'webhook-signature': 'v1,CQlmJVrncF8Rl0kLQ2GLB4LYww2FR5w6QIrfCGTNcRk=',
+  'webhook-timestamp': '1769580557',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,CQlmJVrncF8Rl0kLQ2GLB4LYww2FR5w6QIrfCGTNcRk=
+Polar Webhook received: order.paid
+ POST /api/webhooks/polar 200 in 16ms (compile: 3ms, proxy.ts: 6ms, render: 7ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '2084',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03388c09bbc150a585e8c99a3920-bb8b28eb9b52ce3f-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '20966cc3-01a8-411c-95f8-b0b39b9399b6',
+  'webhook-signature': 'v1,Jnrb8qDiEc5LVwr8VOu1NCn9swUYDTtoPZgTXP7lQo0=',
+  'webhook-timestamp': '1769580563',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,Jnrb8qDiEc5LVwr8VOu1NCn9swUYDTtoPZgTXP7lQo0=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 6ms (compile: 950µs, proxy.ts: 1925µs, render: 3ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1707',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033893d289bbdcc4deb63472dd2d-6dbe8a5714a527e1-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '296530fd-269f-452d-a18e-429ad3b8052a',
+  'webhook-signature': 'v1,swicjyvIIDDY3Xp5L5lT2JP4voYz/H7pAhAGBEgDU/w=',
+  'webhook-timestamp': '1769580565',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,swicjyvIIDDY3Xp5L5lT2JP4voYz/H7pAhAGBEgDU/w=
+Polar Webhook received: benefit_grant.created
+ POST /api/webhooks/polar 200 in 8ms (compile: 851µs, proxy.ts: 1938µs, render: 5ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '4062',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0338974ccb3adde774f3c6a4bb0a-94d6e399d805293d-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '7a745b88-ee39-4019-9ec6-e1a86cca82fe',
+  'webhook-signature': 'v1,g8rfPgA2FPf2ob575Py3IAJKR27SjoTOTaE+muh6JY0=',
+  'webhook-timestamp': '1769580566',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,g8rfPgA2FPf2ob575Py3IAJKR27SjoTOTaE+muh6JY0=
+Polar Webhook received: subscription.canceled
+Polar Webhook: Processing cancellation for subscription 139a4e62-cd59-4988-bcc2-44743b203e93
+Polar Webhook: Extracted Email: serkhanrasullu@gmail.com
+Polar Webhook: Found user 05d5bc11-f390-4cc5-b8b6-bce92d671e46 for email serkhanrasullu@gmail.com. Revoking license...
+Polar Webhook: License revoked for user 05d5bc11-f390-4cc5-b8b6-bce92d671e46
+ POST /api/webhooks/polar 200 in 493ms (compile: 3ms, proxy.ts: 6ms, render: 484ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '1327',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c03389ae2d5691cadfa54e3b95119-64f812338e9d854e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'c8ce28fc-772f-43a2-8f0b-502748a27cec',
+  'webhook-signature': 'v1,NK8Jd4xkBiAIwxSEUkIKw5IHrAOSRWvqlONmt6diO6o=',
+  'webhook-timestamp': '1769580567',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,NK8Jd4xkBiAIwxSEUkIKw5IHrAOSRWvqlONmt6diO6o=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 5ms (compile: 1248µs, proxy.ts: 1563µs, render: 1973µs)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '3883',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0338a16b0ec6d8d6cfa9e14c78bf-c570eeb81c087d0e-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': '23151fed-b382-457b-bd21-e481d95f73f0',
+  'webhook-signature': 'v1,mNSnJk6QN1eZ6If6KCb9dz0j1AKFSrMGzzXk3bJr5Q0=',
+  'webhook-timestamp': '1769580568',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,mNSnJk6QN1eZ6If6KCb9dz0j1AKFSrMGzzXk3bJr5Q0=
+Polar Webhook received: order.updated
+ POST /api/webhooks/polar 200 in 10ms (compile: 1644µs, proxy.ts: 5ms, render: 4ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '652',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033898ebfd9632ab27ad8133b7b8-1bf7db5e20cbf7c6-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'b292bc12-3e31-42de-ac14-f1aa1a454af9',
+  'webhook-signature': 'v1,uvoLQJsoJxw75MlSVZ9T/AZiW2PZMRsrNjJIpQIfD1Y=',
+  'webhook-timestamp': '1769580566',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,uvoLQJsoJxw75MlSVZ9T/AZiW2PZMRsrNjJIpQIfD1Y=
+Polar Webhook received: customer.updated
+ POST /api/webhooks/polar 200 in 5ms (compile: 779µs, proxy.ts: 1590µs, render: 2ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '5803',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c0338bcdd478f78c1b1365498cff9-995cf1c58fd22bf1-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'fd5ce74e-587e-4150-bb83-e0a18c7db7b3',
+  'webhook-signature': 'v1,ibHhVc6ezm8sgVRSOl/0mUFfFvUL6tM8QbzBfv240ZI=',
+  'webhook-timestamp': '1769580575',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,ibHhVc6ezm8sgVRSOl/0mUFfFvUL6tM8QbzBfv240ZI=
+Polar Webhook received: checkout.updated
+ POST /api/webhooks/polar 200 in 16ms (compile: 3ms, proxy.ts: 6ms, render: 6ms)
+Middleware: Path /api/webhooks/polar
+Polar Webhook: Headers: {
+  accept: '*/*',
+  'accept-encoding': 'gzip, deflate',
+  connection: 'keep-alive',
+  'content-length': '2158',
+  'content-type': 'application/json',
+  host: 'kent-lms-pro-dev.loca.lt',
+  traceparent: '00-019c033937eae9199518e7a73cf7df0e-50dbb5e754e1d605-01',
+  'user-agent': 'polar.sh webhooks',
+  'webhook-id': 'bff5e1b7-542f-46a6-8f9f-f2386b8079a2',
+  'webhook-signature': 'v1,oKxnvKnNnQUNLsfKMXmFFpwXIUQGfhs5Xq5WDwScqOE=',
+  'webhook-timestamp': '1769580607',
+  'x-forwarded-for': '74.220.50.2',
+  'x-forwarded-host': 'kent-lms-pro-dev.loca.lt',
+  'x-forwarded-port': '443',
+  'x-forwarded-proto': 'https'
+}
+Polar Webhook: Signature Header: v1,oKxnvKnNnQUNLsfKMXmFFpwXIUQGfhs5Xq5WDwScqOE=
+Polar Webhook received: customer.state_changed
+ POST /api/webhooks/polar 200 in 9ms (compile: 1675µs, proxy.ts: 3ms, render: 4ms)

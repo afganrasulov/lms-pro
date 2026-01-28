@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LMS Pro
 
 ## Getting Started
 
-First, run the development server:
+1. **Environment Setup:**
+   Copy `.env.local.example` to `.env.local` and fill in the required keys.
+
+   - **Supabase:** `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY`
+   - **Polar:** `POLAR_SANDBOX_TOKEN` (for payments & license keys)
+   - **Zoom:** `ZOOM_CLIENT_ID`, `ZOOM_CLIENT_SECRET` (from Marketplace -> Meeting SDK App)
+   - **Acumbamail:** Tokens for email service.
+
+2. **Install Dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+   *Note: If you encounter peer dependency warnings for `@zoomus/websdk`, you can ignore them or use `--legacy-peer-deps`.*
+
+3. **Run Development Server:**
+
+   ```bash
+   npm run dev
+   ```
+
+## Features
+
+- **Course Player:** Video (Mux/Vimeo) + Live Class (Zoom Integrated)
+- **Gamification:** XP, Levels, Leaderboard, Gems
+- **Payments:** Polar.sh Integration (Subscriptions & One-time)
+- **License Gating:** Restrict content access based on Polar License Keys.
+
+## Zoom Integration
+
+To enable Live Classes:
+
+1. Create a **Meeting SDK** app in [Zoom Marketplace](https://marketplace.zoom.us/).
+2. Add credentials to `.env.local`.
+3. In `courses > lessons`, set `type` to `live_class`.
+4. Set `video_url` to the **Meeting ID**.
+5. Set `content_json` to `{"passcode": "123456"}`.
+
+## Testing
+
+Run E2E tests:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npx playwright test
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

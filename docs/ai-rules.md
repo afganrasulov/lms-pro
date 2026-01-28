@@ -41,13 +41,6 @@ These rules are mandatory for any AI assistant working on this project. Failure 
 - **Trigger:** When finishing a task -> Mark as `[x]` (done).
 - **Enforcement:** Never finish a turn without updating this file if progress was made.
 
-## 7. Proactive Refactoring (Anti-Rot)
-
-- **Rule:** Do not let code rot. If a file grows too large (>200 lines) or logic gets messy, you MUST proactively refactor it.
-- **Trigger:** Identifying duplicated code blocks, deeply nested conditionals, or "God Components".
-- **Action:** Split big components into smaller sub-components or custom hooks. Do this *before* asked, or atleast suggest it immediately.
-- **Context:** If the conversation gets long, check if previous code needs cleanup.
-
 ## 8. Atomic Commits
 
 - **Guideline:** Don't try to build the entire app in one prompt. Break it down into testable chunks.
@@ -61,11 +54,6 @@ These rules are mandatory for any AI assistant working on this project. Failure 
   3. **Execute:** Perform the necessary coding/actions for that specific task.
   4. **Finish:** Mark it as `[x]` (Done) in `tasks.md` and save.
   5. **Report:** Notify user that the specific task is complete.
-
-## 10. Test Playwright
-
-- **1:**  Do not ask me. Test with Playwright Find problem and fix it.
-- **2:**  Playwright test komutundan önce build komutunu çalıştır ve sonra 8 worker ile testleri yap. (Latest Run: 9 passed, 6 failed - Fix in progress)
 
 ## 11. Dökümantasyon Kuralı
 
