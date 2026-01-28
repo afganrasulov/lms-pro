@@ -57,7 +57,8 @@ export default function CoursePlayerPage() {
     }, []);
 
     // Derived Content
-    const currentContent = activeLesson?.lesson_contents?.[0];
+    // Find the current version of content, or fallback to the first one (most recent usually)
+    const currentContent = activeLesson?.lesson_contents?.find((c: any) => c.is_current_version) || activeLesson?.lesson_contents?.[0];
     const videoUrl = currentContent?.content_json?.videoUrl || activeLesson?.content_json?.videoUrl;
     const markdown = currentContent?.content_markdown || activeLesson?.content_markdown || '';
 

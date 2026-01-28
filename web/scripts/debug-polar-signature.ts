@@ -160,7 +160,7 @@ async function testValidation() {
         console.log(`Manual Verify B (String Secret): Expect ${signatureFromHeader}, Got ${computedB} -> ${signatureFromHeader === computedB ? 'MATCH' : 'FAIL'}`);
     }
 
-    manualVerify(payload, header, secret);
+    manualVerify(payload, header, secret!);
 }
 
 testValidation();

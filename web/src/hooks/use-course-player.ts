@@ -18,67 +18,93 @@ export function useCoursePlayer(slug: string) {
     const [completedLessons, setCompletedLessons] = useState<Set<string>>(new Set());
     const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>({});
 
-    useEffect(() => {
-        async function loadData() {
-            if (!slug) return;
-            setIsLoading(true);
-            try {
-                // 1. Get User
-                const { data: { user: currentUser } } = await supabase.auth.getUser();
-                setUser(currentUser);
+    // Unified Data Loader
+    const loadData = async () => {
+        if (!slug) return;
+        // setLoading is not called here to prevent full-screen loader flashes on updates
+        // We only want the initial load to be blocking
 
-                // 2. Fetch full structure with content
-                const foundCourse = await CourseService.getCourseBySlug(slug);
+        try {
+            // 1. Get User
+            const { data: { user: currentUser } } = await supabase.auth.getUser();
+            setUser(currentUser);
 
-                if (foundCourse) {
-                    setCourse(foundCourse);
+            // 2. Fetch full structure with content
+            const foundCourse = await CourseService.getCourseBySlug(slug);
 
-                    // Sort modules by position
-                    const sortedModules = (foundCourse.modules || []).sort((a: any, b: any) => a.position - b.position);
-                    setModules(sortedModules);
+            if (foundCourse) {
+                setCourse(foundCourse);
 
-                    // Process lessons
-                    const flattened: any[] = [];
-                    const expanded: Record<string, boolean> = {};
+                // Sort modules by position
+                const sortedModules = (foundCourse.modules || []).sort((a: any, b: any) => a.position - b.position);
+                setModules(sortedModules);
 
-                    sortedModules.forEach((mod: any) => {
-                        expanded[mod.id] = true; // Expand all by default for now
-                        if (mod.lessons) {
-                            mod.lessons.sort((a: any, b: any) => a.position - b.position);
-                            flattened.push(...mod.lessons);
-                        }
-                    });
-                    setAllLessons(flattened);
+                // Process lessons
+                const flattened: any[] = [];
+                // Only reset expansion on FIRST load (when list is empty)
+                // Otherwise keep user's open/close state
+                const shouldResetExpansion = Object.keys(expandedModules).length === 0;
+                const expanded: Record<string, boolean> = { ...expandedModules };
+
+                sortedModules.forEach((mod: any) => {
+                    if (shouldResetExpansion) {
+                        expanded[mod.id] = true; // Expand all by default initially
+                    }
+                    if (mod.lessons) {
+                        mod.lessons.sort((a: any, b: any) => a.position - b.position);
+
+                        // Sort contents to put current version first
+                        mod.lessons.forEach((l: any) => {
+                            if (l.lesson_contents && l.lesson_contents.length > 0) {
+                                l.lesson_contents.sort((a: any, b: any) => {
+                                    if (a.is_current_version === b.is_current_version) return 0;
+                                    return a.is_current_version ? -1 : 1;
+                                });
+                            }
+                        });
+
+                        flattened.push(...mod.lessons);
+                    }
+                });
+
+                setAllLessons(flattened);
+                if (shouldResetExpansion) {
                     setExpandedModules(expanded);
-
-                    // 3. Fetch Progress if user exists
-                    let completedSet = new Set<string>();
-                    if (currentUser) {
-                        const progress = await LessonService.getUserProgress(currentUser.id, foundCourse.id);
-                        if (progress) {
-                            progress.forEach((p: any) => {
-                                if (p.status === 'completed' || p.is_completed) {
-                                    completedSet.add(p.lesson_id);
-                                }
-                            });
-                        }
-                        setCompletedLessons(completedSet);
-                    }
-
-                    // 4. Set Active Lesson
-                    // Find first incomplete lesson, or default to first lesson
-                    if (flattened.length > 0) {
-                        const firstIncomplete = flattened.find((l: any) => !completedSet.has(l.id));
-                        setActiveLesson(firstIncomplete || flattened[0]);
-                    }
                 }
-            } catch (error) {
-                console.error("Failed to load course:", error);
-                toast.error("Failed to load course content");
-            } finally {
-                setIsLoading(false);
+
+                // 3. Fetch Progress if user exists
+                let completedSet = new Set<string>();
+                if (currentUser) {
+                    const progress = await LessonService.getUserProgress(currentUser.id, foundCourse.id);
+                    if (progress) {
+                        progress.forEach((p: any) => {
+                            if (p.status === 'completed' || p.is_completed) {
+                                completedSet.add(p.lesson_id);
+                            }
+                        });
+                    }
+                    setCompletedLessons(completedSet);
+                }
+
+                // 4. Set Active Lesson (Initial Load Only)
+                // If activeLesson is already set, don't override it unless it was deleted
+                if (!activeLesson && flattened.length > 0) {
+                    const firstIncomplete = flattened.find((l: any) => !completedSet.has(l.id));
+                    setActiveLesson(firstIncomplete || flattened[0]);
+                }
             }
+        } catch (error) {
+            console.error("Failed to load course:", error);
+            // Only toast on initial error
+            if (isLoading) toast.error("Failed to load course content");
+        } finally {
+            setIsLoading(false);
         }
+    };
+
+    // Initial Load
+    useEffect(() => {
+        setIsLoading(true);
         loadData();
     }, [slug]);
 
@@ -88,6 +114,7 @@ export function useCoursePlayer(slug: string) {
 
         const channel = supabase
             .channel('course_player_sync')
+            // 1. User Progress Updates (Existing)
             .on(
                 'postgres_changes',
                 {
@@ -98,7 +125,6 @@ export function useCoursePlayer(slug: string) {
                 },
                 (payload) => {
                     const newProgress = payload.new as any;
-                    // Check if this progress update belongs to current course
                     if (newProgress && allLessons.some(l => l.id === newProgress.lesson_id)) {
                         if (newProgress.is_completed || newProgress.status === 'completed') {
                             setCompletedLessons(prev => new Set(prev).add(newProgress.lesson_id));
@@ -107,29 +133,55 @@ export function useCoursePlayer(slug: string) {
                     }
                 }
             )
-            // Listen for Lesson Title/Description Updates
+            // 2. Admin: Course Metadata Updates (Title, etc.)
             .on(
                 'postgres_changes',
-                { event: 'UPDATE', schema: 'public', table: 'lessons' },
+                {
+                    event: 'UPDATE',
+                    schema: 'public',
+                    table: 'courses',
+                    filter: `id=eq.${course.id}`
+                },
+                () => {
+                    console.log('[Realtime] Course Updated');
+                    loadData();
+                }
+            )
+            // 3. Admin: Module Updates (Reorder, Add, Delete)
+            .on(
+                'postgres_changes',
+                {
+                    event: '*',
+                    schema: 'public',
+                    table: 'modules',
+                    filter: `course_id=eq.${course.id}`
+                },
+                () => {
+                    console.log('[Realtime] Modules Changed');
+                    loadData();
+                }
+            )
+            // 4. Admin: Lesson Updates (Reorder, Add, Delete)
+            // Note: Lessons table doesn't have course_id in all projects, so we listen globally
+            // and filter by checking if the module_id belongs to a module in this course.
+            .on(
+                'postgres_changes',
+                { event: '*', schema: 'public', table: 'lessons' },
                 (payload) => {
-                    const updatedLesson = payload.new as any;
-                    // Only process if this lesson belongs to our course (via modules check or existing list)
-                    if (allLessons.some(l => l.id === updatedLesson.id)) {
-                        setAllLessons(prev => prev.map(l =>
-                            l.id === updatedLesson.id
-                                ? { ...l, ...updatedLesson } // Merge updates
-                                : l
-                        ));
+                    const modId = (payload.new as any)?.module_id || (payload.old as any)?.module_id;
+                    const isRelevant = modules.some(m => m.id === modId);
 
-                        // Update active lesson if it's the one being modified
-                        if (activeLesson?.id === updatedLesson.id) {
-                            setActiveLesson((prev: any) => ({ ...prev, ...updatedLesson }));
-                        }
+                    if (isRelevant) {
+                        console.log('[Realtime] Lessons Changed');
+
+                        // If it's just a content update (video/desc), we handle it more gracefully below
+                        // But for structural changes (position, title, deletion), we reload.
+                        // For simplicity in this iteration, we reload data to ensure order is correct.
+                        loadData();
                     }
                 }
             )
-            // Listen for Lesson Content (Video/Markdown) Updates
-            // Listen for Lesson Content (Video/Markdown) Updates
+            // 5. Lesson Content Updates (Video/Markdown) - Granular Update
             .on(
                 'postgres_changes',
                 { event: '*', schema: 'public', table: 'lesson_contents' },
@@ -139,19 +191,15 @@ export function useCoursePlayer(slug: string) {
                     // Check if we have this lesson
                     const parentLesson = allLessons.find(l => l.id === updatedContent?.lesson_id);
                     if (parentLesson && updatedContent) {
-                        // Check if this is the "current" version
                         if (updatedContent.is_current_version) {
-                            // Update in allLessons
                             setAllLessons(prev => prev.map(l => {
                                 if (l.id === updatedContent.lesson_id) {
-                                    // Filter out ANY existing content to avoid stale versions, and put this one first
                                     const otherContents = (l.lesson_contents || []).filter((c: any) => c.id !== updatedContent.id);
                                     return { ...l, lesson_contents: [updatedContent, ...otherContents] };
                                 }
                                 return l;
                             }));
 
-                            // Update active lesson if needed
                             if (activeLesson?.id === updatedContent.lesson_id) {
                                 setActiveLesson((prev: any) => {
                                     const otherContents = (prev.lesson_contents || []).filter((c: any) => c.id !== updatedContent.id);
@@ -167,7 +215,7 @@ export function useCoursePlayer(slug: string) {
         return () => {
             supabase.removeChannel(channel);
         };
-    }, [user, course, allLessons, router, activeLesson]);
+    }, [user, course?.id, allLessons, router, activeLesson, modules]);
 
     const handleLessonSelect = (lesson: any) => {
         setActiveLesson(lesson);

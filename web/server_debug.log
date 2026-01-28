@@ -1503,3 +1503,255 @@ Middleware: Path /dashboard
  GET /dashboard 200 in 194ms (compile: 3ms, proxy.ts: 185ms, render: 6ms)
 Middleware: Path /courses
  GET /courses 200 in 1561ms (compile: 1266µs, proxy.ts: 184ms, render: 1376ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 545ms (compile: 8ms, proxy.ts: 525ms, render: 12ms)
+Middleware: Path /admin/users
+ GET /admin/users 200 in 215ms (compile: 5ms, proxy.ts: 196ms, render: 14ms)
+Middleware: Path /courses
+ GET /courses 200 in 1674ms (compile: 3ms, proxy.ts: 216ms, render: 1456ms)
+Middleware: Path /live
+ GET /live 200 in 820ms (compile: 5ms, proxy.ts: 188ms, render: 628ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 212ms (compile: 5ms, proxy.ts: 191ms, render: 17ms)
+Middleware: Path /profile
+ GET /profile 200 in 233ms (compile: 7ms, proxy.ts: 212ms, render: 13ms)
+Middleware: Path /courses
+ GET /courses 200 in 1605ms (compile: 5ms, proxy.ts: 195ms, render: 1405ms)
+Middleware: Path /courses/benim-1769362498725/learn
+ GET /courses/benim-1769362498725/learn 200 in 215ms (compile: 13ms, proxy.ts: 190ms, render: 11ms)
+Middleware: Path /admin/users
+ GET /admin/users 200 in 521ms (compile: 7ms, proxy.ts: 384ms, render: 129ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 522ms (compile: 5ms, proxy.ts: 502ms, render: 15ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 592ms (compile: 316ms, proxy.ts: 265ms, render: 12ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 783ms (compile: 473ms, proxy.ts: 258ms, render: 53ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 356ms (compile: 12ms, proxy.ts: 296ms, render: 48ms)
+✓ Compiled in 47ms
+Middleware: Path /dashboard
+ GET /dashboard 200 in 483ms (compile: 9ms, proxy.ts: 458ms, render: 16ms)
+Middleware: Path /courses
+ GET /courses 200 in 1710ms (compile: 8ms, proxy.ts: 251ms, render: 1451ms)
+Middleware: Path /courses/benim-1769362498725/learn
+ GET /courses/benim-1769362498725/learn 200 in 326ms (compile: 69ms, proxy.ts: 220ms, render: 37ms)
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/kent/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/kent/Applications/lms-pro/web/package-lock.json
+
+▲ Next.js 16.1.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.0.1.63:3000
+- Environments: .env.local
+
+✓ Starting...
+⚠ Turbopack's filesystem cache has been deleted as the result of a user request. Builds or page loads may be slower as a result.
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+✓ Ready in 539ms
+Middleware: Path /courses/benim-1769362498725/learn
+Middleware: Path /courses/benim-1769362498725/learn
+○ Compiling /courses/[slug]/learn ...
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 7.8s (compile: 7.4s, proxy.ts: 234ms, render: 131ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 343ms (compile: 6ms, proxy.ts: 310ms, render: 28ms)
+Middleware: Path /admin/users
+ GET /admin/users 200 in 834ms (compile: 503ms, proxy.ts: 315ms, render: 16ms)
+Middleware: Path /courses
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 488ms (compile: 255ms, proxy.ts: 225ms, render: 8ms)
+ GET /courses 200 in 2.0s (compile: 206ms, proxy.ts: 183ms, render: 1631ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 457ms (compile: 245ms, proxy.ts: 204ms, render: 8ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 699ms (compile: 447ms, proxy.ts: 198ms, render: 55ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 230ms (compile: 1449µs, proxy.ts: 187ms, render: 41ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 222ms (compile: 4ms, proxy.ts: 194ms, render: 24ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 503ms (compile: 6ms, proxy.ts: 470ms, render: 27ms)
+Middleware: Path /courses/benim-1769362498725/learn
+Middleware: Redirecting global guest to /
+Middleware: Path /
+ GET / 200 in 379ms (compile: 333ms, proxy.ts: 4ms, render: 42ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 541ms (compile: 244ms, proxy.ts: 280ms, render: 16ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 272ms (compile: 2ms, proxy.ts: 260ms, render: 10ms)
+Middleware: Path /login
+ GET /login 200 in 353ms (compile: 136ms, proxy.ts: 187ms, render: 29ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 240ms (compile: 3ms, proxy.ts: 225ms, render: 12ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 287ms (compile: 1527µs, proxy.ts: 275ms, render: 10ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 282ms (compile: 7ms, proxy.ts: 231ms, render: 44ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 714ms (compile: 7ms, proxy.ts: 673ms, render: 35ms)
+Middleware: Path /
+ GET / 200 in 44ms (compile: 7ms, proxy.ts: 6ms, render: 32ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 286ms (compile: 4ms, proxy.ts: 273ms, render: 9ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 214ms (compile: 2ms, proxy.ts: 199ms, render: 13ms)
+Middleware: Path /dashboard
+ GET /dashboard 200 in 263ms (compile: 1768µs, proxy.ts: 229ms, render: 32ms)
+Middleware: Path /courses/benim-1769362498725/learn
+[DEBUG] LearnPage Render: {
+  lessonId: undefined,
+  hasContents: false,
+  derivedVideoUrl: undefined,
+  rawContentJson: undefined
+}
+ GET /courses/benim-1769362498725/learn 200 in 327ms (compile: 11ms, proxy.ts: 275ms, render: 40ms)
+✓ Compiled in 70ms
+✓ Compiled in 110ms
+Middleware: Path /settings
+Middleware: Path /admin/users
+ GET /admin/users 200 in 221ms (compile: 9ms, proxy.ts: 197ms, render: 15ms)
+ GET /settings 200 in 2.2s (compile: 1637ms, proxy.ts: 580ms, render: 15ms)
+Middleware: Path /courses
+Middleware: Path /admin/users
+ GET /admin/users 200 in 246ms (compile: 1718µs, proxy.ts: 235ms, render: 10ms)
+ GET /courses 200 in 1965ms (compile: 6ms, proxy.ts: 214ms, render: 1745ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 254ms (compile: 19ms, proxy.ts: 225ms, render: 10ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 258ms (compile: 12ms, proxy.ts: 234ms, render: 12ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 228ms (compile: 5ms, proxy.ts: 199ms, render: 25ms)
+Middleware: Path /courses
+ GET /courses 200 in 1865ms (compile: 3ms, proxy.ts: 252ms, render: 1610ms)
+Middleware: Path /admin/dashboard
+ GET /admin/dashboard 200 in 259ms (compile: 2ms, proxy.ts: 246ms, render: 10ms)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 199ms (compile: 1597µs, proxy.ts: 190ms, render: 7ms)
+Middleware: Path /api/courses/import
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+[(IMPORT) Module Created] e007a17f-3a6d-4f52-ab43-84e39545bf41 Giriş
+[(IMPORT) Lesson Created] 404021d6-7a0a-44ce-913f-094055def3f7 Tasarım ve animasyon kursu tanıtım filmi
+[(IMPORT) Lesson Created] a21da89e-26b0-4cc9-9c32-121cde1a03ff Afgan Rasulov kimdir
+[(IMPORT) Lesson Created] 7a5337fd-37f3-4d69-aec8-b536904f9fcc ÖNEMLİ! Kursa başlamadan önce izleyin
+[(IMPORT) Lesson Created] ea45ab83-dc16-4768-b441-560910bbf401 Windows vs Mac kullanıcıları
+[(IMPORT) Lesson Created] 464a04ca-ceb1-462e-9727-eb52e9e4d7fb Eğitimin 15. dakikasına dikkat!
+[(IMPORT) Lesson Created] f5afdc11-7e67-4c7b-9b72-e22dc508cbb6 Uygulama egzersiz, alıştırma dosyalarını indirin
+ POST /api/courses/import 200 in 3.9s (compile: 402ms, proxy.ts: 338ms, render: 3.1s)
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 245ms (compile: 5ms, proxy.ts: 220ms, render: 20ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 338ms (compile: 7ms, proxy.ts: 308ms, render: 23ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 294ms (compile: 6ms, proxy.ts: 273ms, render: 16ms)
+Middleware: Path /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe
+ GET /admin/courses/ea7e90ae-d621-4488-9f39-44b12a13a8fe 200 in 336ms (compile: 12ms, proxy.ts: 292ms, render: 33ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /admin/courses
+ GET /admin/courses 200 in 185ms (compile: 1237µs, proxy.ts: 178ms, render: 6ms)
+Middleware: Path /admin/courses/8dbc9652-f3e1-4977-89ef-bb48c7b88f49
+ GET /admin/courses/8dbc9652-f3e1-4977-89ef-bb48c7b88f49 200 in 289ms (compile: 4ms, proxy.ts: 262ms, render: 23ms)
+⚠ ./Applications/lms-pro/web/src/app/api/courses/import/route.ts:6:14
+Next.js can't recognize the exported `config` field in route. Page config in `config` is deprecated and ignored, use individual exports instead.
+[0m [90m 4 |[39m
+ [90m 5 |[39m [90m// Disable body parsing, handling with formData[39m
+[31m[1m>[22m[39m[90m 6 |[39m [36mexport[39m [36mconst[39m config [33m=[39m {
+ [90m   |[39m              [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 7 |[39m     api[33m:[39m {
+ [90m 8 |[39m         bodyParser[33m:[39m [36mfalse[39m[33m,[39m
+ [90m 9 |[39m     }[33m,[39m[0m
+
+The exported configuration object in a source file needs to have a very specific format from which some properties can be statically parsed at compiled-time.
+
+https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config
+
+
+Middleware: Path /courses
+ GET /courses 200 in 1866ms (compile: 4ms, proxy.ts: 236ms, render: 1627ms)
+Middleware: Path /courses
+Middleware: Path /courses/benim-1769583487208
+ GET /courses/benim-1769583487208 200 in 664ms (compile: 418ms, proxy.ts: 235ms, render: 12ms)
+ GET /courses 200 in 1737ms (compile: 1391µs, proxy.ts: 207ms, render: 1529ms)
+Middleware: Path /courses/benim-1769583487208/learn
+ GET /courses/benim-1769583487208/learn 200 in 370ms (compile: 89ms, proxy.ts: 251ms, render: 30ms)

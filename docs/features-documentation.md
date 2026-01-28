@@ -152,5 +152,14 @@
   - **Güvenlik:** İşlem `supabaseAdmin` (Service Role) yetkisiyle gerçekleşir, böylece RLS kısıtlamalarına takılmaz.
   - **Kritik Fix (Signature Validation):** Polar SDK'sının (`validateWebhook`) katı şema kontrolü nedeniyle bazı geçerli webhook isteklerinin ("Internal server error" değil, "Invalid signature/schema") reddedildiği tespit edildi.
     - **Çözüm (Manual Fallback):** `route.ts` dosyasına SDK doğrulaması başarısız olduğunda devreye giren bir **Manuel İmza Doğrulama** (Manual Signature Verification) katmanı eklendi.
-    - Bu katman, ham `polar-webhook-signature` header'ını ve `crypto` kütüphanesini kullanarak HMAC-SHA256 (Base64) algoritmasıyla doğrulamayı manuel yapar.
-    - Ayrıca local testler için Hex formatındaki imzaları da destekler (Simulation Scripts uyumluluğu).
+
+## 16. Dinamik İçerik ve Ders Versiyonlama (Course Player Realtime Updates)
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** `/learn` sayfasında (Course Player) başlık, ders içeriği (markdown) veya video URL'si admin panelinden değiştirildiğinde, öğrenci tarafında sayfa yenilemeye gerek kalmadan anlık olarak güncellenir.
+- **Teknik Detay:**
+- **Realtime Subscriptions:** `useCoursePlayer` hook'u artık `courses`, `modules`, `lessons` ve `lesson_contents` tablolarını dinler. Özellikle `lesson_contents` tablosundaki güncellemeler, verinin tamamını yeniden çekmek yerine ilgili dersin durumunu lokal olarak günceller.
+- **Kritik Fix (Content Versioning):** Veritabanında her içerik güncellemesi yeni bir `lesson_contents` satırı oluşturur (History Pattern).
+  - **Sorun:** Frontend kodu daha önce `lesson_contents[0]` ile rastgele (veya varsayılan sıralamaya göre) bir içerik seçiyordu. Bu durum, admin panelinde güncelleme yapılsa bile öğrencinin eski bir videoyu (ör. "Train arriving") görmesine neden oluyordu.
+  - **Çözüm:** `activeLesson` içinden içerik seçilirken artık **`is_current_version: true`** olan kayıt filtreleniyor.
+  - **Defensive Sorting:** Ayrıca `loadData` fonksiyonunda içerikler `is_current_version` (true önce gelir) mantığıyla sıralanarak, kodun fallback durumunda bile en güncel veriye ulaşması garanti altına alındı.
