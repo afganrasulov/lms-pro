@@ -125,10 +125,7 @@ export default function UserDashboardPage() {
                         </p>
                     )}
                 </div>
-                <Button onClick={() => router.push('/courses')} variant="outline" className="glass hover:bg-white/10">
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Yeni Kurslara Göz At
-                </Button>
+
             </header>
 
             {/* Stats Row */}

@@ -90,7 +90,7 @@ export function Sidebar({ className }: { className?: string }) {
                                             : "text-muted-foreground hover:bg-white/5 hover:text-white"
                                     )}
                                 >
-                                    <item.icon className={cn("h-4 w-4", isActive ? "text-primary" : "")} />
+                                    <item.icon className={cn("h-4 w-4", isActive ? "text-white" : "")} />
                                     {item.label}
                                 </Link>
                             );
