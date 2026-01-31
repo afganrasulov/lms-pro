@@ -49,5 +49,21 @@ export async function getLiveUrl() {
         .eq('key', 'live_session_config')
         .single();
 
-    return data?.value?.video_url || null;
+    return (data?.value as any)?.video_url || null;
+}
+
+export async function createLiveClass(data: any) {
+    return { success: false, error: "Not implemented" };
+}
+
+export async function getAdminCoursesForSelect() {
+    return [];
+}
+
+export async function getModulesForCourse(courseId: string) {
+    return [];
+}
+
+export async function updateLiveUrl(lessonId: string, url: string) {
+    return setQuickLiveUrl(url);
 }

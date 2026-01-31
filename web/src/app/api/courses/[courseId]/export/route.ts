@@ -23,7 +23,7 @@ export async function GET(
         title,
         slug,
         description,
-        status,
+        is_published,
         visibility,
         subtitle,
         level,
@@ -58,7 +58,7 @@ export async function GET(
             'Slug': course.slug,
             'Subtitle': course.subtitle || '',
             'Description': course.description || '',
-            'Status': course.status,
+            'Status': course.is_published ? 'Published' : 'Draft',
             'Visibility': course.visibility,
             'Level': course.level || '',
             'Category': course.category || ''

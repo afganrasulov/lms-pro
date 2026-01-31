@@ -27,7 +27,7 @@ export function CourseDialog({ course, trigger, onSuccess, open, onOpenChange }:
         description: course?.description || '',
         status: course?.status || 'draft',
         visibility: course?.visibility || 'public',
-        cover_image_path: course?.cover_image_path || ''
+        image_url: course?.image_url || ''
     });
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -35,36 +35,30 @@ export function CourseDialog({ course, trigger, onSuccess, open, onOpenChange }:
         setLoading(true);
 
         try {
+            const payload = {
+                title: formData.title,
+                slug: formData.slug,
+                description: formData.description,
+                status: formData.status,
+                visibility: formData.visibility,
+                image_url: formData.image_url
+            };
+
             if (isEdit && course) {
-                await CourseService.updateCourse(course.id, formData);
+                await CourseService.updateCourse(course.id, payload);
             } else {
-                // @ts-ignore - created_by is handled by RLS typically, but let's see database.types
-                // Actually supabase auto-injects auth.uid() on RLS? or we need to pass it?
-                // CourseService.createCourse expects created_by. We'll rely on service logic or backend.
-                // Wait, CourseService.createCourse usage in service layer:
-                // It takes a full object. We need user ID.
-                // For now assuming existing service call handles it or we'll patch it.
-                // Let's pass a placeholder/dummy or rely on Context.
-                // Ah, we are in Client Component. We can get user ID. But simpler:
-                // Let's update CourseService in next steps if needed. For now let's hope Create triggers default?
-                // Actually `CourseService.createCourse` signature requires `created_by`.
-                // I'll fix this in the Page component OR use a utility here.
-
-                // Temporary fix: using a hardcoded placeholder if missing, but it MUST be passed.
-                // Ideally this dialog should receive userId.
-                // I will add userId to Props if needed or just handle in parent.
-                // But wait, the parent calls this.
-                // Let's assume the parent (Page) will handle the specific Create call if I expose data?
-                // No, Dialog handles submission usually.
-                // Let's throw error if creating without ID.
-
-                // Actually, I'll invoke onSuccess with data? No, let's keep logic here.
                 const { data: { user } } = await import('@/lib/supabase/client').then(m => m.createClient().auth.getUser());
                 if (!user) throw new Error("Not authenticated");
 
                 await CourseService.createCourse({
-                    ...formData,
-                    created_by: user.id
+                    ...payload,
+                    // created_by is handled by service or backend, or passed here if needed.
+                    // Assuming CourseService accepts partial or we add missing fields.
+                    // For now, matching previous logic but with correct fields.
+                    created_by: user.id,
+                    subtitle: '', // Required by some types?
+                    level: 'Beginner',
+                    category: 'Development'
                 } as any);
             }
             onSuccess();

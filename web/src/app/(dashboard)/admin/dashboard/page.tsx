@@ -41,7 +41,7 @@ export default function AdminDashboardPage() {
             .on('postgres_changes', { event: '*', schema: 'public', table: 'courses' }, () => {
                 AdminService.getSystemStats().then(setStats);
             })
-            .on('postgres_changes', { event: '*', schema: 'public', table: 'enrollments' }, () => {
+            .on('postgres_changes', { event: '*', schema: 'public', table: 'enrollments' as any }, () => {
                 AdminService.getSystemStats().then(setStats);
             })
             .subscribe();

@@ -15,77 +15,86 @@ export const CourseService = {
         supabaseClient: SupabaseClient<Database>,
         userId?: string
     ): Promise<CourseWithMeta[]> {
-        // 1. Fetch Courses
+        // 1. Fetch Courses (Base Data)
+        // @ts-ignore - DB schema has cover_image_path, Types have image_url
         const { data: courses, error: coursesError } = await supabaseClient
             .from('courses')
-            .select('*')
+            .select('id, title, slug, description, image_url:cover_image_path, level, created_at')
             .eq('status', 'published')
             .eq('visibility', 'public')
-            .order('position', { ascending: true })
-            .order('created_at', { ascending: false });
+            .order('created_at', { ascending: false }) as any;
 
         if (coursesError) throw coursesError;
         if (!courses || courses.length === 0) return [];
 
-        const courseIds = courses.map(c => c.id);
+        const courseIds = courses.map((c: any) => c.id);
 
-        // 2. Fetch Aggregated Lesson Data (Count & Duration)
-        const { data: lessons } = await supabaseClient
-            .from('lessons')
-            .select('id, module_id, duration_seconds, status')
-            .in('module_id', (
-                await supabaseClient.from('modules').select('id').in('course_id', courseIds)
-            ).data?.map(m => m.id) || [])
-            .eq('status', 'published');
+        // 2. Parallel Fetching of Dependencies
+        // We combine all secondary requests into a single Promise.all to minimize latency (Waterfall Fix)
+        const [modulesResult, progressResult, enrollmentsResult] = await Promise.all([
+            // A. Fetch Modules & Lessons (Deep Join) - efficient aggregation
+            supabaseClient
+                .from('modules')
+                .select('id, course_id, lessons(id, duration, is_published)')
+                .in('course_id', courseIds),
 
-        // Link lessons to courses via modules
-        const { data: modules } = await supabaseClient
-            .from('modules')
-            .select('id, course_id')
-            .in('course_id', courseIds);
-
-        const moduleIdToCourseId = new Map<string, string>();
-        modules?.forEach(m => moduleIdToCourseId.set(m.id, m.course_id));
-
-        // 3. User Progress & Enrollment
-        let enrollmentsMap = new Set<string>();
-        let progressMap = new Map<string, number>();
-
-        if (userId) {
-            const { data: progressData } = await supabaseClient
-                .from('course_progress_summary')
+            // B. Fetch User Progress (if logged in)
+            userId ? supabaseClient
+                .from('course_progress_summary' as any)
                 .select('course_id, progress_percent')
-                .eq('user_id', userId);
+                .eq('user_id', userId)
+                .in('course_id', courseIds) as any
+                : Promise.resolve({ data: [] }),
 
-            progressData?.forEach(p => progressMap.set(p.course_id, p.progress_percent || 0));
-
-            const { data: enrollmentData } = await supabaseClient
-                .from('enrollments')
+            // C. Fetch Enrollments (if logged in)
+            userId ? supabaseClient
+                .from('enrollments' as any)
                 .select('course_id')
                 .eq('user_id', userId)
-                .eq('status', 'active');
+                .eq('status', 'active')
+                .in('course_id', courseIds) as any
+                : Promise.resolve({ data: [] })
+        ]);
 
-            enrollmentData?.forEach(e => enrollmentsMap.add(e.course_id));
-        }
+        const modules = modulesResult.data || [];
+        const progressData = progressResult.data || [];
+        const enrollmentData = enrollmentsResult.data || [];
 
-        const result: CourseWithMeta[] = courses.map((course, index) => {
-            const courseLessons = lessons?.filter(l => {
-                const cId = moduleIdToCourseId.get(l.module_id);
-                return cId === course.id;
-            }) || [];
+        // 3. Process & Map Data (In-Memory Aggregation)
 
-            const totalLessons = courseLessons.length;
-            const totalDuration = courseLessons.reduce((acc, curr) => acc + (curr.duration_seconds || 0), 0);
+        // Map: CourseID -> Lessons List (derived from modules)
+        const courseLessonsMap = new Map<string, any[]>();
+        modules.forEach((m: any) => {
+            const validLessons = m.lessons?.filter((l: any) => l.is_published) || [];
+            const existing = courseLessonsMap.get(m.course_id) || [];
+            courseLessonsMap.set(m.course_id, [...existing, ...validLessons]);
+        });
+
+        // Map: CourseID -> Progress %
+        const progressMap = new Map<string, number>();
+        progressData.forEach((p: any) => progressMap.set(p.course_id, p.progress_percent || 0));
+
+        // Set: Enrolled Course IDs
+        const enrolledSet = new Set<string>();
+        enrollmentData.forEach((e: any) => enrolledSet.add(e.course_id));
+
+        // 4. Transform to CourseWithMeta
+        const result: CourseWithMeta[] = courses.map((course: any, index: number) => {
+            const lessons = courseLessonsMap.get(course.id) || [];
+            const totalLessons = lessons.length;
+            const totalDuration = lessons.reduce((acc, curr) => acc + (curr.duration || 0), 0);
+
             const userProgress = progressMap.get(course.id) ?? null;
-            const isEnrolled = enrollmentsMap.has(course.id);
+            const isEnrolled = enrolledSet.has(course.id);
 
+            // Locking Logic (Simple Sequential)
             let isLocked = false;
-            // Simple locking: Lock if previous course not complete
-            // TODO: Refine locking logic based on strict curriculum rules
             if (index > 0) {
                 const prevCourse = courses[index - 1];
                 const prevProgress = progressMap.get(prevCourse.id) || 0;
-                if (prevProgress < 100) {
+                // Only lock if NOT enrolled and previous not complete? 
+                // Or strict curriculum? Assuming strict for now but unlocking if enrolled.
+                if (prevProgress < 100 && !isEnrolled) {
                     isLocked = true;
                 }
             }
@@ -115,22 +124,24 @@ export const CourseService = {
 
     async getCourseById(id: string) {
         const { data, error } = await supabase
-            .from('courses')
-            .select('*')
+            .from('courses' as any)
+            .select('*, image_url:cover_image_path')
             .eq('id', id)
             .single();
 
         if (error) throw error;
-        return data as Course;
+        return data as unknown as Course;
     },
 
     async getCourseBySlug(slug: string) {
         // 1. Fetch Course details
-        const { data: course, error: courseError } = await supabase
-            .from('courses')
-            .select('*')
+        const { data, error: courseError } = await supabase
+            .from('courses' as any)
+            .select('*, image_url:cover_image_path')
             .eq('slug', slug)
             .single();
+
+        const course = data as any;
 
         if (courseError) throw courseError;
 
@@ -167,56 +178,65 @@ export const CourseService = {
         return data as Course[];
     },
 
-    async getUserEnrolledCourses(userId: string): Promise<CourseWithMeta[]> {
-        // Fetch enrollments with course details
-        const { data: enrollments, error } = await supabase
-            .from('enrollments')
+    async getUserEnrolledCourses(supabaseClient: SupabaseClient<Database>, userId: string): Promise<CourseWithMeta[]> {
+        // 1. Fetch Enrollments with Course Details
+        const { data: enrollments, error } = await supabaseClient
+            .from('enrollments' as any)
             .select('*, courses(*)')
             .eq('user_id', userId)
-            .eq('status', 'active');
+            .eq('status', 'active') as any;
 
         if (error) throw error;
         if (!enrollments || enrollments.length === 0) return [];
 
-        const courses = enrollments.map(e => e.courses as unknown as Course);
+        const courses: Course[] = enrollments.map((e: any) => e.courses as unknown as Course);
         const courseIds = courses.map(c => c.id);
 
-        // Fetch Metadata (Lessons)
-        const { data: lessons } = await supabase
-            .from('lessons')
-            .select('id, module_id, duration_seconds, status')
-            .in('module_id', (
-                await supabase.from('modules').select('id').in('course_id', courseIds)
-            ).data?.map(m => m.id) || [])
-            .eq('status', 'published');
+        if (courseIds.length === 0) return [];
 
-        // Link lessons to courses via modules
-        const { data: modules } = await supabase
-            .from('modules')
-            .select('id, course_id')
-            .in('course_id', courseIds);
+        // 2. Parallel Fetching: Modules, Lessons, Progress
+        // We fetch all related data in parallel to minimize waterfall
+        const [modulesResult, lessonsResult, progressResult] = await Promise.all([
+            supabaseClient
+                .from('modules')
+                .select('id, course_id')
+                .in('course_id', courseIds),
 
+            supabaseClient
+                .from('lessons')
+                .select('id, chapter_id, duration, is_published')
+                .eq('is_published', true)
+                .in('chapter_id', (
+                    await supabaseClient.from('modules').select('id').in('course_id', courseIds)
+                ).data?.map(m => m.id) || []),
+
+            supabaseClient
+                .from('course_progress_summary' as any)
+                .select('course_id, progress_percent')
+                .eq('user_id', userId)
+                .in('course_id', courseIds) as any
+        ]);
+
+        const modules = modulesResult.data || [];
+        const lessons = lessonsResult.data || [];
+        const progressData = progressResult.data || [];
+
+        // 3. Data Mapping efficiently
         const moduleIdToCourseId = new Map<string, string>();
-        modules?.forEach(m => moduleIdToCourseId.set(m.id, m.course_id));
+        modules.forEach(m => moduleIdToCourseId.set(m.id, m.course_id));
 
-        // Progress
-        let progressMap = new Map<string, number>();
-        const { data: progressData } = await supabase
-            .from('course_progress_summary')
-            .select('course_id, progress_percent')
-            .eq('user_id', userId)
-            .in('course_id', courseIds);
+        const progressMap = new Map<string, number>();
+        progressData.forEach((p: any) => progressMap.set(p.course_id, p.progress_percent || 0));
 
-        progressData?.forEach(p => progressMap.set(p.course_id, p.progress_percent || 0));
-
+        // 4. Transform to CourseWithMeta
         return courses.map(course => {
-            const courseLessons = lessons?.filter(l => {
-                const cId = moduleIdToCourseId.get(l.module_id);
+            const courseLessons = lessons.filter(l => {
+                const cId = moduleIdToCourseId.get(l.chapter_id);
                 return cId === course.id;
-            }) || [];
+            });
 
             const totalLessons = courseLessons.length;
-            const totalDuration = courseLessons.reduce((acc, curr) => acc + (curr.duration_seconds || 0), 0);
+            const totalDuration = courseLessons.reduce((acc, curr) => acc + (curr.duration || 0), 0);
             const userProgress = progressMap.get(course.id) ?? 0;
 
             return {
@@ -225,7 +245,7 @@ export const CourseService = {
                 total_duration: totalDuration,
                 user_progress: userProgress,
                 is_enrolled: true,
-                is_locked: false // Enrolled courses are never locked implicitly here
+                is_locked: false
             };
         });
     },
@@ -321,12 +341,12 @@ export const CourseService = {
 
     async checkAccess(userId: string, courseId: string) {
         const { data, error } = await supabase
-            .from('enrollments')
+            .from('enrollments' as any)
             .select('id')
             .eq('user_id', userId)
             .eq('course_id', courseId)
             .eq('status', 'active')
-            .single();
+            .single() as any;
 
         if (!error && data) return true;
         return false;
@@ -335,13 +355,13 @@ export const CourseService = {
     async enrollUser(supabaseClient: SupabaseClient<Database> | null, userId: string, courseId: string, source: string = 'web') {
         const client = supabaseClient || supabase;
         const { error } = await client
-            .from('enrollments')
+            .from('enrollments' as any)
             .insert({
                 user_id: userId,
                 course_id: courseId,
                 status: 'active',
                 source: source
-            });
+            }) as any;
 
         if (error) {
             // If unique constraint violation (already enrolled), ignore

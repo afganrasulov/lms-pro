@@ -21,7 +21,7 @@ export function UserManageDialog({ open, onOpenChange, user, onSuccess }: UserMa
 
     useEffect(() => {
         if (user) {
-            setRole(user.role);
+            setRole(user.role || 'student');
         }
     }, [user]);
 

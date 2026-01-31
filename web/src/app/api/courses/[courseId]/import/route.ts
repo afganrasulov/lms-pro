@@ -198,13 +198,12 @@ export async function POST(
             // Prepare Lessons for this Module
             const currentModuleLessons: {
                 course_id: string;
-                module_id: string;
+                chapter_id: string;
                 title: string;
                 type: 'video' | 'quiz' | 'text';
                 position: number;
-                duration_seconds: number;
-                is_free_preview: boolean | undefined;
-                created_by: string;
+                duration: number;
+                is_free: boolean | undefined;
                 slug: string;
                 _content: string;
                 _videoUrl: string;
@@ -236,13 +235,12 @@ export async function POST(
 
                 currentModuleLessons.push({
                     course_id: courseId,
-                    module_id: moduleId,
+                    chapter_id: moduleId,
                     title: lessonTitle,
                     type: type,
                     position: index,
-                    duration_seconds: durationSec,
-                    is_free_preview: isFree,
-                    created_by: user.id,
+                    duration: durationSec,
+                    is_free: isFree,
                     slug: finalSlug,
                     _content: content,
                     _videoUrl: videoUrl

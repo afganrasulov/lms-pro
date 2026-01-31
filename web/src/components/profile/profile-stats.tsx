@@ -7,7 +7,11 @@ interface ProfileStatsProps {
 }
 
 export function ProfileStats({ profile }: ProfileStatsProps) {
-    const streak = profile?.user_streaks?.[0]?.current_streak || 0;
+    const streakData = Array.isArray(profile?.user_streaks)
+        ? profile.user_streaks[0]
+        : profile?.user_streaks;
+
+    const streak = streakData?.current_streak || 0;
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -23,7 +27,7 @@ export function ProfileStats({ profile }: ProfileStatsProps) {
                 <div className="p-3 rounded-md bg-blue-400/10 text-blue-400">
                     <Diamond className="w-6 h-6" />
                 </div>
-                <div className="text-3xl font-bold">{profile?.gems?.toLocaleString() ?? 0}</div>
+                <div className="text-3xl font-bold">{0}</div>
                 <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Toplam Elmas</div>
             </Card>
 

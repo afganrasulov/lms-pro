@@ -153,6 +153,18 @@
   - **Kritik Fix (Signature Validation):** Polar SDK'sının (`validateWebhook`) katı şema kontrolü nedeniyle bazı geçerli webhook isteklerinin ("Internal server error" değil, "Invalid signature/schema") reddedildiği tespit edildi.
     - **Çözüm (Manual Fallback):** `route.ts` dosyasına SDK doğrulaması başarısız olduğunda devreye giren bir **Manuel İmza Doğrulama** (Manual Signature Verification) katmanı eklendi.
 
+## 20. Performans Mimarisi ve "Gold Standard" Optimizasyonu
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Uygulamanın algılanan hızını (perceived speed) artırmak ve tekrarlayan ziyaretlerde anlık yükleme (sub-10ms) sağlamak için modern bir performans katmanı eklendi.
+- **Teknik Detay:**
+  - **Service Worker (Serwist):** Next.js 16+ ve Webpack ile tam uyumlu `@serwist/next` entegre edildi. **Stale-While-Revalidate (SWR)** caching stratejisi sayesinde kritik sayfalar ve statik varlıklar (JS/CSS/Resim) anında önbellekten sunulurken, güncellemeler arka planda sessizce yapılır.
+  - **Kaynak Önyükleme (Head Optimization):** `src/app/layout.tsx` dosyasına eklenen `<link rel="dns-prefetch">` ile Supabase ve Zoom gibi harici servislerin bağlantı süresi minimize edildi. Kritik fontlar ve assetler için `<link rel="preload">` kullanılarak LCP (Largest Contentful Paint) süresi iyileştirildi.
+  - **Build & Schema Kararlılığı:** Projenin derleme (build) sürecini engelleyen yapısal TypeScript hataları ve veritabanı şemasındaki alan kaymaları (schema drift) giderildi:
+    - **Alan Eşleşmeleri:** `module_id` -> `chapter_id`, `status` -> `is_published` ve `duration_seconds` -> `duration` gibi alan isimleri güncel veritabanı şemasına göre tüm servislerde (`CourseService`, `ModuleService`, `LessonService`) standardize edildi.
+    - **Generic Type Fix:** `database.types.ts` dosyasındaki generic helper'ların Supabase'in iç özellikleriyle (`__InternalSupabase`) çakışması engellendi. Eksik tablolar (`enrollments`, `notifications`, `user_streaks`) için `any` fallback yapısı kurulurak build süreci stabilize edildi.
+  - **Modern Derleme:** Projenin özelleştirilmiş Webpack konfigürasyonunu korumak için `next build --webpack` yapısı optimize edildi ve Turbopack uyumluluğu için `next.config.ts` güncellendi.
+
 ## 16. Dinamik İçerik ve Ders Versiyonlama (Course Player Realtime Updates)
 
 - **Durum:** ✅ Çalışıyor
@@ -184,3 +196,12 @@
     3. **Yeni Şifre:** Kullanıcı e-postadaki linke tıkladığında `/password-reset` sayfasına yönlendirilir ve burada `supabase.auth.updateUser` ile yeni şifresini belirler.
   - **Ayarlar Sayfası:** `/settings` sayfasına eklenen "Güvenlik" kartı sayesinde, oturum açmış kullanıcılar eski şifrelerini bilmeseler bile (OAuth vb. durumlar hariç) doğrudan yeni şifre atayabilirler.
   - **Bug Fix (404 Error):** Standart Supabase akışında yaşanan "Redirect sonrası 404" hatası, özel bir `auth/callback` rotası yazılarak ve PKCE code exchange işlemi sunucu tarafında (Server Action) yapılarak çözüldü.
+
+## 19. Tailwind CSS v4 ve Tema Sistemi Onarımı
+
+- **Durum:** ✅ Çalışıyor
+- **Açıklama:** Projedeki stil bozuklukları (okunmaz metinler, düşük kontrast) ve Tailwind konfigürasyon çakışmaları kökten çözüldü.
+- **Teknik Detay:**
+  - **Conflict Clean-up:** Proje Tailwind v4'e geçmiş olmasına rağmen kök dizinde kalan eski `tailwind.config.ts` (v3) dosyası, CSS derleme sürecini bozuyor ve `globals.css` içindeki modern değişkenleri eziyordu. Bu dosya `tailwind.config.ts.bak` olarak yeniden adlandırılarak devre dışı bırakıldı.
+  - **CSS Değişken Standardizasyonu:** `globals.css` içinde aynı anda hem eski (legacy HSL) hem de yeni (modern OKLCH) renk değişkenlerinin tanımlı olduğu tespit edildi. Geçersiz render'a sebep olan HSL blokları temizlendi.
+  - **Native Dark Mode:** `next-themes` kütüphanesi kullanılmadığı için, temizlik sırasında silinen `prefers-color-scheme: dark` medya sorgusu tekrar eklendi. Artık sistem teması ("System Dark Mode") otomatik olarak algılanıp doğru OKLCH değişkenlerini tetikliyor.

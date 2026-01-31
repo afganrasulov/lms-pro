@@ -26,7 +26,7 @@ export function CourseLandingPageForm({ course, onUpdate }: CourseLandingPageFor
         subtitle: '',
         level: 'Beginner',
         category: 'Development',
-        cover_image_path: course.cover_image_path || ''
+        image_url: course.image_url || ''
     });
 
     const handleChange = (field: string, value: string) => {
@@ -39,7 +39,10 @@ export function CourseLandingPageForm({ course, onUpdate }: CourseLandingPageFor
             await CourseService.updateCourse(course.id, {
                 title: formData.title,
                 description: formData.description,
-                cover_image_path: formData.cover_image_path
+                subtitle: formData.subtitle,
+                level: formData.level,
+                category: formData.category,
+                image_url: formData.image_url
                 // Note: Level and Category cannot be saved until DB schema supports them.
             });
             toast.success('Course landing page updated');

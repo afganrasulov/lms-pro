@@ -66,9 +66,9 @@ export async function POST(request: Request) {
                 subtitle,
                 level,
                 category,
-                status,
-                visibility,
-                created_by: user.id
+                is_published: status === 'published',
+                visibility: visibility as any,
+                instructor_id: user.id
             })
             .select()
             .single();
@@ -125,8 +125,7 @@ export async function POST(request: Request) {
                         course_id: courseId,
                         title: moduleTitle,
                         position: moduleOrder++,
-                        created_by: user.id,
-                        status: 'published'
+                        is_published: true
                     })
                     .select()
                     .single();
@@ -161,16 +160,14 @@ export async function POST(request: Request) {
                     const { data: newLesson, error: lessonError } = await supabase
                         .from('lessons')
                         .insert({
-                            course_id: courseId,
-                            module_id: moduleId,
+                            chapter_id: moduleId,
                             title: lessonTitle,
                             type: type as any, // Cast to match enum
-                            duration_seconds: duration,
-                            is_free_preview: isFree,
+                            duration: duration,
+                            is_free: isFree,
                             slug: lessonSlug,
                             position: lessonOrder++,
-                            created_by: user.id,
-                            status: 'published'
+                            is_published: true
                         })
                         .select()
                         .single();

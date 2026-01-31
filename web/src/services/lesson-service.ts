@@ -29,7 +29,7 @@ export const LessonService = {
 
     // 3. Create Lesson Metadata
     async createLesson(lessonData: {
-        course_id: string;
+        course_id: string; // Kept in interface for backward compat, but unused in insert
         module_id: string;
         title: string;
         slug: string;
@@ -37,19 +37,22 @@ export const LessonService = {
         position: number;
         status: 'draft' | 'published';
         is_free_preview?: boolean;
-        created_by: string;
+        created_by: string; // Removed from insert
     }) {
+        const { course_id, module_id, is_free_preview, status, created_by, ...rest } = lessonData;
         const { data, error } = await supabase
-            .from('lessons')
+            .from('lessons' as any)
             .insert({
-                ...lessonData,
-                updated_by: lessonData.created_by
+                ...rest,
+                module_id: module_id,
+                is_free: is_free_preview,
+                is_published: status === 'published',
             })
             .select()
             .single();
 
         if (error) throw error;
-        return data;
+        return data as any;
     },
 
     // 4. Update Lesson Content (Creates new version)
@@ -142,27 +145,17 @@ export const LessonService = {
         return data;
     },
 
-    // 9. Reorder Lessons
+    // 9. Reorder Lessons (RPC)
     async reorderLessons(items: { id: string; position: number; module_id: string }[]) {
-        // Using Promise.all with individual updates to avoid potential Upsert/RLS constraint issues with partial data
-        const updates = items.map(item =>
-            supabase
-                .from('lessons')
-                .update({
-                    position: item.position,
-                    module_id: item.module_id,
-                    updated_at: new Date().toISOString()
-                })
-                .eq('id', item.id)
-                .select()
-        );
+        const { data, error } = await (supabase.rpc as any)('reorder_lessons', {
+            updates: items
+        });
 
-        const results = await Promise.all(updates);
+        if (error) {
+            console.error('[LessonService] RPC Error:', error);
+            throw error;
+        }
 
-        // Check for first error
-        const firstError = results.find(r => r.error)?.error;
-        if (firstError) throw firstError;
-
-        return results.map(r => r.data);
+        return true;
     }
 };

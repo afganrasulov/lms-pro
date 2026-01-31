@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -5,12 +7,14 @@ import { PlayCircle, Lock, BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import { cn, getGradient } from '@/lib/utils';
 import { CourseWithMeta } from '@/types/index';
+import { useRouter } from 'next/navigation';
 
 interface CourseCardProps {
     course: CourseWithMeta;
 }
 
 export function CourseCard({ course }: CourseCardProps) {
+    const router = useRouter();
     const {
         title,
         description,
@@ -22,6 +26,9 @@ export function CourseCard({ course }: CourseCardProps) {
     } = course;
 
     const gradient = getGradient(course.id || title);
+    const targetUrl = is_enrolled
+        ? `/courses/${course.slug || course.id}/learn`
+        : `/courses/${course.slug || course.id}`;
 
     // Format duration helper
     const formatDuration = (seconds: number) => {
@@ -32,10 +39,13 @@ export function CourseCard({ course }: CourseCardProps) {
     };
 
     return (
-        <Card variant="glass" className={cn(
-            "group relative overflow-hidden border border-white/10 transition-all duration-500",
-            is_locked ? "opacity-75 grayscale-[0.5]" : "hover:border-white/20 hover:shadow-2xl hover:-translate-y-2"
-        )}>
+        <Card
+            variant="glass"
+            onMouseEnter={() => router.prefetch(targetUrl)}
+            className={cn(
+                "group relative overflow-hidden border border-white/10 transition-all duration-500",
+                is_locked ? "opacity-75 grayscale-[0.5]" : "hover:border-white/20 hover:shadow-2xl hover:-translate-y-2"
+            )}>
 
             {/* Cover Image Area */}
             <div className={cn("aspect-video relative overflow-hidden bg-gradient-to-br", gradient)}>
@@ -119,7 +129,7 @@ export function CourseCard({ course }: CourseCardProps) {
                         is_locked
                             ? "bg-slate-800 text-slate-500 border-slate-700 cursor-not-allowed"
                             : is_enrolled
-                                ? "bg-primary hover:bg-primary/90 text-white border-none"
+                                ? "bg-primary hover:bg-primary/90 text-primary-foreground border-none"
                                 : "bg-white/5 hover:bg-white/10 text-white border border-white/10 backdrop-blur-sm"
                     )}
                     size="lg"

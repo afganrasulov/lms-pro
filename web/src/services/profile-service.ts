@@ -130,6 +130,9 @@ export type ProfileWithStats = Database['public']['Tables']['profiles']['Row'] &
     user_streaks: {
         current_streak: number;
         longest_streak: number;
-    }[];
+    }[] | {
+        current_streak: number;
+        longest_streak: number;
+    } | null;
     user_settings: Database['public']['Tables']['user_settings']['Row'] | null;
 };

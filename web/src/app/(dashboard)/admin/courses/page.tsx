@@ -214,14 +214,14 @@ export default function AdminCoursesPage() {
                                                         <TableCell className="font-medium text-white">{course.title}</TableCell>
                                                         <TableCell>
                                                             <Badge
-                                                                variant={course.status === "published" ? "default" : "secondary"}
+                                                                variant={course.status === 'published' ? "default" : "secondary"}
                                                                 className={
-                                                                    course.status === "published"
+                                                                    course.status === 'published'
                                                                         ? "bg-green-500/10 text-green-500 hover:bg-green-500/20"
                                                                         : ""
                                                                 }
                                                             >
-                                                                {course.status}
+                                                                {course.status === 'published' ? 'Published' : 'Draft'}
                                                             </Badge>
                                                         </TableCell>
                                                         <TableCell>

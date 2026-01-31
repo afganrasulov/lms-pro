@@ -51,7 +51,7 @@ export function useProfile() {
         if (!profile?.id) return;
 
         const channel = supabase
-            .channel('profile-changes')
+            .channel('profile-data-changes')
             .on(
                 'postgres_changes',
                 {
@@ -61,14 +61,52 @@ export function useProfile() {
                     filter: `id=eq.${profile.id}`
                 },
                 (payload) => {
-                    // Update local state with the new data from the DB
                     const newProfile = payload.new as Partial<ProfileWithStats>;
                     setProfile((prev: ProfileWithStats | null) => prev ? { ...prev, ...newProfile } : null);
 
-                    if (newProfile.gems !== undefined || newProfile.xp_points !== undefined) {
-                        toast.info('Profile updated!');
+                    if (newProfile.xp_points !== undefined) {
+                        toast.info('XP Güncellendi!');
                         router.refresh();
                     }
+                }
+            )
+            .on(
+                'postgres_changes',
+                {
+                    event: '*', // Listen for INSERT/UPDATE (in case streak is created)
+                    schema: 'public',
+                    table: 'user_streaks',
+                    filter: `user_id=eq.${profile.id}`
+                },
+                (payload) => {
+                    // Refresh the full profile to get clean relation data, or manually patch it.
+                    // Patching is faster but tricky with nested arrays.
+                    // Let's re-fetch for accuracy, or patch if simple.
+                    // Since streak is just a number, let's patch it.
+                    const newStreak = payload.new as { current_streak: number, longest_streak: number };
+
+                    setProfile((prev: ProfileWithStats | null) => {
+                        if (!prev) return null;
+
+                        const currentStreaks = prev.user_streaks;
+                        let updatedStreaks: any;
+
+                        if (Array.isArray(currentStreaks)) {
+                            // Handle Array Case
+                            const copy = [...currentStreaks];
+                            if (copy.length > 0) {
+                                copy[0] = { ...copy[0], ...newStreak };
+                            } else {
+                                copy.push(newStreak);
+                            }
+                            updatedStreaks = copy;
+                        } else {
+                            // Handle Object/Null Case (1-to-1)
+                            updatedStreaks = { ...(currentStreaks || {}), ...newStreak };
+                        }
+
+                        return { ...prev, user_streaks: updatedStreaks };
+                    });
                 }
             )
             .subscribe();

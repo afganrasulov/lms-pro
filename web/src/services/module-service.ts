@@ -29,7 +29,7 @@ export const ModuleService = {
 
         // 2. Fetch Lessons
         const { data: lessons, error: lessonsError } = await supabase
-            .from('lessons')
+            .from('lessons' as any)
             .select('*')
             .in('module_id', moduleIds)
             .order('position', { ascending: true });
@@ -39,7 +39,7 @@ export const ModuleService = {
         // 3. Stitch together
         const modulesWithLessons = modules.map(module => ({
             ...module,
-            lessons: lessons?.filter(l => l.module_id === module.id) || []
+            lessons: lessons?.filter((l: any) => l.module_id === module.id) || []
         }));
 
         return modulesWithLessons;

@@ -20,14 +20,14 @@ export const GamificationService = {
     async getUserStats(userId: string) {
         try {
             const [profile, streak] = await Promise.all([
-                supabase.from('profiles').select('xp_points, gems, level').eq('id', userId).single(),
-                supabase.from('user_streaks').select('*').eq('user_id', userId).maybeSingle()
+                supabase.from('profiles').select('xp_points, level').eq('id', userId).single(),
+                supabase.from('user_streaks' as any).select('*').eq('user_id', userId).maybeSingle() as any
             ]);
 
             // Default values if profile fetch fails (though it shouldn't for active user)
             return {
                 xp: profile.data?.xp_points ?? 0,
-                gems: profile.data?.gems ?? 0,
+                gems: 0,
                 level: profile.data?.level ?? 1,
                 streak: streak.data?.current_streak ?? 0,
                 isStreakActive: streak.data && streak.data.last_activity_date ? GamificationService.isStreakActive(streak.data.last_activity_date) : false
@@ -48,10 +48,10 @@ export const GamificationService = {
     // 3. Get Streak Details
     async getStreak(userId: string) {
         const { data, error } = await supabase
-            .from('user_streaks')
+            .from('user_streaks' as any)
             .select('*')
             .eq('user_id', userId)
-            .maybeSingle();
+            .maybeSingle() as any;
 
         if (error) throw error;
 

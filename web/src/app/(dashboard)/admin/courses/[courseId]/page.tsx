@@ -69,7 +69,6 @@ export default function CourseBuilderPage() {
         try {
             await CourseService.updateCourse(courseId, {
                 title: course.title,
-                status: course.status as any, // casting for enum
             });
             toast.success('Course settings saved');
         } catch (error) {
@@ -82,7 +81,8 @@ export default function CourseBuilderPage() {
 
     const handlePublishToggle = async () => {
         if (!course) return;
-        const newStatus = course.status === 'published' ? 'draft' : 'published';
+        const isPublished = course.status === 'published';
+        const newStatus = isPublished ? 'draft' : 'published';
         setSaving(true);
         try {
             await CourseService.updateCourse(courseId, { status: newStatus });
@@ -139,7 +139,7 @@ export default function CourseBuilderPage() {
                             className={`cursor-pointer ${course.status === 'published' ? 'bg-green-500/10 text-green-500' : ''}`}
                             onClick={handlePublishToggle}
                         >
-                            {course.status}
+                            {course.status === 'published' ? 'Published' : 'Draft'}
                         </Badge>
                     </div>
                 </div>

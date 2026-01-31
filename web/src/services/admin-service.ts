@@ -6,7 +6,8 @@ export const AdminService = {
         const [users, courses, enrollments] = await Promise.all([
             supabase.from('profiles').select('id', { count: 'exact', head: true }),
             supabase.from('courses').select('id', { count: 'exact', head: true }),
-            supabase.from('enrollments').select('user_id', { count: 'exact', head: true })
+            // @ts-ignore - enrollments table exists but types are not updated in DB types file yet
+            supabase.from('enrollments' as any).select('user_id', { count: 'exact', head: true })
         ]);
 
         return {
@@ -19,7 +20,7 @@ export const AdminService = {
     // 2. Get System Logs (Proxied via XP Transactions)
     async getSystemLogs(limit = 50) {
         const { data, error } = await supabase
-            .from('xp_logs')
+            .from('xp_transactions' as any)
             .select(`
                 *,
                 profiles(full_name, email)
